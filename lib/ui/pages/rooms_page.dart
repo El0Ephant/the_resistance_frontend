@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:the_resistance/ui/utils/app_colors.dart';
@@ -31,36 +32,33 @@ class RoomsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        color: AppColors.backgroundColor,
-        child: Center(
-          child: Padding(
-            padding: EdgeInsets.only(left: 30.w, right: 30.w, top: 100.h),
-            child: Column(
-              children: [
-                ElevatedButton(
-                  onPressed: (){}, 
-                  style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(40.r)),
-                        minimumSize: Size(300.w, 60.h),
-                      ), 
-                  child: Text("Создать комнату", style: AppTextStyles.buttonTextStyle,),
+      child: Center(
+        child: Padding(
+          padding: EdgeInsets.only(left: 30.w, right: 30.w, top: 50.h),
+          child: Column(
+            children: [
+              ElevatedButton(
+                onPressed: () {}, 
+                style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(40.r)),
+                      minimumSize: Size(300.w, 60.h),
+                    ), 
+                child: Text("Создать комнату", style: AppTextStyles.buttonTextStyle,),
+              ),
+              SizedBox(height: 100.h,),
+              Divider(color: AppColors.orange, thickness: 3.h,),
+              Expanded(
+                child: ListView.separated(
+                  itemBuilder: (context, index) {
+                    return RoomListItem(room: rooms[index]);
+                  },
+                  itemCount: rooms.length,
+                  separatorBuilder: (context, index) {
+                    return Divider(color: AppColors.lightGrey, indent: 10.w, endIndent: 10.w,);
+                  },
                 ),
-                SizedBox(height: 100.h,),
-                Divider(color: AppColors.orange, thickness: 3.h,),
-                Expanded(
-                  child: ListView.separated(
-                    itemBuilder: (context, index) {
-                      return RoomListItem(room: rooms[index]);
-                    },
-                    itemCount: rooms.length,
-                    separatorBuilder: (context, index) {
-                      return Divider(color: AppColors.lightGrey, indent: 10.w, endIndent: 10.w,);
-                    },
-                  ),
-                )
-              ],
-            ),
+              )
+            ],
           ),
         ),
       ),
