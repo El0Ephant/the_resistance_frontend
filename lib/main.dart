@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:the_resistance/ui/pages/login_page.dart';
+import 'package:the_resistance/ui/pages/rooms_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-    child: const LoginPage(),//const MyHomePage(title: 'Flutter Demo Home Page'),
+    child: const RoomsPage(),//const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
