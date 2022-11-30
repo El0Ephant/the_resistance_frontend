@@ -19,6 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final loginDecoration = InputDecoration(
+      contentPadding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(20.r),
         borderSide: BorderSide(color: AppColors.lightGrey, width: 1.r)),
@@ -28,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
     );
     final passwordDecoration = loginDecoration.copyWith(
       suffixIcon: IconButton(
-        icon: Icon(_isPasswordObscure ? Icons.visibility : Icons.visibility_off),
+        icon: Icon(_isPasswordObscure ? Icons.visibility : Icons.visibility_off,),
         onPressed: () {
           setState(() {
             _isPasswordObscure = !_isPasswordObscure;
