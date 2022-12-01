@@ -39,51 +39,55 @@ class _LoginPageState extends State<LoginPage> {
     );
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
-      body: Center(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 40.w),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text("Логин", style: AppTextStyles.labelTextStyle,)
-                ),
-                SizedBox(height: 3.h,),
-                TextField(
-                  style: AppTextStyles.inputTextStyle,
-                  decoration: loginDecoration,
-                ),
-                SizedBox(height: 40.h,),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text("Пароль", style: AppTextStyles.labelTextStyle,)
-                ),
-                SizedBox(height: 3.h,),
-                TextField(
-                  style: AppTextStyles.inputTextStyle,
-                  decoration: passwordDecoration,
-                  obscureText: _isPasswordObscure,
-                ),
-                SizedBox(height: 5.h,),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: ClickableText(text: "Забыли пароль?", onPressed: () {}),
-                ),
-                SizedBox(height: 60.h,),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(40.r)),
-                    minimumSize: Size(200.w, 60.h),
-                  ), 
-                  child: Text("Войти", style: AppTextStyles.buttonTextStyle,),
-                ),
-                SizedBox(height: 40.h,),
-                ClickableText(text: "Нет аккаунта? Зарегистрироваться", onPressed: () {}),
-              ],
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 40.w),
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text("Логин", style: AppTextStyles.labelTextStyle,)
+                  ),
+                  SizedBox(height: 3.h,),
+                  TextField(
+                    style: AppTextStyles.inputTextStyle,
+                    decoration: loginDecoration,
+                  ),
+                  SizedBox(height: 40.h,),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text("Пароль", style: AppTextStyles.labelTextStyle,)
+                  ),
+                  SizedBox(height: 3.h,),
+                  TextField(
+                    style: AppTextStyles.inputTextStyle,
+                    decoration: passwordDecoration,
+                    obscureText: _isPasswordObscure,
+                  ),
+                  SizedBox(height: 5.h,),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: ClickableText(text: "Забыли пароль?", onPressed: () {}),
+                  ),
+                  SizedBox(height: 60.h,),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(40.r)),
+                      minimumSize: Size(200.w, 60.h),
+                    ), 
+                    child: Text("Войти", style: AppTextStyles.buttonTextStyle,),
+                  ),
+                  SizedBox(height: 50.h,),
+                  ClickableText(text: "Нет аккаунта? Зарегистрироваться", onPressed: () {}),
+                ],
+              ),
             ),
-        )
+          ),
+              ),
       ),
     );
   }
