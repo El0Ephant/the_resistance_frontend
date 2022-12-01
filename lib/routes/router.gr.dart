@@ -40,16 +40,22 @@ class AppRouter extends _i3.RootStackRouter {
   @override
   List<_i3.RouteConfig> get routes => [
         _i3.RouteConfig(
-          HomeRoute.name,
+          '/#redirect',
           path: '/',
+          redirectTo: '/home',
+          fullMatch: true,
+        ),
+        _i3.RouteConfig(
+          HomeRoute.name,
+          path: '/home',
           children: [
             _i3.RouteConfig(
               RoomsRoute.name,
-              path: 'rooms',
+              path: '',
               parent: HomeRoute.name,
             )
           ],
-        )
+        ),
       ];
 }
 
@@ -59,7 +65,7 @@ class HomeRoute extends _i3.PageRouteInfo<void> {
   const HomeRoute({List<_i3.PageRouteInfo>? children})
       : super(
           HomeRoute.name,
-          path: '/',
+          path: '/home',
           initialChildren: children,
         );
 
@@ -72,7 +78,7 @@ class RoomsRoute extends _i3.PageRouteInfo<void> {
   const RoomsRoute()
       : super(
           RoomsRoute.name,
-          path: 'rooms',
+          path: '',
         );
 
   static const String name = 'RoomsRoute';

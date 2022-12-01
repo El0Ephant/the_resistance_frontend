@@ -9,19 +9,15 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AutoTabsScaffold(
-      routes: const [
-        RoomsRoute(),
-      ],
-      appBarBuilder: (context, tabsRouter) {
-        return AppBar(
-          backgroundColor: AppColors.backgroundColor, 
-          elevation: 0, 
-          iconTheme: const IconThemeData(color: AppColors.orange),
-        );
-      },
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColors.backgroundColor, 
+        elevation: 0, 
+        iconTheme: const IconThemeData(color: AppColors.orange),
+      ),
       backgroundColor: AppColors.backgroundColor,
       drawer: const CustomDrawer(),
+      body: AutoRouter(),
     );
   }
 }

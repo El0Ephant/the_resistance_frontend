@@ -6,11 +6,12 @@ import 'package:the_resistance/ui/pages/rooms_page.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(
-      path: '/',
+      initial: true,
+      path: '/home',
       page: HomePage,
       children: [
         AutoRoute(
-          path: 'rooms',
+          path: '',
           page: RoomsPage,
         ),
       ]

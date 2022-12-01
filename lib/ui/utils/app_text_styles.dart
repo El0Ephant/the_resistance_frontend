@@ -9,5 +9,4 @@ abstract class AppTextStyles {
   static final buttonTextStyle = TextStyle(fontSize: 24.sp, color: Colors.white, fontWeight: FontWeight.bold); 
   static final nicknameTextStyle = TextStyle(fontSize: 20.sp, color: Colors.white, fontWeight: FontWeight.bold);
   static final emailTextStyle = TextStyle(fontSize: 18.sp, color: AppColors.lightGrey);
-  static final listTileTextStyle = TextStyle(fontSize: 22.sp, color: Colors.white);
 }
