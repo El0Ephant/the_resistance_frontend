@@ -20,7 +20,13 @@ class CustomDrawer extends StatelessWidget {
             DrawerListItem(
               icon: Icons.account_circle, 
               title: "Профиль", 
-              onTap: (){}
+              onTap: (){
+                context.router.pop();
+                if (context.router.isRouteActive(ProfileRoute.name)) {
+                  return;
+                }
+                context.router.push(const ProfileRoute());
+              }
             ),
             DrawerListItem(
               icon: Icons.whatshot,
@@ -56,8 +62,8 @@ class DrawerHeader extends StatelessWidget {
           ),
         ),
         SizedBox(height: 20.h,),
-        Text("ymayma", style: AppTextStyles.nicknameTextStyle,),
-        Text("ymaymayma@gmail.com", style: AppTextStyles.emailTextStyle),
+        Text("nickname", style: AppTextStyles.mainInfoTextStyle,),
+        Text("email@example.com", style: AppTextStyles.lightTextStyle),
         SizedBox(height: 10.h,),
         Divider(color: AppColors.orange, thickness: 2.h,),
       ],
