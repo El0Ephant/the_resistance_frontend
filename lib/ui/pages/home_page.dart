@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:the_resistance/routes/router.gr.dart';
 import 'package:the_resistance/ui/utils/app_colors.dart';
 import 'package:the_resistance/ui/widgets/custom_drawer.dart';
 
@@ -17,7 +16,7 @@ class HomePage extends StatelessWidget {
       ),
       backgroundColor: AppColors.backgroundColor,
       drawer: const CustomDrawer(),
-      body: AutoRouter(),
+      body: const AutoRouter(),
     );
   }
 }

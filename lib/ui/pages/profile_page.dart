@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:the_resistance/bloc/profile_bloc/profile_bloc.dart';
 import 'package:the_resistance/ui/utils/app_text_styles.dart';
 
+import '../../data/models/user_stat/user_stat.dart';
 import '../utils/app_colors.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -9,46 +12,57 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
-      child: ListView(
-        //shrinkWrap: true,
-        //crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const ProfileAvatar(),
-          SizedBox(height: 10.h,),
-          const NicknameField(value: "nickname"),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              Expanded(child: StaticUserData(label: "Логин", value: "login",)),
-              StaticUserData(label: "Почта", value: "email@example.com",),
-            ],
+    return BlocProvider(
+      create: (context) => ProfileBloc()..add(const ProfileFetchEvent()),
+      child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          child: BlocBuilder<ProfileBloc, ProfileState>(
+            builder: (context, state) {
+              Widget view = state.when(
+                loading: () => const Center(child: CircularProgressIndicator()),
+                loaded:(user, userStat) => ListView(
+                  children: [
+                    const ProfileAvatar(),
+                    SizedBox(height: 10.h,),
+                    NicknameField(value: user.nickname),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(child: StaticUserData(label: "Логин", value: user.login,)),
+                        StaticUserData(label: "Почта", value: user.email,),
+                      ],
+                    ),
+                    Divider(color: AppColors.orange, thickness: 3.h, indent: 15.w, endIndent: 15.w,),
+                    Center(child: Text("Статистика", style: AppTextStyles.labelTextStyle,)),
+                    SizedBox(height: 5.h),
+                    UserStatGrid(userStat: userStat,),
+                    SizedBox(height: 500.h,)
+                  ],
+                ),
+                error: (_) => Center(child: Text('Something went wrong, please try again!', style: AppTextStyles.mainInfoTextStyle,)),
+              );
+              return view;
+            },
           ),
-          Divider(color: AppColors.orange, thickness: 2.h, indent: 15.w, endIndent: 15.w,),
-          Center(child: Text("Статистика", style: AppTextStyles.labelTextStyle,)),
-          SizedBox(height: 5.h),
-          const UserStat()
-        ],
-      ),
+        ),
     );
   }
 }
 
-class UserStat extends StatelessWidget {
-  const UserStat({super.key});
-
+class UserStatGrid extends StatelessWidget {
+  const UserStatGrid({super.key, required this.userStat});
+  final UserStat userStat;
   @override
   Widget build(BuildContext context) {
-    const items = [StatItem(label: "Всего игр", value: "55",),
-            StatItem(label: "Побед", value: "53%",),
-            StatItem(label: "Заверешны убийством", value: "67%",),
-            StatItem(label: "Всего игр (синий)", value: "38",),
-            StatItem(label: "Побед (синий)", value: "50%",),
-            StatItem(label: "Убит вместо Мерлина", value: "9%",),
-            StatItem(label: "Всего игр (красный)", value: "17",),
-            StatItem(label: "Побед (красный)", value: "65%",),
-            StatItem(label: "Попаданий в Мерлина", value: "40%",),];
+    final items = [StatItem(label: "Всего игр", value: userStat.matches.toString(),),
+            StatItem(label: "Побед", value: userStat.victoriesPerCent,),
+            StatItem(label: "Заверешны убийством", value: userStat.withMurderPerCent,),
+            StatItem(label: "Всего игр (синий)", value: userStat.goodness.toString(),),
+            StatItem(label: "Побед (синий)", value: userStat.goodnessVictoriesPerCent,),
+            StatItem(label: "Убит вместо Мерлина", value: userStat.merlinImitationsPerCent,),
+            StatItem(label: "Всего игр (красный)", value: userStat.evil.toString(),),
+            StatItem(label: "Побед (красный)", value: userStat.evilVictoriesPerCent,),
+            StatItem(label: "Попаданий в Мерлина", value: userStat.merlinMurdersPerCent,),];
     return SizedBox(
       height: 300.h,
       child: GridView.builder(
@@ -96,8 +110,12 @@ class NicknameField extends StatelessWidget {
         Row(
           children: [
             Padding(
-              padding: EdgeInsets.all(10.r),
-              child: Text(value, style: AppTextStyles.mainInfoTextStyle,),
+              padding: EdgeInsets.all(20.r),
+              child: Column(
+                children: [
+                  Text(value, style: AppTextStyles.mainInfoTextStyle,),
+                ],
+              ),
             ),
             InkWell(
               onTap: (){},
