@@ -8,15 +8,19 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.backgroundColor, 
-        elevation: 0, 
-        iconTheme: const IconThemeData(color: AppColors.orange),
-      ),
-      backgroundColor: AppColors.backgroundColor,
-      drawer: const CustomDrawer(),
-      body: const AutoRouter(),
+    return AutoRouter(
+      builder: (context, child){
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: AppColors.backgroundColor, 
+            elevation: 0, 
+            iconTheme: const IconThemeData(color: AppColors.orange),
+          ),
+          backgroundColor: AppColors.backgroundColor,
+          drawer: const CustomDrawer(),
+          body: child,
+        );
+      }
     );
   }
 }

@@ -21,22 +21,16 @@ class CustomDrawer extends StatelessWidget {
               icon: Icons.account_circle, 
               title: "Профиль", 
               onTap: (){
+                context.router.replace(const ProfileRoute());
                 context.router.pop();
-                if (context.router.isRouteActive(ProfileRoute.name)) {
-                  return;
-                }
-                context.router.push(const ProfileRoute());
               }
             ),
             DrawerListItem(
               icon: Icons.whatshot,
               title: "Комнаты",
               onTap: (){
+                context.router.replace(const RoomsRoute());
                 context.router.pop();
-                if (context.router.isRouteActive(RoomsRoute.name)) {
-                  return;
-                }
-                context.router.push(const RoomsRoute());
               },
             ),
           ],
