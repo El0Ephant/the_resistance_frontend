@@ -6,6 +6,7 @@ import 'package:the_resistance/data/repositories/user_repository.dart';
 import 'package:the_resistance/data/services/api_service.dart';
 
 import '../../data/models/user/user.dart';
+import '../../data/repositories/game_history_repository.dart';
 import '../../data/repositories/user_stat_repository.dart';
 
 part 'profile_event.dart';
@@ -24,7 +25,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     emit(const ProfileState.loading());
     try{
       var userStat = await _userStatRepository.getUserStat(_userRepository.user.id);
-      //emit(ProfileState.loaded(_userRepository.user, userStat));
+      emit(ProfileState.loaded(_userRepository.user, userStat));
     } on ApiServiceExecption catch(e){
       e;
     }

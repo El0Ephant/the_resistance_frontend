@@ -8,11 +8,11 @@ class ApiServiceExecption implements Exception{
 }
 
 class ApiService{
-  final String _baseUrl = 'http://10.0.2.2:3000';
+  final String _baseUrl = '10.0.0.2:3000';
 
   Future<UserStat> getUserStat(String userId) async{
     var uri = Uri.https(_baseUrl, "/user/$userId/stat");
-    var response = await http.get(uri, headers: {"ContentType": "application/json"});
+    var response = await http.get(uri);
     if (response.statusCode != 200){
       throw ApiServiceExecption();
     } else {

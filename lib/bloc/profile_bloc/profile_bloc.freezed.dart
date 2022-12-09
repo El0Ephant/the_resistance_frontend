@@ -19,38 +19,32 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetch,
-    required TResult Function() fetchHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetch,
-    TResult? Function()? fetchHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetch,
-    TResult Function()? fetchHistory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileFetchEvent value) fetch,
-    required TResult Function(ProfileFetchHistoryEvent value) fetchHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ProfileFetchEvent value)? fetch,
-    TResult? Function(ProfileFetchHistoryEvent value)? fetchHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileFetchEvent value)? fetch,
-    TResult Function(ProfileFetchHistoryEvent value)? fetchHistory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,7 +107,6 @@ class _$ProfileFetchEvent implements ProfileFetchEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetch,
-    required TResult Function() fetchHistory,
   }) {
     return fetch();
   }
@@ -122,7 +115,6 @@ class _$ProfileFetchEvent implements ProfileFetchEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetch,
-    TResult? Function()? fetchHistory,
   }) {
     return fetch?.call();
   }
@@ -131,7 +123,6 @@ class _$ProfileFetchEvent implements ProfileFetchEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetch,
-    TResult Function()? fetchHistory,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -144,7 +135,6 @@ class _$ProfileFetchEvent implements ProfileFetchEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileFetchEvent value) fetch,
-    required TResult Function(ProfileFetchHistoryEvent value) fetchHistory,
   }) {
     return fetch(this);
   }
@@ -153,7 +143,6 @@ class _$ProfileFetchEvent implements ProfileFetchEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ProfileFetchEvent value)? fetch,
-    TResult? Function(ProfileFetchHistoryEvent value)? fetchHistory,
   }) {
     return fetch?.call(this);
   }
@@ -162,7 +151,6 @@ class _$ProfileFetchEvent implements ProfileFetchEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileFetchEvent value)? fetch,
-    TResult Function(ProfileFetchHistoryEvent value)? fetchHistory,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -174,109 +162,6 @@ class _$ProfileFetchEvent implements ProfileFetchEvent {
 
 abstract class ProfileFetchEvent implements ProfileEvent {
   const factory ProfileFetchEvent() = _$ProfileFetchEvent;
-}
-
-/// @nodoc
-abstract class _$$ProfileFetchHistoryEventCopyWith<$Res> {
-  factory _$$ProfileFetchHistoryEventCopyWith(_$ProfileFetchHistoryEvent value,
-          $Res Function(_$ProfileFetchHistoryEvent) then) =
-      __$$ProfileFetchHistoryEventCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ProfileFetchHistoryEventCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res, _$ProfileFetchHistoryEvent>
-    implements _$$ProfileFetchHistoryEventCopyWith<$Res> {
-  __$$ProfileFetchHistoryEventCopyWithImpl(_$ProfileFetchHistoryEvent _value,
-      $Res Function(_$ProfileFetchHistoryEvent) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ProfileFetchHistoryEvent implements ProfileFetchHistoryEvent {
-  const _$ProfileFetchHistoryEvent();
-
-  @override
-  String toString() {
-    return 'ProfileEvent.fetchHistory()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ProfileFetchHistoryEvent);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetch,
-    required TResult Function() fetchHistory,
-  }) {
-    return fetchHistory();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetch,
-    TResult? Function()? fetchHistory,
-  }) {
-    return fetchHistory?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetch,
-    TResult Function()? fetchHistory,
-    required TResult orElse(),
-  }) {
-    if (fetchHistory != null) {
-      return fetchHistory();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ProfileFetchEvent value) fetch,
-    required TResult Function(ProfileFetchHistoryEvent value) fetchHistory,
-  }) {
-    return fetchHistory(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ProfileFetchEvent value)? fetch,
-    TResult? Function(ProfileFetchHistoryEvent value)? fetchHistory,
-  }) {
-    return fetchHistory?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ProfileFetchEvent value)? fetch,
-    TResult Function(ProfileFetchHistoryEvent value)? fetchHistory,
-    required TResult orElse(),
-  }) {
-    if (fetchHistory != null) {
-      return fetchHistory(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ProfileFetchHistoryEvent implements ProfileEvent {
-  const factory ProfileFetchHistoryEvent() = _$ProfileFetchHistoryEvent;
 }
 
 /// @nodoc
