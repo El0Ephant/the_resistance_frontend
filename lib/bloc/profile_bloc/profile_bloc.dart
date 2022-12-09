@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:the_resistance/data/models/game_history/game_history.dart';
 import 'package:the_resistance/data/models/user_stat/user_stat.dart';
 import 'package:the_resistance/data/repositories/user_repository.dart';
 import 'package:the_resistance/data/services/api_service.dart';
@@ -23,7 +24,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     emit(const ProfileState.loading());
     try{
       var userStat = await _userStatRepository.getUserStat(_userRepository.user.id);
-      emit(ProfileState.loaded(_userRepository.user, userStat));
+      //emit(ProfileState.loaded(_userRepository.user, userStat));
     } on ApiServiceExecption catch(e){
       e;
     }
