@@ -28,7 +28,11 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     try{
       final userStat = await _userStatRepository.getUserStat(_userRepository.user.id);
       final gamesHistory = await _gamesHistoryRepository.getGamesHistory(_userRepository.user.id);
-      emit(ProfileState.loaded(_userRepository.user, userStat, gamesHistory, gamesHistory.isEmpty));
+      emit(ProfileState.loaded(
+        _userRepository.user, 
+        userStat, 
+        gamesHistory, 
+        gamesHistory.length < _gamesHistoryRepository.gamesPerPage));
     } on ApiServiceExecption {
       rethrow;
     }
@@ -37,12 +41,15 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   void _onFetchHistory(ProfileFetchHistoryEvent event, Emitter<ProfileState> emit) async {
     try{
       final oldState = (state as ProfileLoaded);
+      if (oldState.hasReachedMax) {
+        return;
+      }
       final gamesHistory = await _gamesHistoryRepository.getGamesHistory(_userRepository.user.id, oldState.gamesHistory.length);
       emit(ProfileState.loaded(
         oldState.user, 
         oldState.userStat, 
         oldState.gamesHistory + gamesHistory, 
-        gamesHistory.isEmpty));
+        gamesHistory.length < _gamesHistoryRepository.gamesPerPage));
     } on ApiServiceExecption {
       rethrow;
     }

@@ -25,9 +25,10 @@ class _GamesHistoryListState extends State<GamesHistoryList> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Divider(color: AppColors.orange, thickness: 3.h, indent: 15.w, endIndent: 15.w,),
-        Center(child: Text("История матчей", style: AppTextStyles.labelTextStyle,)),
+        Center(child: Text("История", style: AppTextStyles.labelTextStyle,)),
         Container(
           constraints: BoxConstraints(maxHeight: 500.h),
           child: BlocBuilder<ProfileBloc, ProfileState>(
@@ -37,13 +38,19 @@ class _GamesHistoryListState extends State<GamesHistoryList> {
                 loaded: (_, __, gamesHistory, hasReachedMax) {
                   if (gamesHistory.isEmpty) {
                     return Center(
-                      child: Text('Нет матчей', style: AppTextStyles.lightTextStyle,),
+                      child: Text('Нет игр', style: AppTextStyles.lightTextStyle,),
                     );
                   }
                   return ListView.builder(
+                    shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
                       return index >= gamesHistory.length
-                          ? SizedBox(width: 30.w, child: const CircularProgressIndicator(strokeWidth: 1.5),)
+                          ? Center(
+                              child: SizedBox(
+                                height: 40.h,
+                                child: const CircularProgressIndicator(),
+                              ),
+                            )
                           : GameHistoryItem(gameHistory: gamesHistory[index]);
                     },
                     itemCount: hasReachedMax
@@ -70,7 +77,9 @@ class _GamesHistoryListState extends State<GamesHistoryList> {
   }
 
   void _onScroll() {
-    if (_isBottom) context.read<ProfileBloc>().add(const ProfileFetchHistoryEvent());
+    if (_isBottom){
+       context.read<ProfileBloc>().add(const ProfileFetchHistoryEvent());
+    }
   }
 
   bool get _isBottom {
@@ -88,8 +97,8 @@ class GameHistoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100.h,
-      child: Text(gameHistory.role, style: AppTextStyles.mainInfoTextStyle,),
+      height: 200.h,
+      child: Text('${gameHistory.date} ${gameHistory.time}', style: AppTextStyles.mainInfoTextStyle,),
     );
   }
 }
