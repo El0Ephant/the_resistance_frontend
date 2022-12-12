@@ -14,9 +14,9 @@
 import 'package:auto_route/auto_route.dart' as _i4;
 import 'package:flutter/material.dart' as _i5;
 
-import '../ui/pages/home_page.dart' as _i1;
-import '../ui/pages/profile_page.dart' as _i3;
-import '../ui/pages/rooms_page.dart' as _i2;
+import '../ui/pages/home_page/home_page.dart' as _i1;
+import '../ui/pages/profile_page/profile_page.dart' as _i3;
+import '../ui/pages/rooms_page/rooms_page.dart' as _i2;
 
 class AppRouter extends _i4.RootStackRouter {
   AppRouter([_i5.GlobalKey<_i5.NavigatorState>? navigatorKey])

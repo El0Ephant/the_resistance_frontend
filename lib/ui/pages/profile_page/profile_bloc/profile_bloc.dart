@@ -1,13 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:the_resistance/data/models/game_history/game_history.dart';
-import 'package:the_resistance/data/models/user_stat/user_stat.dart';
 import 'package:the_resistance/data/repositories/user_repository.dart';
+import 'package:the_resistance/data/repositories/user_stat_repository.dart';
 import 'package:the_resistance/data/services/api_service.dart';
+import 'package:the_resistance/domain/models/user/user.dart';
+import 'package:the_resistance/domain/models/user_stat/user_stat.dart';
 
-import '../../data/models/user/user.dart';
-import '../../data/repositories/game_history_repository.dart';
-import '../../data/repositories/user_stat_repository.dart';
 
 part 'profile_event.dart';
 part 'profile_state.dart';

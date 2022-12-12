@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:the_resistance/ui/utils/app_colors.dart';
-import 'package:the_resistance/ui/widgets/custom_drawer.dart';
+import 'package:the_resistance/ui/pages/home_page/widgets/custom_drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

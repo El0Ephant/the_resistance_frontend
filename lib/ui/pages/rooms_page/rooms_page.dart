@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:the_resistance/ui/utils/app_colors.dart';
 import 'package:the_resistance/ui/utils/app_text_styles.dart';
-import 'package:the_resistance/ui/widgets/room_list_item.dart';
-
-// Пока просто верстаем решил с блоком не заморачиваться, потому что не совсем понимаю еще, 
-// в каком виде вообще комнаты приходят, так что пока так оставил просто для наглядности
+import 'package:the_resistance/ui/pages/rooms_page/widgets/room_list_item.dart';
 
 class Room{
   String title;
@@ -30,8 +27,9 @@ class RoomsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Center(
+    return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
+      body: Center(
         child: Padding(
           padding: EdgeInsets.only(left: 30.w, right: 30.w, top: 50.h),
           child: Column(

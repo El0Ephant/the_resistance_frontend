@@ -34,5 +34,5 @@ class UserStat with _$UserStat {
 
   String get merlinImitationsPerCent => perCent(merlinImitations, goodness);
 
-  String perCent(part, total) => "${(part/total * 100).round()}%";
+  String perCent(part, total) => total == 0 ? '100%' : "${(part/total * 100).round()}%";
 }
