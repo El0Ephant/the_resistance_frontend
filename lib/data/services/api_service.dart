@@ -16,7 +16,7 @@ class ApiService{
   Uri _makeUri(String path, [Map<String, dynamic>? parameters]) {
     final uri = Uri.parse('$_baseUrl$path');
     if (parameters != null) {
-      return uri.replace(queryParameters: parameters);
+      return uri.replace(queryParameters: parameters.map((key, value) => MapEntry(key, value.toString())));
     } else {
       return uri;
     }

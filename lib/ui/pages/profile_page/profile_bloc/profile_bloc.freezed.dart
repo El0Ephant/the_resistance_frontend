@@ -19,32 +19,38 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetch,
+    required TResult Function() fetchHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetch,
+    TResult? Function()? fetchHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetch,
+    TResult Function()? fetchHistory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileFetchEvent value) fetch,
+    required TResult Function(ProfileFetchHistoryEvent value) fetchHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ProfileFetchEvent value)? fetch,
+    TResult? Function(ProfileFetchHistoryEvent value)? fetchHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileFetchEvent value)? fetch,
+    TResult Function(ProfileFetchHistoryEvent value)? fetchHistory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$ProfileFetchEvent implements ProfileFetchEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetch,
+    required TResult Function() fetchHistory,
   }) {
     return fetch();
   }
@@ -115,6 +122,7 @@ class _$ProfileFetchEvent implements ProfileFetchEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetch,
+    TResult? Function()? fetchHistory,
   }) {
     return fetch?.call();
   }
@@ -123,6 +131,7 @@ class _$ProfileFetchEvent implements ProfileFetchEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetch,
+    TResult Function()? fetchHistory,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -135,6 +144,7 @@ class _$ProfileFetchEvent implements ProfileFetchEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileFetchEvent value) fetch,
+    required TResult Function(ProfileFetchHistoryEvent value) fetchHistory,
   }) {
     return fetch(this);
   }
@@ -143,6 +153,7 @@ class _$ProfileFetchEvent implements ProfileFetchEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ProfileFetchEvent value)? fetch,
+    TResult? Function(ProfileFetchHistoryEvent value)? fetchHistory,
   }) {
     return fetch?.call(this);
   }
@@ -151,6 +162,7 @@ class _$ProfileFetchEvent implements ProfileFetchEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileFetchEvent value)? fetch,
+    TResult Function(ProfileFetchHistoryEvent value)? fetchHistory,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -165,25 +177,134 @@ abstract class ProfileFetchEvent implements ProfileEvent {
 }
 
 /// @nodoc
+abstract class _$$ProfileFetchHistoryEventCopyWith<$Res> {
+  factory _$$ProfileFetchHistoryEventCopyWith(_$ProfileFetchHistoryEvent value,
+          $Res Function(_$ProfileFetchHistoryEvent) then) =
+      __$$ProfileFetchHistoryEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ProfileFetchHistoryEventCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$ProfileFetchHistoryEvent>
+    implements _$$ProfileFetchHistoryEventCopyWith<$Res> {
+  __$$ProfileFetchHistoryEventCopyWithImpl(_$ProfileFetchHistoryEvent _value,
+      $Res Function(_$ProfileFetchHistoryEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ProfileFetchHistoryEvent implements ProfileFetchHistoryEvent {
+  const _$ProfileFetchHistoryEvent();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.fetchHistory()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProfileFetchHistoryEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetch,
+    required TResult Function() fetchHistory,
+  }) {
+    return fetchHistory();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetch,
+    TResult? Function()? fetchHistory,
+  }) {
+    return fetchHistory?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetch,
+    TResult Function()? fetchHistory,
+    required TResult orElse(),
+  }) {
+    if (fetchHistory != null) {
+      return fetchHistory();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ProfileFetchEvent value) fetch,
+    required TResult Function(ProfileFetchHistoryEvent value) fetchHistory,
+  }) {
+    return fetchHistory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ProfileFetchEvent value)? fetch,
+    TResult? Function(ProfileFetchHistoryEvent value)? fetchHistory,
+  }) {
+    return fetchHistory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ProfileFetchEvent value)? fetch,
+    TResult Function(ProfileFetchHistoryEvent value)? fetchHistory,
+    required TResult orElse(),
+  }) {
+    if (fetchHistory != null) {
+      return fetchHistory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ProfileFetchHistoryEvent implements ProfileEvent {
+  const factory ProfileFetchHistoryEvent() = _$ProfileFetchHistoryEvent;
+}
+
+/// @nodoc
 mixin _$ProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(User user, UserStat userStat) loaded,
+    required TResult Function(User user, UserStat userStat,
+            List<GameHistory> gamesHistory, bool hasReachedMax)
+        loaded,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(User user, UserStat userStat)? loaded,
+    TResult? Function(User user, UserStat userStat,
+            List<GameHistory> gamesHistory, bool hasReachedMax)?
+        loaded,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(User user, UserStat userStat)? loaded,
+    TResult Function(User user, UserStat userStat,
+            List<GameHistory> gamesHistory, bool hasReachedMax)?
+        loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -269,7 +390,9 @@ class _$ProfileLoading implements ProfileLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(User user, UserStat userStat) loaded,
+    required TResult Function(User user, UserStat userStat,
+            List<GameHistory> gamesHistory, bool hasReachedMax)
+        loaded,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -279,7 +402,9 @@ class _$ProfileLoading implements ProfileLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(User user, UserStat userStat)? loaded,
+    TResult? Function(User user, UserStat userStat,
+            List<GameHistory> gamesHistory, bool hasReachedMax)?
+        loaded,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -289,7 +414,9 @@ class _$ProfileLoading implements ProfileLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(User user, UserStat userStat)? loaded,
+    TResult Function(User user, UserStat userStat,
+            List<GameHistory> gamesHistory, bool hasReachedMax)?
+        loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -344,7 +471,11 @@ abstract class _$$ProfileLoadedCopyWith<$Res> {
           _$ProfileLoaded value, $Res Function(_$ProfileLoaded) then) =
       __$$ProfileLoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({User user, UserStat userStat});
+  $Res call(
+      {User user,
+      UserStat userStat,
+      List<GameHistory> gamesHistory,
+      bool hasReachedMax});
 
   $UserCopyWith<$Res> get user;
   $UserStatCopyWith<$Res> get userStat;
@@ -363,6 +494,8 @@ class __$$ProfileLoadedCopyWithImpl<$Res>
   $Res call({
     Object? user = null,
     Object? userStat = null,
+    Object? gamesHistory = null,
+    Object? hasReachedMax = null,
   }) {
     return _then(_$ProfileLoaded(
       null == user
@@ -373,6 +506,14 @@ class __$$ProfileLoadedCopyWithImpl<$Res>
           ? _value.userStat
           : userStat // ignore: cast_nullable_to_non_nullable
               as UserStat,
+      null == gamesHistory
+          ? _value._gamesHistory
+          : gamesHistory // ignore: cast_nullable_to_non_nullable
+              as List<GameHistory>,
+      null == hasReachedMax
+          ? _value.hasReachedMax
+          : hasReachedMax // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -396,16 +537,28 @@ class __$$ProfileLoadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ProfileLoaded implements ProfileLoaded {
-  const _$ProfileLoaded(this.user, this.userStat);
+  const _$ProfileLoaded(this.user, this.userStat,
+      final List<GameHistory> gamesHistory, this.hasReachedMax)
+      : _gamesHistory = gamesHistory;
 
   @override
   final User user;
   @override
   final UserStat userStat;
+  final List<GameHistory> _gamesHistory;
+  @override
+  List<GameHistory> get gamesHistory {
+    if (_gamesHistory is EqualUnmodifiableListView) return _gamesHistory;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_gamesHistory);
+  }
+
+  @override
+  final bool hasReachedMax;
 
   @override
   String toString() {
-    return 'ProfileState.loaded(user: $user, userStat: $userStat)';
+    return 'ProfileState.loaded(user: $user, userStat: $userStat, gamesHistory: $gamesHistory, hasReachedMax: $hasReachedMax)';
   }
 
   @override
@@ -415,11 +568,16 @@ class _$ProfileLoaded implements ProfileLoaded {
             other is _$ProfileLoaded &&
             (identical(other.user, user) || other.user == user) &&
             (identical(other.userStat, userStat) ||
-                other.userStat == userStat));
+                other.userStat == userStat) &&
+            const DeepCollectionEquality()
+                .equals(other._gamesHistory, _gamesHistory) &&
+            (identical(other.hasReachedMax, hasReachedMax) ||
+                other.hasReachedMax == hasReachedMax));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user, userStat);
+  int get hashCode => Object.hash(runtimeType, user, userStat,
+      const DeepCollectionEquality().hash(_gamesHistory), hasReachedMax);
 
   @JsonKey(ignore: true)
   @override
@@ -431,32 +589,38 @@ class _$ProfileLoaded implements ProfileLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(User user, UserStat userStat) loaded,
+    required TResult Function(User user, UserStat userStat,
+            List<GameHistory> gamesHistory, bool hasReachedMax)
+        loaded,
     required TResult Function(String message) error,
   }) {
-    return loaded(user, userStat);
+    return loaded(user, userStat, gamesHistory, hasReachedMax);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(User user, UserStat userStat)? loaded,
+    TResult? Function(User user, UserStat userStat,
+            List<GameHistory> gamesHistory, bool hasReachedMax)?
+        loaded,
     TResult? Function(String message)? error,
   }) {
-    return loaded?.call(user, userStat);
+    return loaded?.call(user, userStat, gamesHistory, hasReachedMax);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(User user, UserStat userStat)? loaded,
+    TResult Function(User user, UserStat userStat,
+            List<GameHistory> gamesHistory, bool hasReachedMax)?
+        loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(user, userStat);
+      return loaded(user, userStat, gamesHistory, hasReachedMax);
     }
     return orElse();
   }
@@ -497,11 +661,16 @@ class _$ProfileLoaded implements ProfileLoaded {
 }
 
 abstract class ProfileLoaded implements ProfileState {
-  const factory ProfileLoaded(final User user, final UserStat userStat) =
-      _$ProfileLoaded;
+  const factory ProfileLoaded(
+      final User user,
+      final UserStat userStat,
+      final List<GameHistory> gamesHistory,
+      final bool hasReachedMax) = _$ProfileLoaded;
 
   User get user;
   UserStat get userStat;
+  List<GameHistory> get gamesHistory;
+  bool get hasReachedMax;
   @JsonKey(ignore: true)
   _$$ProfileLoadedCopyWith<_$ProfileLoaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -572,7 +741,9 @@ class _$ProfileError implements ProfileError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(User user, UserStat userStat) loaded,
+    required TResult Function(User user, UserStat userStat,
+            List<GameHistory> gamesHistory, bool hasReachedMax)
+        loaded,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -582,7 +753,9 @@ class _$ProfileError implements ProfileError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(User user, UserStat userStat)? loaded,
+    TResult? Function(User user, UserStat userStat,
+            List<GameHistory> gamesHistory, bool hasReachedMax)?
+        loaded,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -592,7 +765,9 @@ class _$ProfileError implements ProfileError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(User user, UserStat userStat)? loaded,
+    TResult Function(User user, UserStat userStat,
+            List<GameHistory> gamesHistory, bool hasReachedMax)?
+        loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {

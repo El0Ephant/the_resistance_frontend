@@ -3,7 +3,7 @@ import 'package:the_resistance/domain/models/game_history/game_history.dart';
 
 
 class GamesHistoryRepository{
-  final int gamesPerPage = 2;
+  final int gamesPerPage = 3;
 
   Future<List<GameHistory>> getGamesHistory(String userId, [int start = 0]) async {
     final params = {
@@ -13,8 +13,7 @@ class GamesHistoryRepository{
 
     final json = await ApiService().get('/user/$userId/history', params);
 
-    return json.map((dynamic json) { 
-        return GameHistory.fromJson(json); 
-    }).toList();
+    return json.map<GameHistory>((dynamic game) => 
+      GameHistory.fromJson(game)).toList();
   }
 }
