@@ -19,13 +19,19 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: AppColors.backgroundColor,
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
-          child: ListView(
-            children: [
-              const AccountInfo(),
-              SizedBox(height: 5.h),
-              const UserStatGrid(),
-              const GamesHistoryList(),
-            ],
+          child: NotificationListener<OverscrollIndicatorNotification>( // to prevet scroll glow
+            onNotification: (OverscrollIndicatorNotification overscroll) {
+              overscroll.disallowIndicator();
+              return false;
+            },
+            child: ListView(
+              children: [
+                const AccountInfo(),
+                SizedBox(height: 5.h),
+                const UserStatGrid(),
+                const GamesHistoryList(),
+              ],
+            ),
           ),
         ),
       ),

@@ -25,48 +25,48 @@ class _GamesHistoryListState extends State<GamesHistoryList> {
   
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Divider(color: AppColors.orange, thickness: 3.h, indent: 15.w, endIndent: 15.w,),
-        Center(child: Text("История", style: AppTextStyles.labelTextStyle,)),
-        Container(
-          constraints: BoxConstraints(maxHeight: 500.h),
-          child: BlocBuilder<ProfileBloc, ProfileState>(
-            buildWhen: (previous, current) => !(previous is ProfileLoaded && current is ProfileLoaded && previous.gamesHistory == current.gamesHistory),
-            builder: (context, state) {
-              return state.maybeWhen(
-                loaded: (_, __, gamesHistory, hasReachedMax) {
-                  _isLoading = false;
-                  if (gamesHistory.isEmpty) {
-                    return Center(
-                      child: Text('Нет игр', style: AppTextStyles.lightTextStyle,),
-                    );
-                  }
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    itemBuilder: (BuildContext context, int index) {
-                      return index >= gamesHistory.length
-                        ? Center(
-                            child: SizedBox(
-                              height: 40.h,
-                              child: const CircularProgressIndicator(),
-                            ),
-                          )
-                        : GameHistoryItem(gameHistory: gamesHistory[index]);
-                    },
-                    itemCount: hasReachedMax
+    return BlocBuilder<ProfileBloc, ProfileState>(
+      buildWhen: (previous, current) => !(previous is ProfileLoaded && current is ProfileLoaded && previous.gamesHistory == current.gamesHistory),
+      builder: (context, state) {
+        return state.maybeWhen(
+          loaded: (_, __, gamesHistory, hasReachedMax) {
+            _isLoading = false;
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Divider(color: AppColors.orange, thickness: 3.h, indent: 15.w, endIndent: 15.w,),
+                Text("История", style: AppTextStyles.labelTextStyle,),
+                gamesHistory.isEmpty ?
+                  SizedBox(
+                    height: 100.h,
+                    child: Center(child: Text('Нет игр', style: AppTextStyles.lightTextStyle,))
+                  )
+                  : ConstrainedBox(
+                    constraints: BoxConstraints(maxHeight: 450.h),
+                    child: ListView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      shrinkWrap: true,
+                      itemBuilder: (BuildContext context, int index) {
+                        return index >= gamesHistory.length
+                          ? Center(
+                              child: SizedBox(
+                                height: 40.h,
+                                child: const CircularProgressIndicator(),
+                              ),
+                            )
+                          : GameHistoryItem(gameHistory: gamesHistory[index]);
+                      },
+                      itemCount: hasReachedMax
                         ? gamesHistory.length
                         : gamesHistory.length + 1,
-                    controller: _scrollController,
-                  );
-                },
-                orElse: () => Container(),
-              );
-            },
-          ),
-        ),
-      ],
+                      controller: _scrollController,
+                    ),
+                  ),
+            ]);
+          },
+          orElse: () => Container(),
+        );
+      },
     );
   }
 
@@ -96,12 +96,82 @@ class _GamesHistoryListState extends State<GamesHistoryList> {
 class GameHistoryItem extends StatelessWidget {
   const GameHistoryItem({super.key, required this.gameHistory});
   final GameHistory gameHistory;
+
+  static String roleToTitle(String role){
+    switch (role){
+      case 'merlin':
+        return 'Мерлин';
+      case 'percival':
+        return 'Персиваль';
+      case 'good_knight':
+        return 'Рыцарь Мерлина';
+      case 'mordred':
+        return 'Мордред';
+      case 'oberon':
+        return 'Оберон';
+      case 'assasin':
+        return 'Ассасин';
+      case 'morgana':
+        return 'Моргана';
+      case 'evil_knight':
+        return 'Рыцарь Мордреда';
+      default:
+        return 'Ошибка';
+    }
+  }
   
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200.h,
-      child: Text('${gameHistory.date} ${gameHistory.time}', style: AppTextStyles.mainInfoTextStyle,),
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 20.h),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(60.r),
+          color: gameHistory.result == 'win' ? AppColors.gameWin : AppColors.gameLose,
+        ),
+        height: 120.h,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 25.h, horizontal: 30.w),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(roleToTitle(gameHistory.role), style: AppTextStyles.mainInfoTextStyle,),
+                  Text('${gameHistory.time} ${gameHistory.date}', style: AppTextStyles.lightTextStyle,),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  MissionItem(missionResult: gameHistory.mission1),
+                  MissionItem(missionResult: gameHistory.mission2),
+                  MissionItem(missionResult: gameHistory.mission3),
+                  MissionItem(missionResult: gameHistory.mission4),
+                  MissionItem(missionResult: gameHistory.mission5),
+              ],)
+            ],
+          ),
+        ),
+      ),
     );
+  }
+}
+
+class MissionItem extends StatelessWidget {
+  const MissionItem({super.key, required this.missionResult});
+  final bool? missionResult;
+
+  @override
+  Widget build(BuildContext context) {
+    if (missionResult == null) {
+      return const SizedBox();
+    } else if (missionResult!) {
+      return Icon(Icons.done, color: AppColors.orange, size: 30.r,);
+    }
+    return Icon(Icons.clear, color: AppColors.orange, size: 30.r,);
   }
 }
