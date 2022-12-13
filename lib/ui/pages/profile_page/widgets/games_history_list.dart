@@ -15,6 +15,7 @@ class GamesHistoryList extends StatefulWidget {
 
 class _GamesHistoryListState extends State<GamesHistoryList> {
   final _scrollController = ScrollController();
+  bool _isLoading = true;
   
   @override
   void initState() {
@@ -36,6 +37,7 @@ class _GamesHistoryListState extends State<GamesHistoryList> {
             builder: (context, state) {
               return state.maybeWhen(
                 loaded: (_, __, gamesHistory, hasReachedMax) {
+                  _isLoading = false;
                   if (gamesHistory.isEmpty) {
                     return Center(
                       child: Text('Нет игр', style: AppTextStyles.lightTextStyle,),
@@ -45,13 +47,13 @@ class _GamesHistoryListState extends State<GamesHistoryList> {
                     shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
                       return index >= gamesHistory.length
-                          ? Center(
-                              child: SizedBox(
-                                height: 40.h,
-                                child: const CircularProgressIndicator(),
-                              ),
-                            )
-                          : GameHistoryItem(gameHistory: gamesHistory[index]);
+                        ? Center(
+                            child: SizedBox(
+                              height: 40.h,
+                              child: const CircularProgressIndicator(),
+                            ),
+                          )
+                        : GameHistoryItem(gameHistory: gamesHistory[index]);
                     },
                     itemCount: hasReachedMax
                         ? gamesHistory.length
@@ -77,8 +79,9 @@ class _GamesHistoryListState extends State<GamesHistoryList> {
   }
 
   void _onScroll() {
-    if (_isBottom){
-       context.read<ProfileBloc>().add(const ProfileFetchHistoryEvent());
+    if (!_isLoading && _isBottom) {
+      _isLoading = true;
+      context.read<ProfileBloc>().add(const ProfileFetchHistoryEvent());
     }
   }
 
