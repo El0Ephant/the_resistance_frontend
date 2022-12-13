@@ -6,5 +6,7 @@ abstract class AppTextStyles {
   static final inputTextStyle = TextStyle(fontSize: 22.sp, color: Colors.white);
   static final labelTextStyle = TextStyle(fontSize: 24.sp, color: Colors.white);
   static final clickableTextStyle = TextStyle(fontSize: 18.sp, color: AppColors.orange, fontWeight: FontWeight.bold);
-  static final buttonTextStyle = TextStyle(fontSize: 24.sp, color: Colors.white, fontWeight: FontWeight.bold);
+  static final buttonTextStyle = TextStyle(fontSize: 24.sp, color: Colors.white, fontWeight: FontWeight.bold); 
+  static final mainInfoTextStyle = TextStyle(fontSize: 20.sp, color: Colors.white, fontWeight: FontWeight.bold);
+  static final lightTextStyle = TextStyle(fontSize: 18.sp, color: AppColors.lightGrey);
 }
