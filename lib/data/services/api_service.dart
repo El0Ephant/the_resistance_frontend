@@ -11,7 +11,13 @@ class ApiServiceExecption implements Exception{
 }
 
 class ApiService{
-  final String _baseUrl = 'http://10.0.2.2:3000/api';
+  final _baseUrl = 'http://10.0.2.2:3000/api';
+  final _tokenHeader = 'authorization';
+  final contentTypeHeader = {
+    'Content-Type': 'application/json',
+  };
+
+  String get tokenHeader => _tokenHeader;
 
   Uri _makeUri(String path, [Map<String, dynamic>? parameters]) {
     final uri = Uri.parse('$_baseUrl$path');
@@ -23,9 +29,7 @@ class ApiService{
   }
 
   void _validateResponse(Response response, dynamic json) {
-    if (response.statusCode != 200) {
-      throw ApiServiceExecption(ApiServiceExecptionType.other);
-    } 
+
   }
 
   Future<T> get<T>(String path, [Map<String, dynamic>? parameters]) async {
@@ -34,6 +38,25 @@ class ApiService{
       final response = await http.get(url);
       final json = jsonDecode(response.body);
       _validateResponse(response, json);
+      return json;
+    } on SocketException {
+      throw ApiServiceExecption(ApiServiceExecptionType.network);
+    } on ApiServiceExecption{
+      rethrow;
+    } catch (_) {
+      throw ApiServiceExecption(ApiServiceExecptionType.other);
+    }
+  }
+
+  Future<T> post<T>(String path, Map<String, dynamic> body, [Map<String, dynamic>? parameters]) async{
+    final url = _makeUri(path, parameters);
+    try {
+      final response = await http.post(url, body: jsonEncode(body), headers: contentTypeHeader);
+      final json = jsonDecode(response.body);
+      _validateResponse(response, json);
+      if (response.headers.containsKey(_tokenHeader)){
+        json[_tokenHeader] = response.headers[_tokenHeader];
+      }
       return json;
     } on SocketException {
       throw ApiServiceExecption(ApiServiceExecptionType.network);

@@ -3,9 +3,10 @@ import 'package:the_resistance/domain/models/user_stat/user_stat.dart';
 
 
 class UserStatRepository{
+  final _apiService = ApiService();
 
-  Future<UserStat> getUserStat(String userId) async {
-    final json = await ApiService().get('/user/$userId/stat');
+  Future<UserStat> getUserStat(int userId) async {
+    final json = await _apiService.get('/user/$userId/stat');
     return UserStat.fromJson(json);
   }
  
