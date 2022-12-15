@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:the_resistance/ui/pages/login_page/input_data.dart';
+import 'package:the_resistance/ui/pages/login_page/login_data.dart';
 import 'package:the_resistance/ui/utils/app_text_styles.dart';
 import 'package:the_resistance/ui/utils/app_input_styles.dart';
 
@@ -19,9 +19,9 @@ class LoginField extends StatelessWidget {
         SizedBox(height: 3.h,),
         TextField(
           style: AppTextStyles.inputTextStyle,
-          decoration: AppInputStyles.loginDecoration,
+          decoration: AppInputStyles.defaultInputDecoration,
           onChanged: (value) {
-            context.read<InputData>().login = value;
+            context.read<LoginData>().login = value;
           },
         ),
       ],
@@ -50,7 +50,7 @@ class _PasswordFieldState extends State<PasswordField> {
         SizedBox(height: 3.h,),
         TextField(
           style: AppTextStyles.inputTextStyle,
-          decoration: AppInputStyles.loginDecoration.copyWith(
+          decoration: AppInputStyles.defaultInputDecoration.copyWith(
             suffixIcon: IconButton(
               icon: Icon(_isPasswordObscure ? Icons.visibility : Icons.visibility_off,),
               onPressed: () {
@@ -62,7 +62,7 @@ class _PasswordFieldState extends State<PasswordField> {
           ),
           obscureText: _isPasswordObscure,
           onChanged: (value) {
-            context.read<InputData>().password = value;
+            context.read<LoginData>().password = value;
           }
         ),
       ],

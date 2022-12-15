@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:the_resistance/ui/utils/app_colors.dart';
 
 abstract class AppInputStyles{
-  static final loginDecoration = InputDecoration(
+  static final defaultInputDecoration = InputDecoration(
       contentPadding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(20.r),

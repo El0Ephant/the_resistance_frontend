@@ -9,4 +9,5 @@ abstract class AppTextStyles {
   static final buttonTextStyle = TextStyle(fontSize: 24.sp, color: Colors.white, fontWeight: FontWeight.bold); 
   static final mainInfoTextStyle = TextStyle(fontSize: 20.sp, color: Colors.white, fontWeight: FontWeight.bold);
   static final lightTextStyle = TextStyle(fontSize: 18.sp, color: AppColors.lightGrey);
+  static final regirationHintStyle = TextStyle(fontSize: 16.sp, color: AppColors.lightGrey);
 }
