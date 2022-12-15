@@ -16,10 +16,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   void _onLoginButtonPressed(LoginButtonPressed event, Emitter<LoginState> emit) async {
     emit(const LoginState.loading());
     try{
-      await _userRepository.signIn(event.login, event.password);
+      await _userRepository.signIn(event.email, event.password);
       emit (const LoginState.success());
-    } on InvalidAuthData {
-      emit(const LoginState.error('Неверный логин или пароль'));
+    } on InvalidAuthData catch(e) {
+      emit(LoginState.error(e.message));
     }
   }
 }

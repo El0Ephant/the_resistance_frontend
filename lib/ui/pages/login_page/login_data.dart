@@ -1,6 +1,6 @@
 class LoginData{
-  String login;
+  String email;
   String password;
 
-  LoginData([this.login = '', this.password = '']);
+  LoginData([this.email = '', this.password = '']);
 }

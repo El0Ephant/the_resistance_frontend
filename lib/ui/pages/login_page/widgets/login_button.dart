@@ -11,22 +11,27 @@ import 'package:the_resistance/ui/utils/app_text_styles.dart';
 class LoginButton extends StatelessWidget {
   const LoginButton({super.key});
 
+  void _showSnackBar(BuildContext context, String message) {
+    final snackBar = SnackBar(
+      backgroundColor: AppColors.errorSnackBarColor,
+      behavior: SnackBarBehavior.floating,
+      content: Text(message),
+      duration: const Duration(seconds: 2),
+      action: SnackBarAction(
+        label: 'Убрать',
+        onPressed: () {},
+      ),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<LoginBloc, LoginState>(
       listener: (context, state) {
         state.whenOrNull(error: (message) {
             ScaffoldMessenger.of(context).hideCurrentSnackBar();
-            final snackBar = SnackBar(
-              backgroundColor: AppColors.errorSnackBarColor,
-              behavior: SnackBarBehavior.floating,
-              content: Text(message),
-              action: SnackBarAction(
-                label: 'Убрать',
-                onPressed: () {},
-              ),
-            );
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            _showSnackBar(context, message);
           }, success: () {
             context.router.replace(const HomeRoute());
           }
@@ -35,33 +40,22 @@ class LoginButton extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           loading: () => const CircularProgressIndicator(),
+          success: () => const CircularProgressIndicator(),
           orElse: () => ElevatedButton(
             onPressed: () {
               ScaffoldMessenger.of(context).hideCurrentSnackBar();
               LoginData inputData = context.read<LoginData>();
               String? message;
-              if (inputData.login.isEmpty) {
-                message = 'Введите логин';
+              if (inputData.email.isEmpty) {
+                message = 'Введите почту';
               } else if (inputData.password.isEmpty) {
                 message = 'Введите пароль';
               }
               if (message != null) {
-                final snackBar = SnackBar(
-                  backgroundColor: AppColors.errorSnackBarColor,
-                  behavior: SnackBarBehavior.floating,
-                  content: Text(message),
-                  duration: const Duration(seconds: 2),
-                  action: SnackBarAction(
-                    label: 'Убрать',
-                    onPressed: () {},
-                  ),
-                );
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                _showSnackBar(context, message);
                 return;
               }
-              context
-                  .read<LoginBloc>()
-                  .add(LoginButtonPressed(inputData.login, inputData.password));
+              context.read<LoginBloc>().add(LoginButtonPressed(inputData.email, inputData.password));
             },
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(

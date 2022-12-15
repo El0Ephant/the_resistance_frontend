@@ -31,7 +31,7 @@ class LoginPage extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const LoginField(),
+                      const EmailField(),
                       SizedBox(height: 40.h,),
                       const PasswordField(),
                       SizedBox(height: 5.h,),

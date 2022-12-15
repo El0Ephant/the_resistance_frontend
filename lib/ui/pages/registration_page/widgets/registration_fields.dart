@@ -103,23 +103,27 @@ class _PasswordWithConfiramtionFieldState extends State<PasswordWithConfiramtion
           },
           obscureText: !_isPasswordShown,
         ),
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              _isPasswordShown = !_isPasswordShown;
-            });
-          },
-          child: Row(
-            children: [
-              Checkbox(
-                side: BorderSide(color: AppColors.orange, width: 3.r,),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3.r)),
-                value: _isPasswordShown, 
-                onChanged: (_) {},
-              ),
-              Text('Показать пароль', style: AppTextStyles.inputTextStyle,)
-            ],
-          ),
+        Row(
+          children: [
+            Checkbox(
+              side: BorderSide(color: AppColors.orange, width: 3.r,),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3.r)),
+              value: _isPasswordShown, 
+              onChanged: (_) {
+                setState(() {
+                  _isPasswordShown = !_isPasswordShown;
+                });
+              },
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  _isPasswordShown = !_isPasswordShown;
+                });
+              },
+              child: Text('Показать пароль', style: AppTextStyles.inputTextStyle,)
+            )
+          ],
         ),
       ],
     );
