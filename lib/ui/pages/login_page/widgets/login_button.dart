@@ -3,27 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:the_resistance/routes/router.gr.dart';
+import 'package:the_resistance/ui/common_widgets/snack_bar.dart';
 import 'package:the_resistance/ui/pages/login_page/bloc/login_bloc.dart';
 import 'package:the_resistance/ui/pages/login_page/login_data.dart';
-import 'package:the_resistance/ui/utils/app_colors.dart';
 import 'package:the_resistance/ui/utils/app_text_styles.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({super.key});
-
-  void _showSnackBar(BuildContext context, String message) {
-    final snackBar = SnackBar(
-      backgroundColor: AppColors.errorSnackBarColor,
-      behavior: SnackBarBehavior.floating,
-      content: Text(message),
-      duration: const Duration(seconds: 2),
-      action: SnackBarAction(
-        label: 'Убрать',
-        onPressed: () {},
-      ),
-    );
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +17,7 @@ class LoginButton extends StatelessWidget {
       listener: (context, state) {
         state.whenOrNull(error: (message) {
             ScaffoldMessenger.of(context).hideCurrentSnackBar();
-            _showSnackBar(context, message);
+            showSnackBar(context, message);
           }, success: () {
             context.router.replace(const HomeRoute());
           }
@@ -52,7 +38,7 @@ class LoginButton extends StatelessWidget {
                 message = 'Введите пароль';
               }
               if (message != null) {
-                _showSnackBar(context, message);
+                showSnackBar(context, message);
                 return;
               }
               context.read<LoginBloc>().add(LoginButtonPressed(inputData.email, inputData.password));

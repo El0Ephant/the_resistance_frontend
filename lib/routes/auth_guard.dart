@@ -8,7 +8,7 @@ class AuthGuard extends AutoRouteGuard {
     if(UserRepository().isAuth){               
       resolver.next(true);          
     }else{                
-      router.push(const LoginRoute());
+      router.replaceAll(const [LoginRoute()]);
     }              
   }          
 }          

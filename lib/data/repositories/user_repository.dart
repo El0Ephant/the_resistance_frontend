@@ -40,6 +40,10 @@ class UserRepository{
     return true;
   }
 
+  Future<void> signOut() async {
+    _secureStorageService.deleteToken();
+  }
+
   Future<void> signIn(String login, String password) async {
     final body = {
       "user" : {
