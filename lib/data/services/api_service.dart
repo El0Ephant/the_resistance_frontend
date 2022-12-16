@@ -32,10 +32,14 @@ class ApiService{
 
   }
 
-  Future<T> get<T>(String path, [Map<String, dynamic>? parameters]) async {
+  Future<T> get<T>(String path, [String? token, Map<String, dynamic>? parameters]) async {
     final url = _makeUri(path, parameters);
     try {
-      final response = await http.get(url);
+      Map<String, String> headers = {};
+      if (token != null){
+        headers[_tokenHeader] = token;
+      }
+      final response = await http.get(url, headers: headers);
       final json = jsonDecode(response.body);
       _validateResponse(response, json);
       return json;
@@ -48,10 +52,14 @@ class ApiService{
     }
   }
 
-  Future<T> post<T>(String path, Map<String, dynamic> body, [Map<String, dynamic>? parameters]) async{
+  Future<T> post<T>(String path, Map<String, dynamic> body, [String? token, Map<String, dynamic>? parameters]) async{
     final url = _makeUri(path, parameters);
     try {
-      final response = await http.post(url, body: jsonEncode(body), headers: contentTypeHeader);
+      Map<String, String> headers = contentTypeHeader;
+      if (token != null){
+        headers[_tokenHeader] = token;
+      }
+      final response = await http.post(url, body: jsonEncode(body), headers: headers);
       final json = jsonDecode(response.body);
       _validateResponse(response, json);
       if (response.headers.containsKey(_tokenHeader)){

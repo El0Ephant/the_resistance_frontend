@@ -7,12 +7,16 @@ class InvalidAuthData implements Exception{
   InvalidAuthData(this.message);
 }
 
+class UserUndefined implements Exception{
+  UserUndefined();
+}
+
 class UserRepository{
   static final UserRepository _instance = UserRepository._internal();
 
   final _apiService = ApiService();
   final _secureStorageService = SecureStorageService();
-  late User _user;
+  User? _user;
   late String token;
 
   factory UserRepository(){
@@ -26,6 +30,13 @@ class UserRepository{
     if (token == null){
       return false;
     }
+    this.token = token;
+    final json = await ApiService().get('/user', token) as Map<String, dynamic>;
+    if (json.containsKey('message') && json['message'] == 'Token has expired'){
+      // expired token
+      return false;
+    }
+    _user = User.fromJson(json);
     return true;
   }
 
@@ -67,5 +78,12 @@ class UserRepository{
     } 
   }
 
-  User get currentUser => _user;
+  bool get isAuth => _user != null;
+
+  User get currentUser{
+    if (_user != null){
+      return _user!;
+    }
+    throw UserUndefined();
+  }
 }

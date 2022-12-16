@@ -19,10 +19,15 @@ import '../ui/pages/login_page/login_page.dart' as _i1;
 import '../ui/pages/profile_page/profile_page.dart' as _i5;
 import '../ui/pages/registration_page/registration_page.dart' as _i2;
 import '../ui/pages/rooms_page/rooms_page.dart' as _i4;
+import 'auth_guard.dart' as _i8;
 
 class AppRouter extends _i6.RootStackRouter {
-  AppRouter([_i7.GlobalKey<_i7.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+  AppRouter({
+    _i7.GlobalKey<_i7.NavigatorState>? navigatorKey,
+    required this.authGuard,
+  }) : super(navigatorKey);
+
+  final _i8.AuthGuard authGuard;
 
   @override
   final Map<String, _i6.PageFactory> pagesMap = {
@@ -63,7 +68,7 @@ class AppRouter extends _i6.RootStackRouter {
         _i6.RouteConfig(
           '/#redirect',
           path: '/',
-          redirectTo: '/sign_in',
+          redirectTo: '/home',
           fullMatch: true,
         ),
         _i6.RouteConfig(
@@ -77,6 +82,7 @@ class AppRouter extends _i6.RootStackRouter {
         _i6.RouteConfig(
           HomeRoute.name,
           path: '/home',
+          guards: [authGuard],
           children: [
             _i6.RouteConfig(
               RoomsRoute.name,

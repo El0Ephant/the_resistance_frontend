@@ -8,13 +8,13 @@ class GamesHistoryRepository{
 
   int get gamesPerPage => _gamesPerPage;
 
-  Future<List<GameHistory>> getGamesHistory(int userId, [int start = 0]) async {
+  Future<List<GameHistory>> getGamesHistory(int userId, String token, [int start = 0]) async {
     final params = {
       'per_page':_gamesPerPage,
       'page':(start/_gamesPerPage).ceil() + 1,
     };
 
-    final json = await _apiService.get('/user/$userId/history', params);
+    final json = await _apiService.get('/user/$userId/history', token, params);
 
     return json.map<GameHistory>((dynamic game) => 
       GameHistory.fromJson(game)).toList();

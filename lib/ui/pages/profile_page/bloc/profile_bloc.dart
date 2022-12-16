@@ -26,8 +26,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   void _onFetchAll(ProfileFetchEvent event, Emitter<ProfileState> emit) async {
     emit(const ProfileState.loading());
     try{
-      final userStat = await _userStatRepository.getUserStat(_userRepository.currentUser.id);
-      final gamesHistory = await _gamesHistoryRepository.getGamesHistory(_userRepository.currentUser.id);
+      final userStat = await _userStatRepository.getUserStat(_userRepository.currentUser.id, _userRepository.token);
+      final gamesHistory = await _gamesHistoryRepository.getGamesHistory(_userRepository.currentUser.id, _userRepository.token);
       emit(ProfileState.loaded(
         _userRepository.currentUser, 
         userStat, 
@@ -44,7 +44,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       if (oldState.hasReachedMax) {
         return;
       }
-      final gamesHistory = await _gamesHistoryRepository.getGamesHistory(_userRepository.currentUser.id, oldState.gamesHistory.length);
+      final gamesHistory = await _gamesHistoryRepository.getGamesHistory(_userRepository.currentUser.id, _userRepository.token, oldState.gamesHistory.length);
       emit(ProfileState.loaded(
         oldState.user, 
         oldState.userStat, 

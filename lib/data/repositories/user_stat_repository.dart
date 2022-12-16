@@ -5,8 +5,8 @@ import 'package:the_resistance/domain/models/user_stat/user_stat.dart';
 class UserStatRepository{
   final _apiService = ApiService();
 
-  Future<UserStat> getUserStat(int userId) async {
-    final json = await _apiService.get('/user/$userId/stat');
+  Future<UserStat> getUserStat(int userId, String token) async {
+    final json = await _apiService.get('/user/$userId/stat', token);
     return UserStat.fromJson(json);
   }
  
