@@ -111,7 +111,7 @@ class NicknameField extends StatelessWidget {
                   child: SizedBox(
                     height: 30.h,
                     width: 30.w,
-                    child: const CircularProgressIndicator()
+                    child: const CircularProgressIndicator(strokeWidth: 2,)
                   ),
                 )
               ),
