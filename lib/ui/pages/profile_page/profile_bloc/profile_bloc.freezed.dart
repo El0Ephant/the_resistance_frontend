@@ -92,12 +92,20 @@ class __$$ProfileFetchEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProfileFetchEvent implements ProfileFetchEvent {
+class _$ProfileFetchEvent
+    with DiagnosticableTreeMixin
+    implements ProfileFetchEvent {
   const _$ProfileFetchEvent();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileEvent.fetch()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'ProfileEvent.fetch'));
   }
 
   @override
@@ -194,12 +202,20 @@ class __$$ProfileFetchHistoryEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProfileFetchHistoryEvent implements ProfileFetchHistoryEvent {
+class _$ProfileFetchHistoryEvent
+    with DiagnosticableTreeMixin
+    implements ProfileFetchHistoryEvent {
   const _$ProfileFetchHistoryEvent();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileEvent.fetchHistory()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'ProfileEvent.fetchHistory'));
   }
 
   @override
@@ -369,12 +385,18 @@ class __$$ProfileLoadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProfileLoading implements ProfileLoading {
+class _$ProfileLoading with DiagnosticableTreeMixin implements ProfileLoading {
   const _$ProfileLoading();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileState.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'ProfileState.loading'));
   }
 
   @override
@@ -536,7 +558,7 @@ class __$$ProfileLoadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProfileLoaded implements ProfileLoaded {
+class _$ProfileLoaded with DiagnosticableTreeMixin implements ProfileLoaded {
   const _$ProfileLoaded(this.user, this.userStat,
       final List<GameHistory> gamesHistory, this.hasReachedMax)
       : _gamesHistory = gamesHistory;
@@ -557,8 +579,19 @@ class _$ProfileLoaded implements ProfileLoaded {
   final bool hasReachedMax;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileState.loaded(user: $user, userStat: $userStat, gamesHistory: $gamesHistory, hasReachedMax: $hasReachedMax)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProfileState.loaded'))
+      ..add(DiagnosticsProperty('user', user))
+      ..add(DiagnosticsProperty('userStat', userStat))
+      ..add(DiagnosticsProperty('gamesHistory', gamesHistory))
+      ..add(DiagnosticsProperty('hasReachedMax', hasReachedMax));
   }
 
   @override
@@ -709,15 +742,23 @@ class __$$ProfileErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProfileError implements ProfileError {
+class _$ProfileError with DiagnosticableTreeMixin implements ProfileError {
   const _$ProfileError(this.message);
 
   @override
   final String message;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileState.error(message: $message)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProfileState.error'))
+      ..add(DiagnosticsProperty('message', message));
   }
 
   @override

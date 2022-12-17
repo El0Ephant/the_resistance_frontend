@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:the_resistance/data/repositories/user_repository.dart';
 import 'package:the_resistance/routes/auth_guard.dart';
 import 'package:the_resistance/routes/router.gr.dart';
+import 'package:the_resistance/ui/utils/app_colors.dart';
 
 
 void main() async{
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
           routeInformationParser: _appRouter.defaultRouteParser(),
           title: 'The resistance',
           theme: ThemeData(
-            primarySwatch: Colors.orange,
+            primarySwatch: AppColors.orange,
           ),
         );
       },

@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:the_resistance/data/repositories/user_repository.dart';
+import 'package:the_resistance/data/services/api_service.dart';
 
 part 'registration_event.dart';
 part 'registration_state.dart';
@@ -20,6 +21,14 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
       emit(const RegistrationState.success());
     } on InvalidAuthData catch(e){
       emit(RegistrationState.error(e.message));
+    } on ApiServiceExecption catch(e){
+      final String message;
+      if (e.type == ApiServiceExecptionType.network) {
+        message = 'Что-то пошло не так, проверьте свое интернет соединение';
+      } else{
+        message = 'Что-то пошло не так, попробуйте еще раз';
+      }
+      emit(RegistrationState.error(message));
     }
   }
 }

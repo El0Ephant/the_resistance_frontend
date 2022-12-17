@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:the_resistance/ui/pages/profile_page/bloc/profile_bloc.dart';
+import 'package:the_resistance/ui/pages/profile_page/profile_bloc/profile_bloc.dart';
 import 'package:the_resistance/ui/utils/app_colors.dart';
 import 'package:the_resistance/ui/utils/app_text_styles.dart';
 
@@ -11,7 +11,12 @@ class UserStatGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileBloc, ProfileState>(
-      buildWhen: (previous, current) => !(previous is ProfileLoaded && current is ProfileLoaded && previous.userStat == current.userStat),
+      buildWhen: (previous, current) {
+        if (previous is ProfileLoaded && current is ProfileLoaded && previous.userStat == current.userStat){
+          return false;
+        }
+        return true;
+      },
       builder: (context, state) {
         return state.maybeWhen(
           loaded: (_, userStat, __, ___) {
@@ -45,7 +50,7 @@ class UserStatGrid extends StatelessWidget {
               ],
             );
           },
-          orElse: () => Container(),
+          orElse: () => const SizedBox(),
         );
       },
     );

@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:the_resistance/data/repositories/game_history_repository.dart';
 import 'package:the_resistance/data/repositories/user_repository.dart';
@@ -33,8 +34,14 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         userStat, 
         gamesHistory, 
         gamesHistory.length < _gamesHistoryRepository.gamesPerPage));
-    } on ApiServiceExecption {
-      rethrow;
+    } on ApiServiceExecption catch(e){
+      final String message;
+      if (e.type == ApiServiceExecptionType.network) {
+        message = 'Что-то пошло не так, проверьте свое интернет соединение';
+      } else{
+        message = 'Что-то пошло не так, попробуйте еще раз';
+      }
+      emit(ProfileState.error(message));
     }
   }
 
@@ -50,8 +57,14 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         oldState.userStat, 
         oldState.gamesHistory + gamesHistory, 
         gamesHistory.length < _gamesHistoryRepository.gamesPerPage));
-    } on ApiServiceExecption {
-      rethrow;
+    } on ApiServiceExecption catch(e){
+      final String message;
+      if (e.type == ApiServiceExecptionType.network) {
+        message = 'Что-то пошло не так, проверьте свое интернет соединение';
+      } else{
+        message = 'Что-то пошло не так, попробуйте еще раз';
+      }
+      emit(ProfileState.error(message));
     }
   }
 }

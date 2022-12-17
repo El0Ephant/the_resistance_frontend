@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:the_resistance/ui/pages/profile_page/bloc/profile_bloc.dart';
+import 'package:the_resistance/ui/pages/profile_page/profile_bloc/profile_bloc.dart';
 import 'package:the_resistance/ui/pages/profile_page/widgets/account_info.dart';
 import 'package:the_resistance/ui/pages/profile_page/widgets/games_history_list.dart';
 import 'package:the_resistance/ui/pages/profile_page/widgets/user_stat_grid.dart';

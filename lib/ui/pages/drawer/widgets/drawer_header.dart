@@ -54,7 +54,7 @@ class CustomDrawerHeader extends StatelessWidget {
                       onPressed: (){
                         _showAlertSighOut(context);
                       }, 
-                      icon: Icon(Icons.logout_rounded, color: AppColors.orange, size: 50.r,)
+                      icon: Icon(Icons.logout_rounded, color: AppColors.orange, size: 45.r,)
                     ),
                   ),
                 listener: (context, state) => 

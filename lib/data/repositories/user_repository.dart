@@ -31,13 +31,31 @@ class UserRepository{
       return false;
     }
     this.token = token;
-    final json = await ApiService().get('/user', token) as Map<String, dynamic>;
+    final Map<String, dynamic> json;
+    try{
+      json = await ApiService().get('/user', token);
+    } on ApiServiceExecption{
+      return false;
+    }
     if (json.containsKey('message') && json['message'] == 'Token has expired'){
       // expired token
       return false;
     }
     _user = User.fromJson(json);
     return true;
+  }
+
+  Future<void> changeNickname(String newNickname) async {
+    final body = {
+      "nickname":newNickname,
+    };
+    final Map<String, dynamic> json;
+    try{
+      json = await _apiService.patch('/user/set_nickname', body, token);
+      _user = User.fromJson(json);
+    } on ApiServiceExecption{
+      rethrow;
+    }
   }
 
   Future<void> signOut() async {
