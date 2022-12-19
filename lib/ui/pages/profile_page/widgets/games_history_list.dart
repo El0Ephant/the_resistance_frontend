@@ -69,7 +69,7 @@ class _GamesHistoryListState extends State<GamesHistoryList> {
                   ),
             ]);
           },
-          orElse: () => const SizedBox(),
+          orElse: () => const SizedBox.shrink(),
         );
       },
     );

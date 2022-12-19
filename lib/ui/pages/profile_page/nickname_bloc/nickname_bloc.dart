@@ -31,10 +31,10 @@ class NicknameBloc extends Bloc<NicknameEvent, NicknameState> {
       emit(NicknameState.initial(_userRepository.currentUser.nickname));
     } on ApiServiceExecption catch(e) {
       final String message;
-      if (e.type == ApiServiceExecptionType.network) {
+      if (e.type == ApiServiceExecptionType.clientNetwork) {
         message = 'Что-то пошло не так, проверьте свое интернет соединение';
       } else{
-        message = 'Что-то пошло не так, попробуйте еще раз';
+        message = 'Что-то пошло не так, попробуйте повторить попытку позднее';
       }
       emit(NicknameState.error(_userRepository.currentUser.nickname, message));
     }

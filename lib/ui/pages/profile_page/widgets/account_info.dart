@@ -22,9 +22,15 @@ class AccountInfo extends StatelessWidget {
       },
       builder: (context, state) {
         return state.when(
-          loading: () => const Center(child: CircularProgressIndicator()),
-          error: (message) => Center(child: 
-            Text(message, style: AppTextStyles.lightTextStyle, textAlign: TextAlign.center,)
+          loading: () => SizedBox(
+            height: 800.h,
+            child: const Center(child: CircularProgressIndicator())
+          ),
+          error: (message) => SizedBox(
+            height: 800.h,
+            child: Center(
+              child: Text(message, style: AppTextStyles.lightTextStyle, textAlign: TextAlign.center,)
+            ),
           ), 
           loaded: (user, _, __, ___) => Column(
             children: [
@@ -111,7 +117,7 @@ class NicknameField extends StatelessWidget {
                   child: SizedBox(
                     height: 30.h,
                     width: 30.w,
-                    child: const CircularProgressIndicator(strokeWidth: 2,)
+                    child: const CircularProgressIndicator(strokeWidth: 3,)
                   ),
                 )
               ),

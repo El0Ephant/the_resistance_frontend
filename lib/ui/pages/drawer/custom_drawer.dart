@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:the_resistance/ui/common_widgets/snack_bar.dart';
 import 'package:the_resistance/ui/pages/drawer/bloc/drawer_bloc.dart';
 import 'package:the_resistance/ui/pages/drawer/widgets/drawer_header.dart';
 import 'package:the_resistance/ui/pages/drawer/widgets/drawer_item.dart';

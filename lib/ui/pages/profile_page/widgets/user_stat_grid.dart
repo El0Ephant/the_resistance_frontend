@@ -50,7 +50,7 @@ class UserStatGrid extends StatelessWidget {
               ],
             );
           },
-          orElse: () => const SizedBox(),
+          orElse: () => const SizedBox.shrink(),
         );
       },
     );

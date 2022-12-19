@@ -36,10 +36,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         gamesHistory.length < _gamesHistoryRepository.gamesPerPage));
     } on ApiServiceExecption catch(e){
       final String message;
-      if (e.type == ApiServiceExecptionType.network) {
+      if (e.type == ApiServiceExecptionType.clientNetwork) {
         message = 'Что-то пошло не так, проверьте свое интернет соединение';
       } else{
-        message = 'Что-то пошло не так, попробуйте еще раз';
+        message = 'Что-то пошло не так, попробуйте повторить попытку позднее';
       }
       emit(ProfileState.error(message));
     }
@@ -59,10 +59,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         gamesHistory.length < _gamesHistoryRepository.gamesPerPage));
     } on ApiServiceExecption catch(e){
       final String message;
-      if (e.type == ApiServiceExecptionType.network) {
+      if (e.type == ApiServiceExecptionType.clientNetwork) {
         message = 'Что-то пошло не так, проверьте свое интернет соединение';
       } else{
-        message = 'Что-то пошло не так, попробуйте еще раз';
+        message = 'Что-то пошло не так, попробуйте повторить попытку позднее';
       }
       emit(ProfileState.error(message));
     }

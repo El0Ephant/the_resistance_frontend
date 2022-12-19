@@ -1,9 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:http/http.dart';
-import 'package:http/http.dart' as http;
 
-enum ApiServiceExecptionType { network, other }
+enum ApiServiceExecptionType { clientNetwork, other }
 
 class ApiServiceExecption implements Exception{
   final ApiServiceExecptionType type;
@@ -15,9 +13,8 @@ enum RequestType { get, post, patch }
 class ApiService{
   final _baseUrl = 'http://10.0.2.2:3000/api';
   final _tokenHeader = 'authorization';
-  final contentTypeHeader = {
-    'Content-Type': 'application/json',
-  };
+  final contentTypeHeader = 'application/json';
+  final _client = HttpClient()..connectionTimeout = const Duration(seconds: 20);
 
   String get tokenHeader => _tokenHeader;
 
@@ -30,7 +27,7 @@ class ApiService{
     }
   }
 
-  void _validateResponse(Response response, dynamic json) {
+  void _validateResponse(HttpClientResponse response, dynamic json) {
 
   }
 
@@ -40,32 +37,40 @@ class ApiService{
     [Map<String, dynamic>? parameters, String? token, Map<String, dynamic>? body]
   ) async {
     final url = _makeUri(path, parameters);
-    Map<String, String> headers = contentTypeHeader;
-    if (token != null){
-      headers[_tokenHeader] = token;
-    }
-    body ??= {};
+    final HttpClientRequest request;
+    final HttpClientResponse response;
     try{
-      final Response response;
       switch (type){
         case RequestType.get:
-          response = await http.get(url, headers: headers);
+          request = await _client.getUrl(url);  
           break;
         case RequestType.post:
-          response = await http.post(url, body: jsonEncode(body), headers: headers);
+          request = await _client.postUrl(url);
           break;
         case RequestType.patch:
-          response = await http.patch(url, body: jsonEncode(body), headers: headers);
+          request = await _client.patchUrl(url);
           break;
       }
-      final json = jsonDecode(response.body);
+      request.headers.set(HttpHeaders.contentTypeHeader, contentTypeHeader);
+      if (token != null){
+        request.headers.set(HttpHeaders.authorizationHeader, token);
+      }
+      if (body != null){
+        request.write(jsonEncode(body));
+      }
+      response = await request.close();
+      final json = jsonDecode(await response.transform(utf8.decoder).join());
       _validateResponse(response, json);
-      if (response.headers.containsKey(_tokenHeader)){
-        json[_tokenHeader] = response.headers[_tokenHeader];
+      if (response.headers.value(_tokenHeader) != null){
+        json[_tokenHeader] = response.headers.value(_tokenHeader);
       }
       return json;
-    } on SocketException {
-      throw ApiServiceExecption(ApiServiceExecptionType.network);
+    } on SocketException catch (e) {
+      if (e.message == "Connection failed"){
+        throw ApiServiceExecption(ApiServiceExecptionType.clientNetwork);
+      } else{
+        throw ApiServiceExecption(ApiServiceExecptionType.other);
+      }
     } on ApiServiceExecption{
       rethrow;
     } catch (_) {
