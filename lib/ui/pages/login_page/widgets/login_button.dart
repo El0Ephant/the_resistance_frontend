@@ -17,7 +17,7 @@ class LoginButton extends StatelessWidget {
       listener: (context, state) {
         state.whenOrNull(error: (message) {
             ScaffoldMessenger.of(context).hideCurrentSnackBar();
-            showSnackBar(context, message);
+            showErrorSnackBar(context, message);
           }, success: () {
             context.router.replace(const HomeRoute());
           }
@@ -38,7 +38,7 @@ class LoginButton extends StatelessWidget {
                 message = 'Введите пароль';
               }
               if (message != null) {
-                showSnackBar(context, message);
+                showErrorSnackBar(context, message);
                 return;
               }
               context.read<LoginBloc>().add(LoginButtonPressed(inputData.email, inputData.password));

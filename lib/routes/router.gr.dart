@@ -11,85 +11,96 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i6;
-import 'package:flutter/material.dart' as _i7;
+import 'package:auto_route/auto_route.dart' as _i7;
+import 'package:flutter/material.dart' as _i8;
 
-import '../ui/pages/home_page/home_page.dart' as _i3;
+import '../ui/pages/game_creation_page/game_creation_page.dart' as _i3;
+import '../ui/pages/home_page/home_page.dart' as _i4;
 import '../ui/pages/login_page/login_page.dart' as _i1;
-import '../ui/pages/profile_page/profile_page.dart' as _i5;
+import '../ui/pages/profile_page/profile_page.dart' as _i6;
 import '../ui/pages/registration_page/registration_page.dart' as _i2;
-import '../ui/pages/rooms_page/rooms_page.dart' as _i4;
-import 'auth_guard.dart' as _i8;
+import '../ui/pages/rooms_page/rooms_page.dart' as _i5;
+import 'auth_guard.dart' as _i9;
 
-class AppRouter extends _i6.RootStackRouter {
+class AppRouter extends _i7.RootStackRouter {
   AppRouter({
-    _i7.GlobalKey<_i7.NavigatorState>? navigatorKey,
+    _i8.GlobalKey<_i8.NavigatorState>? navigatorKey,
     required this.authGuard,
   }) : super(navigatorKey);
 
-  final _i8.AuthGuard authGuard;
+  final _i9.AuthGuard authGuard;
 
   @override
-  final Map<String, _i6.PageFactory> pagesMap = {
+  final Map<String, _i7.PageFactory> pagesMap = {
     LoginRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+      return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.LoginPage(),
       );
     },
     RegistrationRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+      return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i2.RegistrationPage(),
       );
     },
-    HomeRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+    GameCreationRoute.name: (routeData) {
+      return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i3.HomePage(),
+        child: const _i3.GameCreationPage(),
+      );
+    },
+    HomeRoute.name: (routeData) {
+      return _i7.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i4.HomePage(),
       );
     },
     RoomsRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+      return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i4.RoomsPage(),
+        child: const _i5.RoomsPage(),
       );
     },
     ProfileRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+      return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i5.ProfilePage(),
+        child: const _i6.ProfilePage(),
       );
     },
   };
 
   @override
-  List<_i6.RouteConfig> get routes => [
-        _i6.RouteConfig(
+  List<_i7.RouteConfig> get routes => [
+        _i7.RouteConfig(
           '/#redirect',
           path: '/',
           redirectTo: '/home',
           fullMatch: true,
         ),
-        _i6.RouteConfig(
+        _i7.RouteConfig(
           LoginRoute.name,
           path: '/sign_in',
         ),
-        _i6.RouteConfig(
+        _i7.RouteConfig(
           RegistrationRoute.name,
           path: '/sign_up',
         ),
-        _i6.RouteConfig(
+        _i7.RouteConfig(
+          GameCreationRoute.name,
+          path: 'new_game',
+        ),
+        _i7.RouteConfig(
           HomeRoute.name,
           path: '/home',
           guards: [authGuard],
           children: [
-            _i6.RouteConfig(
+            _i7.RouteConfig(
               RoomsRoute.name,
               path: '',
               parent: HomeRoute.name,
             ),
-            _i6.RouteConfig(
+            _i7.RouteConfig(
               ProfileRoute.name,
               path: 'profile',
               parent: HomeRoute.name,
@@ -101,7 +112,7 @@ class AppRouter extends _i6.RootStackRouter {
 
 /// generated route for
 /// [_i1.LoginPage]
-class LoginRoute extends _i6.PageRouteInfo<void> {
+class LoginRoute extends _i7.PageRouteInfo<void> {
   const LoginRoute()
       : super(
           LoginRoute.name,
@@ -113,7 +124,7 @@ class LoginRoute extends _i6.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.RegistrationPage]
-class RegistrationRoute extends _i6.PageRouteInfo<void> {
+class RegistrationRoute extends _i7.PageRouteInfo<void> {
   const RegistrationRoute()
       : super(
           RegistrationRoute.name,
@@ -124,9 +135,21 @@ class RegistrationRoute extends _i6.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.HomePage]
-class HomeRoute extends _i6.PageRouteInfo<void> {
-  const HomeRoute({List<_i6.PageRouteInfo>? children})
+/// [_i3.GameCreationPage]
+class GameCreationRoute extends _i7.PageRouteInfo<void> {
+  const GameCreationRoute()
+      : super(
+          GameCreationRoute.name,
+          path: 'new_game',
+        );
+
+  static const String name = 'GameCreationRoute';
+}
+
+/// generated route for
+/// [_i4.HomePage]
+class HomeRoute extends _i7.PageRouteInfo<void> {
+  const HomeRoute({List<_i7.PageRouteInfo>? children})
       : super(
           HomeRoute.name,
           path: '/home',
@@ -137,8 +160,8 @@ class HomeRoute extends _i6.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.RoomsPage]
-class RoomsRoute extends _i6.PageRouteInfo<void> {
+/// [_i5.RoomsPage]
+class RoomsRoute extends _i7.PageRouteInfo<void> {
   const RoomsRoute()
       : super(
           RoomsRoute.name,
@@ -149,8 +172,8 @@ class RoomsRoute extends _i6.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.ProfilePage]
-class ProfileRoute extends _i6.PageRouteInfo<void> {
+/// [_i6.ProfilePage]
+class ProfileRoute extends _i7.PageRouteInfo<void> {
   const ProfileRoute()
       : super(
           ProfileRoute.name,

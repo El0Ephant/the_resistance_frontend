@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:the_resistance/routes/router.gr.dart';
 import 'package:the_resistance/ui/utils/app_colors.dart';
 import 'package:the_resistance/ui/utils/app_text_styles.dart';
 import 'package:the_resistance/ui/pages/rooms_page/widgets/room_list_item.dart';
@@ -35,7 +37,9 @@ class RoomsPage extends StatelessWidget {
           child: Column(
             children: [
               ElevatedButton(
-                onPressed: () {}, 
+                onPressed: () {
+                  context.router.push(const GameCreationRoute());
+                }, 
                 style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(40.r)),
                       minimumSize: Size(300.w, 60.h),

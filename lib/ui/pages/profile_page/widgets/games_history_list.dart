@@ -5,6 +5,7 @@ import 'package:the_resistance/domain/models/game_history/game_history.dart';
 import 'package:the_resistance/ui/pages/profile_page/profile_bloc/profile_bloc.dart';
 import 'package:the_resistance/ui/utils/app_colors.dart';
 import 'package:the_resistance/ui/utils/app_text_styles.dart';
+import 'package:the_resistance/ui/utils/game_roles.dart';
 
 class GamesHistoryList extends StatefulWidget {
   const GamesHistoryList({super.key, });
@@ -102,29 +103,6 @@ class GameHistoryItem extends StatelessWidget {
   const GameHistoryItem({super.key, required this.gameHistory});
   final GameHistory gameHistory;
 
-  static String roleToTitle(String role){
-    switch (role){
-      case 'merlin':
-        return 'Мерлин';
-      case 'percival':
-        return 'Персиваль';
-      case 'good_knight':
-        return 'Рыцарь Мерлина';
-      case 'mordred':
-        return 'Мордред';
-      case 'oberon':
-        return 'Оберон';
-      case 'assasin':
-        return 'Ассасин';
-      case 'morgana':
-        return 'Моргана';
-      case 'evil_knight':
-        return 'Рыцарь Мордреда';
-      default:
-        return 'Ошибка';
-    }
-  }
-  
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -145,7 +123,7 @@ class GameHistoryItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(roleToTitle(gameHistory.role), style: AppTextStyles.mainInfoTextStyle,),
+                  Text(GameRoles.titles[gameHistory.role] ?? 'Ошибка', style: AppTextStyles.mainInfoTextStyle,),
                   Text('${gameHistory.time} ${gameHistory.date}', style: AppTextStyles.lightTextStyle,),
                 ],
               ),

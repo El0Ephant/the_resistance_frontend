@@ -57,7 +57,7 @@ class RegistrationButton extends StatelessWidget {
         state.whenOrNull(
           error: (message) {
             ScaffoldMessenger.of(context).hideCurrentSnackBar();
-            showSnackBar(context, message);
+            showErrorSnackBar(context, message);
           },
           success: (() {
             showDialog<String>(
@@ -88,17 +88,17 @@ class RegistrationButton extends StatelessWidget {
               RegistrationData inputData = context.read<RegistrationData>();
               String? message = _validateEmail(inputData.email);
               if (message != null) {
-                showSnackBar(context, message);
+                showErrorSnackBar(context, message);
                 return;
               }
               message = _validateLogin(inputData.login);
               if (message != null) {
-                showSnackBar(context, message);
+                showErrorSnackBar(context, message);
                 return;
               }
               message = _validatePassword(inputData.password, inputData.passwordConfirmation);
               if (message != null) {
-                showSnackBar(context, message);
+                showErrorSnackBar(context, message);
                 return;
               }
               context.read<RegistrationBloc>().add(RegistrationButtonPressed(inputData.email, inputData.login, inputData.password));

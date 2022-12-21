@@ -66,7 +66,7 @@ class NicknameField extends StatelessWidget {
         BlocConsumer<NicknameBloc, NicknameState>(
           listener: (context, state) => 
             state.whenOrNull(
-              error: (_, message) => showSnackBar(context, message),
+              error: (_, message) => showErrorSnackBar(context, message),
             ),
           builder: (context, state) {
             return state.maybeWhen(
@@ -92,11 +92,11 @@ class NicknameField extends StatelessWidget {
                     IconButton(
                       onPressed: (){
                         if (controller.text.length < 2){
-                          showSnackBar(context, 'Слишком короткий никнейм');
+                          showErrorSnackBar(context, 'Слишком короткий никнейм');
                           return;
                         }
                         if (controller.text.length > 30){
-                          showSnackBar(context, 'Слишком длинный никнейм');
+                          showErrorSnackBar(context, 'Слишком длинный никнейм');
                           return;
                         }
                         if (nickname == controller.text){

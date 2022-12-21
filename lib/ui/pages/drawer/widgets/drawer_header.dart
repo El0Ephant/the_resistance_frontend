@@ -59,7 +59,7 @@ class CustomDrawerHeader extends StatelessWidget {
                   ),
                 listener: (context, state) => 
                   state.whenOrNull(
-                    error: (message) => showSnackBar(context, message),
+                    error: (message) => showErrorSnackBar(context, message),
                     signOut: () => context.router.replaceAll(const [LoginRoute()]),
                   )
               ),
