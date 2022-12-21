@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:matrix4_transform/matrix4_transform.dart';
 import 'package:the_resistance/domain/models/user/user.dart';
+import 'package:the_resistance/ui/pages/game_page/player_dialog.dart';
 import 'package:the_resistance/ui/utils/app_colors.dart';
 
 class PlayerAtTheTable extends StatelessWidget {
@@ -35,17 +36,15 @@ class PlayerAtTheTable extends StatelessWidget {
           .matrix4,
       child: Column(
         children: [
-          Container(
-            height: playerSize,
-            width: playerSize,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: AppColors.orange,
-            ),
-            child: InkWell(
-              onTap: () {
-                print(player.nickname);
-              },
+          InkWell(
+            onTap: (){PlayerDialog.show(context);},
+            child: Container(
+              height: playerSize,
+              width: playerSize,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: AppColors.orange,
+              ),
               child: Center(
                 child: Transform.rotate(
                   angle: -angle * pi / 180,

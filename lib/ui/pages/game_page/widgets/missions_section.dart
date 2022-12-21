@@ -15,7 +15,7 @@ class MissionsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 75.h,
+      height: 90.h,
       width: 1.sw - 20.w,
       decoration: BoxDecoration(
         color: AppColors.black,
@@ -34,8 +34,8 @@ class MissionsSection extends StatelessWidget {
                 child: Transform.rotate(
                   angle: pi / 4,
                   child: Container(
-                    height: 50.r,
-                    width: 50.r,
+                    height: 55.r,
+                    width: 55.r,
                     decoration: BoxDecoration(
                       color: AppColors.orange,
                       borderRadius: BorderRadius.circular(

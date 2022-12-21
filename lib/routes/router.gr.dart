@@ -56,7 +56,7 @@ class AppRouter extends _i7.RootStackRouter {
         routeData: routeData,
         child: _i4.GamePage(
           key: args.key,
-          roomId: args.roomId,
+          roomID: args.roomID,
         ),
       );
     },
@@ -156,13 +156,13 @@ class HomeRoute extends _i7.PageRouteInfo<void> {
 class GameRoute extends _i7.PageRouteInfo<GameRouteArgs> {
   GameRoute({
     _i8.Key? key,
-    required int roomId,
+    required int roomID,
   }) : super(
           GameRoute.name,
           path: '/game',
           args: GameRouteArgs(
             key: key,
-            roomId: roomId,
+            roomID: roomID,
           ),
         );
 
@@ -172,16 +172,16 @@ class GameRoute extends _i7.PageRouteInfo<GameRouteArgs> {
 class GameRouteArgs {
   const GameRouteArgs({
     this.key,
-    required this.roomId,
+    required this.roomID,
   });
 
   final _i8.Key? key;
 
-  final int roomId;
+  final int roomID;
 
   @override
   String toString() {
-    return 'GameRouteArgs{key: $key, roomId: $roomId}';
+    return 'GameRouteArgs{key: $key, roomID: $roomID}';
   }
 }
 

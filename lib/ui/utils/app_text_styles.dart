@@ -11,4 +11,6 @@ abstract class AppTextStyles {
   static final lightTextStyle = TextStyle(fontSize: 18.sp, color: AppColors.lightGrey);
   static final regirationHintStyle = TextStyle(fontSize: 16.sp, color: AppColors.lightGrey);
   static final orangeTextStyle = TextStyle(fontSize: 22.sp, color: AppColors.orange,);
+  static final bigHeaderTextStyle = TextStyle(fontSize: 30.sp, color: AppColors.lightGrey,);
+  static final voteStepTextStyle = TextStyle(fontSize: 35.sp, color: Colors.white);
 }

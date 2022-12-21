@@ -13,34 +13,42 @@ class VoteButtons extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Container(
-            height: 70.h,
-            width: 180.w,
-            decoration: BoxDecoration(
-              color: AppColors.orange,
-              borderRadius: BorderRadius.circular(
-                10.r,
+          InkWell(
+            onTap: () {},
+            child: Ink(
+              height: 70.h,
+              width: 180.w,
+              decoration: BoxDecoration(
+                color: AppColors.orange,
+                borderRadius: BorderRadius.circular(
+                  10.r,
+                ),
               ),
-            ),
-            child: const Center(
-              child: Text(
-                "За",
+              child: Center(
+                child: Icon(
+                  Icons.check_circle_outline,
+                  size: 50.h,
+                ),
               ),
             ),
           ),
           const Spacer(),
-          Container(
-            height: 70.h,
-            width: 180.w,
-            decoration: BoxDecoration(
-              color: AppColors.orange,
-              borderRadius: BorderRadius.circular(
-                10.r,
+          InkWell(
+            onTap: () {},
+            child: Ink(
+              height: 70.h,
+              width: 180.w,
+              decoration: BoxDecoration(
+                color: AppColors.orange,
+                borderRadius: BorderRadius.circular(
+                  10.r,
+                ),
               ),
-            ),
-            child: const Center(
-              child: Text(
-                "Против",
+              child: Center(
+                child: Icon(
+                  Icons.close,
+                  size: 50.h,
+                ),
               ),
             ),
           ),

@@ -45,6 +45,7 @@ dependencies:
   flutter_secure_storage: ^4.2.1
   matrix4_transform: ^2.0.1
   action_cable: ^1.2.0
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:
