@@ -5,6 +5,7 @@ class GameState with _$GameState {
   const GameState._();
 
   const factory GameState.waiting(
+      int gameId,
     int adminId,
     int playerCount,
     List<int> players,
@@ -19,6 +20,7 @@ class GameState with _$GameState {
   ) = Waiting;
 
   const factory GameState.pickCandidates(
+      int gameId,
     int adminId,
     int playerCount,
     List<int> players,
@@ -33,6 +35,7 @@ class GameState with _$GameState {
   ) = PickCandidates;
 
   const factory GameState.voteForCandidates(
+      int gameId,
     int adminId,
     int playerCount,
     List<int> players,
@@ -47,6 +50,7 @@ class GameState with _$GameState {
   ) = VoteForCandidates;
 
   const factory GameState.voteForCandidatesRevealed(
+      int gameId,
     int adminId,
     int playerCount,
     List<int> players,
@@ -61,6 +65,7 @@ class GameState with _$GameState {
   ) = VoteForCandidatesRevealed;
 
   const factory GameState.voteForResult(
+      int gameId,
     int adminId,
     int playerCount,
     List<int> players,
@@ -75,6 +80,7 @@ class GameState with _$GameState {
   ) = VoteForResult;
 
   const factory GameState.voteForResultRevealed(
+      int gameId,
     int adminId,
     int playerCount,
     List<int> players,
@@ -89,6 +95,7 @@ class GameState with _$GameState {
   ) = VoteForResultRevealed;
 
   const factory GameState.pickPlayerForMurder(
+      int gameId,
     int adminId,
     int playerCount,
     List<int> players,
@@ -103,6 +110,7 @@ class GameState with _$GameState {
   ) = PickPlayerForMurder;
 
   const factory GameState.badFinal(
+      int gameId,
     int adminId,
     int playerCount,
     List<int> players,
@@ -117,6 +125,7 @@ class GameState with _$GameState {
   ) = BadFinal;
 
   const factory GameState.goodFinal(
+      int gameId,
     int adminId,
     int playerCount,
     List<int> players,

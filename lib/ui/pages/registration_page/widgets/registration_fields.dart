@@ -21,6 +21,7 @@ class EmailField extends StatelessWidget {
         TextField(
           style: AppTextStyles.inputTextStyle,
           decoration: AppInputStyles.defaultInputDecoration,
+
           onChanged: (value) {
             context.read<RegistrationData>().email = value;
           },

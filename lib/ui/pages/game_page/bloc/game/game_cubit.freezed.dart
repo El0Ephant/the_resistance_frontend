@@ -43,6 +43,7 @@ GameState _$GameStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GameState {
+  int get gameId => throw _privateConstructorUsedError;
   int get adminId => throw _privateConstructorUsedError;
   int get playerCount => throw _privateConstructorUsedError;
   List<int> get players => throw _privateConstructorUsedError;
@@ -58,6 +59,7 @@ mixin _$GameState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -71,6 +73,7 @@ mixin _$GameState {
             int? murderedId)
         waiting,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -84,6 +87,7 @@ mixin _$GameState {
             int? murderedId)
         pickCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -97,6 +101,7 @@ mixin _$GameState {
             int? murderedId)
         voteForCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -110,6 +115,7 @@ mixin _$GameState {
             int? murderedId)
         voteForCandidatesRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -123,6 +129,7 @@ mixin _$GameState {
             int? murderedId)
         voteForResult,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -136,6 +143,7 @@ mixin _$GameState {
             int? murderedId)
         voteForResultRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -149,6 +157,7 @@ mixin _$GameState {
             int? murderedId)
         pickPlayerForMurder,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -162,6 +171,7 @@ mixin _$GameState {
             int? murderedId)
         badFinal,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -179,6 +189,7 @@ mixin _$GameState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -192,6 +203,7 @@ mixin _$GameState {
             int? murderedId)?
         waiting,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -205,6 +217,7 @@ mixin _$GameState {
             int? murderedId)?
         pickCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -218,6 +231,7 @@ mixin _$GameState {
             int? murderedId)?
         voteForCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -231,6 +245,7 @@ mixin _$GameState {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -244,6 +259,7 @@ mixin _$GameState {
             int? murderedId)?
         voteForResult,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -257,6 +273,7 @@ mixin _$GameState {
             int? murderedId)?
         voteForResultRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -270,6 +287,7 @@ mixin _$GameState {
             int? murderedId)?
         pickPlayerForMurder,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -283,6 +301,7 @@ mixin _$GameState {
             int? murderedId)?
         badFinal,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -300,6 +319,7 @@ mixin _$GameState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -313,6 +333,7 @@ mixin _$GameState {
             int? murderedId)?
         waiting,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -326,6 +347,7 @@ mixin _$GameState {
             int? murderedId)?
         pickCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -339,6 +361,7 @@ mixin _$GameState {
             int? murderedId)?
         voteForCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -352,6 +375,7 @@ mixin _$GameState {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -365,6 +389,7 @@ mixin _$GameState {
             int? murderedId)?
         voteForResult,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -378,6 +403,7 @@ mixin _$GameState {
             int? murderedId)?
         voteForResultRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -391,6 +417,7 @@ mixin _$GameState {
             int? murderedId)?
         pickPlayerForMurder,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -404,6 +431,7 @@ mixin _$GameState {
             int? murderedId)?
         badFinal,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -475,7 +503,8 @@ abstract class $GameStateCopyWith<$Res> {
       _$GameStateCopyWithImpl<$Res, GameState>;
   @useResult
   $Res call(
-      {int adminId,
+      {int gameId,
+      int adminId,
       int playerCount,
       List<int> players,
       List<Object> missions,
@@ -501,6 +530,7 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? gameId = null,
     Object? adminId = null,
     Object? playerCount = null,
     Object? players = null,
@@ -514,6 +544,10 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
     Object? murderedId = freezed,
   }) {
     return _then(_value.copyWith(
+      gameId: null == gameId
+          ? _value.gameId
+          : gameId // ignore: cast_nullable_to_non_nullable
+              as int,
       adminId: null == adminId
           ? _value.adminId
           : adminId // ignore: cast_nullable_to_non_nullable
@@ -569,7 +603,8 @@ abstract class _$$WaitingCopyWith<$Res> implements $GameStateCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int adminId,
+      {int gameId,
+      int adminId,
       int playerCount,
       List<int> players,
       List<Object> missions,
@@ -592,6 +627,7 @@ class __$$WaitingCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? gameId = null,
     Object? adminId = null,
     Object? playerCount = null,
     Object? players = null,
@@ -605,6 +641,10 @@ class __$$WaitingCopyWithImpl<$Res>
     Object? murderedId = freezed,
   }) {
     return _then(_$Waiting(
+      null == gameId
+          ? _value.gameId
+          : gameId // ignore: cast_nullable_to_non_nullable
+              as int,
       null == adminId
           ? _value.adminId
           : adminId // ignore: cast_nullable_to_non_nullable
@@ -657,6 +697,7 @@ class __$$WaitingCopyWithImpl<$Res>
 @JsonSerializable()
 class _$Waiting extends Waiting {
   const _$Waiting(
+      this.gameId,
       this.adminId,
       this.playerCount,
       final List<int> players,
@@ -680,6 +721,8 @@ class _$Waiting extends Waiting {
   factory _$Waiting.fromJson(Map<String, dynamic> json) =>
       _$$WaitingFromJson(json);
 
+  @override
+  final int gameId;
   @override
   final int adminId;
   @override
@@ -742,6 +785,7 @@ class _$Waiting extends Waiting {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$Waiting &&
+            (identical(other.gameId, gameId) || other.gameId == gameId) &&
             (identical(other.adminId, adminId) || other.adminId == adminId) &&
             (identical(other.playerCount, playerCount) ||
                 other.playerCount == playerCount) &&
@@ -767,6 +811,7 @@ class _$Waiting extends Waiting {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      gameId,
       adminId,
       playerCount,
       const DeepCollectionEquality().hash(_players),
@@ -789,6 +834,7 @@ class _$Waiting extends Waiting {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -802,6 +848,7 @@ class _$Waiting extends Waiting {
             int? murderedId)
         waiting,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -815,6 +862,7 @@ class _$Waiting extends Waiting {
             int? murderedId)
         pickCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -828,6 +876,7 @@ class _$Waiting extends Waiting {
             int? murderedId)
         voteForCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -841,6 +890,7 @@ class _$Waiting extends Waiting {
             int? murderedId)
         voteForCandidatesRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -854,6 +904,7 @@ class _$Waiting extends Waiting {
             int? murderedId)
         voteForResult,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -867,6 +918,7 @@ class _$Waiting extends Waiting {
             int? murderedId)
         voteForResultRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -880,6 +932,7 @@ class _$Waiting extends Waiting {
             int? murderedId)
         pickPlayerForMurder,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -893,6 +946,7 @@ class _$Waiting extends Waiting {
             int? murderedId)
         badFinal,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -907,6 +961,7 @@ class _$Waiting extends Waiting {
         goodFinal,
   }) {
     return waiting(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -924,6 +979,7 @@ class _$Waiting extends Waiting {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -937,6 +993,7 @@ class _$Waiting extends Waiting {
             int? murderedId)?
         waiting,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -950,6 +1007,7 @@ class _$Waiting extends Waiting {
             int? murderedId)?
         pickCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -963,6 +1021,7 @@ class _$Waiting extends Waiting {
             int? murderedId)?
         voteForCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -976,6 +1035,7 @@ class _$Waiting extends Waiting {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -989,6 +1049,7 @@ class _$Waiting extends Waiting {
             int? murderedId)?
         voteForResult,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1002,6 +1063,7 @@ class _$Waiting extends Waiting {
             int? murderedId)?
         voteForResultRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1015,6 +1077,7 @@ class _$Waiting extends Waiting {
             int? murderedId)?
         pickPlayerForMurder,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1028,6 +1091,7 @@ class _$Waiting extends Waiting {
             int? murderedId)?
         badFinal,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1042,6 +1106,7 @@ class _$Waiting extends Waiting {
         goodFinal,
   }) {
     return waiting?.call(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -1059,6 +1124,7 @@ class _$Waiting extends Waiting {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1072,6 +1138,7 @@ class _$Waiting extends Waiting {
             int? murderedId)?
         waiting,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1085,6 +1152,7 @@ class _$Waiting extends Waiting {
             int? murderedId)?
         pickCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1098,6 +1166,7 @@ class _$Waiting extends Waiting {
             int? murderedId)?
         voteForCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1111,6 +1180,7 @@ class _$Waiting extends Waiting {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1124,6 +1194,7 @@ class _$Waiting extends Waiting {
             int? murderedId)?
         voteForResult,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1137,6 +1208,7 @@ class _$Waiting extends Waiting {
             int? murderedId)?
         voteForResultRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1150,6 +1222,7 @@ class _$Waiting extends Waiting {
             int? murderedId)?
         pickPlayerForMurder,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1163,6 +1236,7 @@ class _$Waiting extends Waiting {
             int? murderedId)?
         badFinal,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1179,6 +1253,7 @@ class _$Waiting extends Waiting {
   }) {
     if (waiting != null) {
       return waiting(
+          gameId,
           adminId,
           playerCount,
           players,
@@ -1260,6 +1335,7 @@ class _$Waiting extends Waiting {
 
 abstract class Waiting extends GameState {
   const factory Waiting(
+      final int gameId,
       final int adminId,
       final int playerCount,
       final List<int> players,
@@ -1275,6 +1351,8 @@ abstract class Waiting extends GameState {
 
   factory Waiting.fromJson(Map<String, dynamic> json) = _$Waiting.fromJson;
 
+  @override
+  int get gameId;
   @override
   int get adminId;
   @override
@@ -1312,7 +1390,8 @@ abstract class _$$PickCandidatesCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int adminId,
+      {int gameId,
+      int adminId,
       int playerCount,
       List<int> players,
       List<Object> missions,
@@ -1336,6 +1415,7 @@ class __$$PickCandidatesCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? gameId = null,
     Object? adminId = null,
     Object? playerCount = null,
     Object? players = null,
@@ -1349,6 +1429,10 @@ class __$$PickCandidatesCopyWithImpl<$Res>
     Object? murderedId = freezed,
   }) {
     return _then(_$PickCandidates(
+      null == gameId
+          ? _value.gameId
+          : gameId // ignore: cast_nullable_to_non_nullable
+              as int,
       null == adminId
           ? _value.adminId
           : adminId // ignore: cast_nullable_to_non_nullable
@@ -1401,6 +1485,7 @@ class __$$PickCandidatesCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PickCandidates extends PickCandidates {
   const _$PickCandidates(
+      this.gameId,
       this.adminId,
       this.playerCount,
       final List<int> players,
@@ -1424,6 +1509,8 @@ class _$PickCandidates extends PickCandidates {
   factory _$PickCandidates.fromJson(Map<String, dynamic> json) =>
       _$$PickCandidatesFromJson(json);
 
+  @override
+  final int gameId;
   @override
   final int adminId;
   @override
@@ -1486,6 +1573,7 @@ class _$PickCandidates extends PickCandidates {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PickCandidates &&
+            (identical(other.gameId, gameId) || other.gameId == gameId) &&
             (identical(other.adminId, adminId) || other.adminId == adminId) &&
             (identical(other.playerCount, playerCount) ||
                 other.playerCount == playerCount) &&
@@ -1511,6 +1599,7 @@ class _$PickCandidates extends PickCandidates {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      gameId,
       adminId,
       playerCount,
       const DeepCollectionEquality().hash(_players),
@@ -1533,6 +1622,7 @@ class _$PickCandidates extends PickCandidates {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1546,6 +1636,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)
         waiting,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1559,6 +1650,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)
         pickCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1572,6 +1664,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)
         voteForCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1585,6 +1678,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)
         voteForCandidatesRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1598,6 +1692,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)
         voteForResult,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1611,6 +1706,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)
         voteForResultRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1624,6 +1720,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)
         pickPlayerForMurder,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1637,6 +1734,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)
         badFinal,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1651,6 +1749,7 @@ class _$PickCandidates extends PickCandidates {
         goodFinal,
   }) {
     return pickCandidates(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -1668,6 +1767,7 @@ class _$PickCandidates extends PickCandidates {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1681,6 +1781,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)?
         waiting,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1694,6 +1795,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)?
         pickCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1707,6 +1809,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)?
         voteForCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1720,6 +1823,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1733,6 +1837,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)?
         voteForResult,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1746,6 +1851,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)?
         voteForResultRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1759,6 +1865,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)?
         pickPlayerForMurder,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1772,6 +1879,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)?
         badFinal,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1786,6 +1894,7 @@ class _$PickCandidates extends PickCandidates {
         goodFinal,
   }) {
     return pickCandidates?.call(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -1803,6 +1912,7 @@ class _$PickCandidates extends PickCandidates {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1816,6 +1926,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)?
         waiting,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1829,6 +1940,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)?
         pickCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1842,6 +1954,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)?
         voteForCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1855,6 +1968,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1868,6 +1982,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)?
         voteForResult,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1881,6 +1996,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)?
         voteForResultRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1894,6 +2010,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)?
         pickPlayerForMurder,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1907,6 +2024,7 @@ class _$PickCandidates extends PickCandidates {
             int? murderedId)?
         badFinal,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -1923,6 +2041,7 @@ class _$PickCandidates extends PickCandidates {
   }) {
     if (pickCandidates != null) {
       return pickCandidates(
+          gameId,
           adminId,
           playerCount,
           players,
@@ -2004,6 +2123,7 @@ class _$PickCandidates extends PickCandidates {
 
 abstract class PickCandidates extends GameState {
   const factory PickCandidates(
+      final int gameId,
       final int adminId,
       final int playerCount,
       final List<int> players,
@@ -2020,6 +2140,8 @@ abstract class PickCandidates extends GameState {
   factory PickCandidates.fromJson(Map<String, dynamic> json) =
       _$PickCandidates.fromJson;
 
+  @override
+  int get gameId;
   @override
   int get adminId;
   @override
@@ -2057,7 +2179,8 @@ abstract class _$$VoteForCandidatesCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int adminId,
+      {int gameId,
+      int adminId,
       int playerCount,
       List<int> players,
       List<Object> missions,
@@ -2081,6 +2204,7 @@ class __$$VoteForCandidatesCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? gameId = null,
     Object? adminId = null,
     Object? playerCount = null,
     Object? players = null,
@@ -2094,6 +2218,10 @@ class __$$VoteForCandidatesCopyWithImpl<$Res>
     Object? murderedId = freezed,
   }) {
     return _then(_$VoteForCandidates(
+      null == gameId
+          ? _value.gameId
+          : gameId // ignore: cast_nullable_to_non_nullable
+              as int,
       null == adminId
           ? _value.adminId
           : adminId // ignore: cast_nullable_to_non_nullable
@@ -2146,6 +2274,7 @@ class __$$VoteForCandidatesCopyWithImpl<$Res>
 @JsonSerializable()
 class _$VoteForCandidates extends VoteForCandidates {
   const _$VoteForCandidates(
+      this.gameId,
       this.adminId,
       this.playerCount,
       final List<int> players,
@@ -2169,6 +2298,8 @@ class _$VoteForCandidates extends VoteForCandidates {
   factory _$VoteForCandidates.fromJson(Map<String, dynamic> json) =>
       _$$VoteForCandidatesFromJson(json);
 
+  @override
+  final int gameId;
   @override
   final int adminId;
   @override
@@ -2231,6 +2362,7 @@ class _$VoteForCandidates extends VoteForCandidates {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VoteForCandidates &&
+            (identical(other.gameId, gameId) || other.gameId == gameId) &&
             (identical(other.adminId, adminId) || other.adminId == adminId) &&
             (identical(other.playerCount, playerCount) ||
                 other.playerCount == playerCount) &&
@@ -2256,6 +2388,7 @@ class _$VoteForCandidates extends VoteForCandidates {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      gameId,
       adminId,
       playerCount,
       const DeepCollectionEquality().hash(_players),
@@ -2278,6 +2411,7 @@ class _$VoteForCandidates extends VoteForCandidates {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2291,6 +2425,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)
         waiting,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2304,6 +2439,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)
         pickCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2317,6 +2453,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)
         voteForCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2330,6 +2467,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)
         voteForCandidatesRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2343,6 +2481,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)
         voteForResult,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2356,6 +2495,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)
         voteForResultRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2369,6 +2509,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)
         pickPlayerForMurder,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2382,6 +2523,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)
         badFinal,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2396,6 +2538,7 @@ class _$VoteForCandidates extends VoteForCandidates {
         goodFinal,
   }) {
     return voteForCandidates(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -2413,6 +2556,7 @@ class _$VoteForCandidates extends VoteForCandidates {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2426,6 +2570,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)?
         waiting,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2439,6 +2584,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)?
         pickCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2452,6 +2598,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)?
         voteForCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2465,6 +2612,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2478,6 +2626,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)?
         voteForResult,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2491,6 +2640,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)?
         voteForResultRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2504,6 +2654,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)?
         pickPlayerForMurder,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2517,6 +2668,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)?
         badFinal,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2531,6 +2683,7 @@ class _$VoteForCandidates extends VoteForCandidates {
         goodFinal,
   }) {
     return voteForCandidates?.call(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -2548,6 +2701,7 @@ class _$VoteForCandidates extends VoteForCandidates {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2561,6 +2715,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)?
         waiting,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2574,6 +2729,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)?
         pickCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2587,6 +2743,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)?
         voteForCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2600,6 +2757,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2613,6 +2771,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)?
         voteForResult,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2626,6 +2785,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)?
         voteForResultRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2639,6 +2799,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)?
         pickPlayerForMurder,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2652,6 +2813,7 @@ class _$VoteForCandidates extends VoteForCandidates {
             int? murderedId)?
         badFinal,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -2668,6 +2830,7 @@ class _$VoteForCandidates extends VoteForCandidates {
   }) {
     if (voteForCandidates != null) {
       return voteForCandidates(
+          gameId,
           adminId,
           playerCount,
           players,
@@ -2749,6 +2912,7 @@ class _$VoteForCandidates extends VoteForCandidates {
 
 abstract class VoteForCandidates extends GameState {
   const factory VoteForCandidates(
+      final int gameId,
       final int adminId,
       final int playerCount,
       final List<int> players,
@@ -2765,6 +2929,8 @@ abstract class VoteForCandidates extends GameState {
   factory VoteForCandidates.fromJson(Map<String, dynamic> json) =
       _$VoteForCandidates.fromJson;
 
+  @override
+  int get gameId;
   @override
   int get adminId;
   @override
@@ -2803,7 +2969,8 @@ abstract class _$$VoteForCandidatesRevealedCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int adminId,
+      {int gameId,
+      int adminId,
       int playerCount,
       List<int> players,
       List<Object> missions,
@@ -2827,6 +2994,7 @@ class __$$VoteForCandidatesRevealedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? gameId = null,
     Object? adminId = null,
     Object? playerCount = null,
     Object? players = null,
@@ -2840,6 +3008,10 @@ class __$$VoteForCandidatesRevealedCopyWithImpl<$Res>
     Object? murderedId = freezed,
   }) {
     return _then(_$VoteForCandidatesRevealed(
+      null == gameId
+          ? _value.gameId
+          : gameId // ignore: cast_nullable_to_non_nullable
+              as int,
       null == adminId
           ? _value.adminId
           : adminId // ignore: cast_nullable_to_non_nullable
@@ -2892,6 +3064,7 @@ class __$$VoteForCandidatesRevealedCopyWithImpl<$Res>
 @JsonSerializable()
 class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
   const _$VoteForCandidatesRevealed(
+      this.gameId,
       this.adminId,
       this.playerCount,
       final List<int> players,
@@ -2915,6 +3088,8 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
   factory _$VoteForCandidatesRevealed.fromJson(Map<String, dynamic> json) =>
       _$$VoteForCandidatesRevealedFromJson(json);
 
+  @override
+  final int gameId;
   @override
   final int adminId;
   @override
@@ -2977,6 +3152,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VoteForCandidatesRevealed &&
+            (identical(other.gameId, gameId) || other.gameId == gameId) &&
             (identical(other.adminId, adminId) || other.adminId == adminId) &&
             (identical(other.playerCount, playerCount) ||
                 other.playerCount == playerCount) &&
@@ -3002,6 +3178,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      gameId,
       adminId,
       playerCount,
       const DeepCollectionEquality().hash(_players),
@@ -3025,6 +3202,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3038,6 +3216,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)
         waiting,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3051,6 +3230,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)
         pickCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3064,6 +3244,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)
         voteForCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3077,6 +3258,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)
         voteForCandidatesRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3090,6 +3272,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)
         voteForResult,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3103,6 +3286,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)
         voteForResultRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3116,6 +3300,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)
         pickPlayerForMurder,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3129,6 +3314,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)
         badFinal,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3143,6 +3329,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
         goodFinal,
   }) {
     return voteForCandidatesRevealed(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -3160,6 +3347,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3173,6 +3361,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)?
         waiting,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3186,6 +3375,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)?
         pickCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3199,6 +3389,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)?
         voteForCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3212,6 +3403,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3225,6 +3417,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)?
         voteForResult,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3238,6 +3431,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)?
         voteForResultRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3251,6 +3445,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)?
         pickPlayerForMurder,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3264,6 +3459,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)?
         badFinal,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3278,6 +3474,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
         goodFinal,
   }) {
     return voteForCandidatesRevealed?.call(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -3295,6 +3492,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3308,6 +3506,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)?
         waiting,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3321,6 +3520,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)?
         pickCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3334,6 +3534,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)?
         voteForCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3347,6 +3548,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3360,6 +3562,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)?
         voteForResult,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3373,6 +3576,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)?
         voteForResultRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3386,6 +3590,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)?
         pickPlayerForMurder,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3399,6 +3604,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             int? murderedId)?
         badFinal,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3415,6 +3621,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
   }) {
     if (voteForCandidatesRevealed != null) {
       return voteForCandidatesRevealed(
+          gameId,
           adminId,
           playerCount,
           players,
@@ -3496,6 +3703,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
 
 abstract class VoteForCandidatesRevealed extends GameState {
   const factory VoteForCandidatesRevealed(
+      final int gameId,
       final int adminId,
       final int playerCount,
       final List<int> players,
@@ -3512,6 +3720,8 @@ abstract class VoteForCandidatesRevealed extends GameState {
   factory VoteForCandidatesRevealed.fromJson(Map<String, dynamic> json) =
       _$VoteForCandidatesRevealed.fromJson;
 
+  @override
+  int get gameId;
   @override
   int get adminId;
   @override
@@ -3549,7 +3759,8 @@ abstract class _$$VoteForResultCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int adminId,
+      {int gameId,
+      int adminId,
       int playerCount,
       List<int> players,
       List<Object> missions,
@@ -3573,6 +3784,7 @@ class __$$VoteForResultCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? gameId = null,
     Object? adminId = null,
     Object? playerCount = null,
     Object? players = null,
@@ -3586,6 +3798,10 @@ class __$$VoteForResultCopyWithImpl<$Res>
     Object? murderedId = freezed,
   }) {
     return _then(_$VoteForResult(
+      null == gameId
+          ? _value.gameId
+          : gameId // ignore: cast_nullable_to_non_nullable
+              as int,
       null == adminId
           ? _value.adminId
           : adminId // ignore: cast_nullable_to_non_nullable
@@ -3638,6 +3854,7 @@ class __$$VoteForResultCopyWithImpl<$Res>
 @JsonSerializable()
 class _$VoteForResult extends VoteForResult {
   const _$VoteForResult(
+      this.gameId,
       this.adminId,
       this.playerCount,
       final List<int> players,
@@ -3661,6 +3878,8 @@ class _$VoteForResult extends VoteForResult {
   factory _$VoteForResult.fromJson(Map<String, dynamic> json) =>
       _$$VoteForResultFromJson(json);
 
+  @override
+  final int gameId;
   @override
   final int adminId;
   @override
@@ -3723,6 +3942,7 @@ class _$VoteForResult extends VoteForResult {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VoteForResult &&
+            (identical(other.gameId, gameId) || other.gameId == gameId) &&
             (identical(other.adminId, adminId) || other.adminId == adminId) &&
             (identical(other.playerCount, playerCount) ||
                 other.playerCount == playerCount) &&
@@ -3748,6 +3968,7 @@ class _$VoteForResult extends VoteForResult {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      gameId,
       adminId,
       playerCount,
       const DeepCollectionEquality().hash(_players),
@@ -3770,6 +3991,7 @@ class _$VoteForResult extends VoteForResult {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3783,6 +4005,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)
         waiting,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3796,6 +4019,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)
         pickCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3809,6 +4033,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)
         voteForCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3822,6 +4047,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)
         voteForCandidatesRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3835,6 +4061,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)
         voteForResult,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3848,6 +4075,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)
         voteForResultRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3861,6 +4089,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)
         pickPlayerForMurder,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3874,6 +4103,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)
         badFinal,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3888,6 +4118,7 @@ class _$VoteForResult extends VoteForResult {
         goodFinal,
   }) {
     return voteForResult(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -3905,6 +4136,7 @@ class _$VoteForResult extends VoteForResult {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3918,6 +4150,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)?
         waiting,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3931,6 +4164,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)?
         pickCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3944,6 +4178,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)?
         voteForCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3957,6 +4192,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3970,6 +4206,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)?
         voteForResult,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3983,6 +4220,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)?
         voteForResultRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -3996,6 +4234,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)?
         pickPlayerForMurder,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4009,6 +4248,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)?
         badFinal,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4023,6 +4263,7 @@ class _$VoteForResult extends VoteForResult {
         goodFinal,
   }) {
     return voteForResult?.call(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -4040,6 +4281,7 @@ class _$VoteForResult extends VoteForResult {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4053,6 +4295,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)?
         waiting,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4066,6 +4309,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)?
         pickCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4079,6 +4323,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)?
         voteForCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4092,6 +4337,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4105,6 +4351,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)?
         voteForResult,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4118,6 +4365,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)?
         voteForResultRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4131,6 +4379,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)?
         pickPlayerForMurder,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4144,6 +4393,7 @@ class _$VoteForResult extends VoteForResult {
             int? murderedId)?
         badFinal,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4160,6 +4410,7 @@ class _$VoteForResult extends VoteForResult {
   }) {
     if (voteForResult != null) {
       return voteForResult(
+          gameId,
           adminId,
           playerCount,
           players,
@@ -4241,6 +4492,7 @@ class _$VoteForResult extends VoteForResult {
 
 abstract class VoteForResult extends GameState {
   const factory VoteForResult(
+      final int gameId,
       final int adminId,
       final int playerCount,
       final List<int> players,
@@ -4257,6 +4509,8 @@ abstract class VoteForResult extends GameState {
   factory VoteForResult.fromJson(Map<String, dynamic> json) =
       _$VoteForResult.fromJson;
 
+  @override
+  int get gameId;
   @override
   int get adminId;
   @override
@@ -4294,7 +4548,8 @@ abstract class _$$VoteForResultRevealedCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int adminId,
+      {int gameId,
+      int adminId,
       int playerCount,
       List<int> players,
       List<Object> missions,
@@ -4318,6 +4573,7 @@ class __$$VoteForResultRevealedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? gameId = null,
     Object? adminId = null,
     Object? playerCount = null,
     Object? players = null,
@@ -4331,6 +4587,10 @@ class __$$VoteForResultRevealedCopyWithImpl<$Res>
     Object? murderedId = freezed,
   }) {
     return _then(_$VoteForResultRevealed(
+      null == gameId
+          ? _value.gameId
+          : gameId // ignore: cast_nullable_to_non_nullable
+              as int,
       null == adminId
           ? _value.adminId
           : adminId // ignore: cast_nullable_to_non_nullable
@@ -4383,6 +4643,7 @@ class __$$VoteForResultRevealedCopyWithImpl<$Res>
 @JsonSerializable()
 class _$VoteForResultRevealed extends VoteForResultRevealed {
   const _$VoteForResultRevealed(
+      this.gameId,
       this.adminId,
       this.playerCount,
       final List<int> players,
@@ -4406,6 +4667,8 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
   factory _$VoteForResultRevealed.fromJson(Map<String, dynamic> json) =>
       _$$VoteForResultRevealedFromJson(json);
 
+  @override
+  final int gameId;
   @override
   final int adminId;
   @override
@@ -4468,6 +4731,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VoteForResultRevealed &&
+            (identical(other.gameId, gameId) || other.gameId == gameId) &&
             (identical(other.adminId, adminId) || other.adminId == adminId) &&
             (identical(other.playerCount, playerCount) ||
                 other.playerCount == playerCount) &&
@@ -4493,6 +4757,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      gameId,
       adminId,
       playerCount,
       const DeepCollectionEquality().hash(_players),
@@ -4516,6 +4781,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4529,6 +4795,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)
         waiting,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4542,6 +4809,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)
         pickCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4555,6 +4823,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)
         voteForCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4568,6 +4837,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)
         voteForCandidatesRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4581,6 +4851,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)
         voteForResult,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4594,6 +4865,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)
         voteForResultRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4607,6 +4879,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)
         pickPlayerForMurder,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4620,6 +4893,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)
         badFinal,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4634,6 +4908,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
         goodFinal,
   }) {
     return voteForResultRevealed(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -4651,6 +4926,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4664,6 +4940,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)?
         waiting,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4677,6 +4954,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)?
         pickCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4690,6 +4968,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)?
         voteForCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4703,6 +4982,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4716,6 +4996,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)?
         voteForResult,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4729,6 +5010,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)?
         voteForResultRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4742,6 +5024,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)?
         pickPlayerForMurder,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4755,6 +5038,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)?
         badFinal,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4769,6 +5053,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
         goodFinal,
   }) {
     return voteForResultRevealed?.call(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -4786,6 +5071,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4799,6 +5085,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)?
         waiting,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4812,6 +5099,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)?
         pickCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4825,6 +5113,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)?
         voteForCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4838,6 +5127,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4851,6 +5141,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)?
         voteForResult,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4864,6 +5155,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)?
         voteForResultRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4877,6 +5169,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)?
         pickPlayerForMurder,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4890,6 +5183,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             int? murderedId)?
         badFinal,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -4906,6 +5200,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
   }) {
     if (voteForResultRevealed != null) {
       return voteForResultRevealed(
+          gameId,
           adminId,
           playerCount,
           players,
@@ -4987,6 +5282,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
 
 abstract class VoteForResultRevealed extends GameState {
   const factory VoteForResultRevealed(
+      final int gameId,
       final int adminId,
       final int playerCount,
       final List<int> players,
@@ -5003,6 +5299,8 @@ abstract class VoteForResultRevealed extends GameState {
   factory VoteForResultRevealed.fromJson(Map<String, dynamic> json) =
       _$VoteForResultRevealed.fromJson;
 
+  @override
+  int get gameId;
   @override
   int get adminId;
   @override
@@ -5040,7 +5338,8 @@ abstract class _$$PickPlayerForMurderCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int adminId,
+      {int gameId,
+      int adminId,
       int playerCount,
       List<int> players,
       List<Object> missions,
@@ -5064,6 +5363,7 @@ class __$$PickPlayerForMurderCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? gameId = null,
     Object? adminId = null,
     Object? playerCount = null,
     Object? players = null,
@@ -5077,6 +5377,10 @@ class __$$PickPlayerForMurderCopyWithImpl<$Res>
     Object? murderedId = freezed,
   }) {
     return _then(_$PickPlayerForMurder(
+      null == gameId
+          ? _value.gameId
+          : gameId // ignore: cast_nullable_to_non_nullable
+              as int,
       null == adminId
           ? _value.adminId
           : adminId // ignore: cast_nullable_to_non_nullable
@@ -5129,6 +5433,7 @@ class __$$PickPlayerForMurderCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PickPlayerForMurder extends PickPlayerForMurder {
   const _$PickPlayerForMurder(
+      this.gameId,
       this.adminId,
       this.playerCount,
       final List<int> players,
@@ -5152,6 +5457,8 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
   factory _$PickPlayerForMurder.fromJson(Map<String, dynamic> json) =>
       _$$PickPlayerForMurderFromJson(json);
 
+  @override
+  final int gameId;
   @override
   final int adminId;
   @override
@@ -5214,6 +5521,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PickPlayerForMurder &&
+            (identical(other.gameId, gameId) || other.gameId == gameId) &&
             (identical(other.adminId, adminId) || other.adminId == adminId) &&
             (identical(other.playerCount, playerCount) ||
                 other.playerCount == playerCount) &&
@@ -5239,6 +5547,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      gameId,
       adminId,
       playerCount,
       const DeepCollectionEquality().hash(_players),
@@ -5262,6 +5571,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5275,6 +5585,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)
         waiting,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5288,6 +5599,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)
         pickCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5301,6 +5613,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)
         voteForCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5314,6 +5627,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)
         voteForCandidatesRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5327,6 +5641,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)
         voteForResult,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5340,6 +5655,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)
         voteForResultRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5353,6 +5669,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)
         pickPlayerForMurder,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5366,6 +5683,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)
         badFinal,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5380,6 +5698,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
         goodFinal,
   }) {
     return pickPlayerForMurder(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -5397,6 +5716,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5410,6 +5730,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)?
         waiting,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5423,6 +5744,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)?
         pickCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5436,6 +5758,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)?
         voteForCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5449,6 +5772,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5462,6 +5786,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)?
         voteForResult,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5475,6 +5800,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)?
         voteForResultRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5488,6 +5814,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)?
         pickPlayerForMurder,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5501,6 +5828,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)?
         badFinal,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5515,6 +5843,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
         goodFinal,
   }) {
     return pickPlayerForMurder?.call(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -5532,6 +5861,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5545,6 +5875,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)?
         waiting,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5558,6 +5889,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)?
         pickCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5571,6 +5903,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)?
         voteForCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5584,6 +5917,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5597,6 +5931,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)?
         voteForResult,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5610,6 +5945,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)?
         voteForResultRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5623,6 +5959,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)?
         pickPlayerForMurder,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5636,6 +5973,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             int? murderedId)?
         badFinal,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -5652,6 +5990,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
   }) {
     if (pickPlayerForMurder != null) {
       return pickPlayerForMurder(
+          gameId,
           adminId,
           playerCount,
           players,
@@ -5733,6 +6072,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
 
 abstract class PickPlayerForMurder extends GameState {
   const factory PickPlayerForMurder(
+      final int gameId,
       final int adminId,
       final int playerCount,
       final List<int> players,
@@ -5749,6 +6089,8 @@ abstract class PickPlayerForMurder extends GameState {
   factory PickPlayerForMurder.fromJson(Map<String, dynamic> json) =
       _$PickPlayerForMurder.fromJson;
 
+  @override
+  int get gameId;
   @override
   int get adminId;
   @override
@@ -5785,7 +6127,8 @@ abstract class _$$BadFinalCopyWith<$Res> implements $GameStateCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int adminId,
+      {int gameId,
+      int adminId,
       int playerCount,
       List<int> players,
       List<Object> missions,
@@ -5808,6 +6151,7 @@ class __$$BadFinalCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? gameId = null,
     Object? adminId = null,
     Object? playerCount = null,
     Object? players = null,
@@ -5821,6 +6165,10 @@ class __$$BadFinalCopyWithImpl<$Res>
     Object? murderedId = freezed,
   }) {
     return _then(_$BadFinal(
+      null == gameId
+          ? _value.gameId
+          : gameId // ignore: cast_nullable_to_non_nullable
+              as int,
       null == adminId
           ? _value.adminId
           : adminId // ignore: cast_nullable_to_non_nullable
@@ -5873,6 +6221,7 @@ class __$$BadFinalCopyWithImpl<$Res>
 @JsonSerializable()
 class _$BadFinal extends BadFinal {
   const _$BadFinal(
+      this.gameId,
       this.adminId,
       this.playerCount,
       final List<int> players,
@@ -5896,6 +6245,8 @@ class _$BadFinal extends BadFinal {
   factory _$BadFinal.fromJson(Map<String, dynamic> json) =>
       _$$BadFinalFromJson(json);
 
+  @override
+  final int gameId;
   @override
   final int adminId;
   @override
@@ -5958,6 +6309,7 @@ class _$BadFinal extends BadFinal {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BadFinal &&
+            (identical(other.gameId, gameId) || other.gameId == gameId) &&
             (identical(other.adminId, adminId) || other.adminId == adminId) &&
             (identical(other.playerCount, playerCount) ||
                 other.playerCount == playerCount) &&
@@ -5983,6 +6335,7 @@ class _$BadFinal extends BadFinal {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      gameId,
       adminId,
       playerCount,
       const DeepCollectionEquality().hash(_players),
@@ -6005,6 +6358,7 @@ class _$BadFinal extends BadFinal {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6018,6 +6372,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)
         waiting,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6031,6 +6386,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)
         pickCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6044,6 +6400,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)
         voteForCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6057,6 +6414,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)
         voteForCandidatesRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6070,6 +6428,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)
         voteForResult,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6083,6 +6442,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)
         voteForResultRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6096,6 +6456,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)
         pickPlayerForMurder,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6109,6 +6470,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)
         badFinal,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6123,6 +6485,7 @@ class _$BadFinal extends BadFinal {
         goodFinal,
   }) {
     return badFinal(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -6140,6 +6503,7 @@ class _$BadFinal extends BadFinal {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6153,6 +6517,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)?
         waiting,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6166,6 +6531,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)?
         pickCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6179,6 +6545,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)?
         voteForCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6192,6 +6559,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6205,6 +6573,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)?
         voteForResult,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6218,6 +6587,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)?
         voteForResultRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6231,6 +6601,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)?
         pickPlayerForMurder,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6244,6 +6615,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)?
         badFinal,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6258,6 +6630,7 @@ class _$BadFinal extends BadFinal {
         goodFinal,
   }) {
     return badFinal?.call(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -6275,6 +6648,7 @@ class _$BadFinal extends BadFinal {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6288,6 +6662,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)?
         waiting,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6301,6 +6676,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)?
         pickCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6314,6 +6690,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)?
         voteForCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6327,6 +6704,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6340,6 +6718,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)?
         voteForResult,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6353,6 +6732,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)?
         voteForResultRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6366,6 +6746,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)?
         pickPlayerForMurder,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6379,6 +6760,7 @@ class _$BadFinal extends BadFinal {
             int? murderedId)?
         badFinal,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6395,6 +6777,7 @@ class _$BadFinal extends BadFinal {
   }) {
     if (badFinal != null) {
       return badFinal(
+          gameId,
           adminId,
           playerCount,
           players,
@@ -6476,6 +6859,7 @@ class _$BadFinal extends BadFinal {
 
 abstract class BadFinal extends GameState {
   const factory BadFinal(
+      final int gameId,
       final int adminId,
       final int playerCount,
       final List<int> players,
@@ -6491,6 +6875,8 @@ abstract class BadFinal extends GameState {
 
   factory BadFinal.fromJson(Map<String, dynamic> json) = _$BadFinal.fromJson;
 
+  @override
+  int get gameId;
   @override
   int get adminId;
   @override
@@ -6527,7 +6913,8 @@ abstract class _$$GoodFinalCopyWith<$Res> implements $GameStateCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int adminId,
+      {int gameId,
+      int adminId,
       int playerCount,
       List<int> players,
       List<Object> missions,
@@ -6551,6 +6938,7 @@ class __$$GoodFinalCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? gameId = null,
     Object? adminId = null,
     Object? playerCount = null,
     Object? players = null,
@@ -6564,6 +6952,10 @@ class __$$GoodFinalCopyWithImpl<$Res>
     Object? murderedId = freezed,
   }) {
     return _then(_$GoodFinal(
+      null == gameId
+          ? _value.gameId
+          : gameId // ignore: cast_nullable_to_non_nullable
+              as int,
       null == adminId
           ? _value.adminId
           : adminId // ignore: cast_nullable_to_non_nullable
@@ -6616,6 +7008,7 @@ class __$$GoodFinalCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GoodFinal extends GoodFinal {
   const _$GoodFinal(
+      this.gameId,
       this.adminId,
       this.playerCount,
       final List<int> players,
@@ -6639,6 +7032,8 @@ class _$GoodFinal extends GoodFinal {
   factory _$GoodFinal.fromJson(Map<String, dynamic> json) =>
       _$$GoodFinalFromJson(json);
 
+  @override
+  final int gameId;
   @override
   final int adminId;
   @override
@@ -6701,6 +7096,7 @@ class _$GoodFinal extends GoodFinal {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GoodFinal &&
+            (identical(other.gameId, gameId) || other.gameId == gameId) &&
             (identical(other.adminId, adminId) || other.adminId == adminId) &&
             (identical(other.playerCount, playerCount) ||
                 other.playerCount == playerCount) &&
@@ -6726,6 +7122,7 @@ class _$GoodFinal extends GoodFinal {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      gameId,
       adminId,
       playerCount,
       const DeepCollectionEquality().hash(_players),
@@ -6748,6 +7145,7 @@ class _$GoodFinal extends GoodFinal {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6761,6 +7159,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)
         waiting,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6774,6 +7173,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)
         pickCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6787,6 +7187,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)
         voteForCandidates,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6800,6 +7201,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)
         voteForCandidatesRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6813,6 +7215,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)
         voteForResult,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6826,6 +7229,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)
         voteForResultRevealed,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6839,6 +7243,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)
         pickPlayerForMurder,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6852,6 +7257,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)
         badFinal,
     required TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6866,6 +7272,7 @@ class _$GoodFinal extends GoodFinal {
         goodFinal,
   }) {
     return goodFinal(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -6883,6 +7290,7 @@ class _$GoodFinal extends GoodFinal {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6896,6 +7304,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)?
         waiting,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6909,6 +7318,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)?
         pickCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6922,6 +7332,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)?
         voteForCandidates,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6935,6 +7346,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6948,6 +7360,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)?
         voteForResult,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6961,6 +7374,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)?
         voteForResultRevealed,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6974,6 +7388,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)?
         pickPlayerForMurder,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -6987,6 +7402,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)?
         badFinal,
     TResult? Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -7001,6 +7417,7 @@ class _$GoodFinal extends GoodFinal {
         goodFinal,
   }) {
     return goodFinal?.call(
+        gameId,
         adminId,
         playerCount,
         players,
@@ -7018,6 +7435,7 @@ class _$GoodFinal extends GoodFinal {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -7031,6 +7449,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)?
         waiting,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -7044,6 +7463,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)?
         pickCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -7057,6 +7477,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)?
         voteForCandidates,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -7070,6 +7491,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)?
         voteForCandidatesRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -7083,6 +7505,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)?
         voteForResult,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -7096,6 +7519,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)?
         voteForResultRevealed,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -7109,6 +7533,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)?
         pickPlayerForMurder,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -7122,6 +7547,7 @@ class _$GoodFinal extends GoodFinal {
             int? murderedId)?
         badFinal,
     TResult Function(
+            int gameId,
             int adminId,
             int playerCount,
             List<int> players,
@@ -7138,6 +7564,7 @@ class _$GoodFinal extends GoodFinal {
   }) {
     if (goodFinal != null) {
       return goodFinal(
+          gameId,
           adminId,
           playerCount,
           players,
@@ -7219,6 +7646,7 @@ class _$GoodFinal extends GoodFinal {
 
 abstract class GoodFinal extends GameState {
   const factory GoodFinal(
+      final int gameId,
       final int adminId,
       final int playerCount,
       final List<int> players,
@@ -7234,6 +7662,8 @@ abstract class GoodFinal extends GameState {
 
   factory GoodFinal.fromJson(Map<String, dynamic> json) = _$GoodFinal.fromJson;
 
+  @override
+  int get gameId;
   @override
   int get adminId;
   @override

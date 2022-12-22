@@ -7,6 +7,7 @@ part of 'game_cubit.dart';
 // **************************************************************************
 
 _$Waiting _$$WaitingFromJson(Map<String, dynamic> json) => _$Waiting(
+      json['gameId'] as int,
       json['adminId'] as int,
       json['playerCount'] as int,
       (json['players'] as List<dynamic>).map((e) => e as int).toList(),
@@ -22,6 +23,7 @@ _$Waiting _$$WaitingFromJson(Map<String, dynamic> json) => _$Waiting(
     );
 
 Map<String, dynamic> _$$WaitingToJson(_$Waiting instance) => <String, dynamic>{
+      'gameId': instance.gameId,
       'adminId': instance.adminId,
       'playerCount': instance.playerCount,
       'players': instance.players,
@@ -38,6 +40,7 @@ Map<String, dynamic> _$$WaitingToJson(_$Waiting instance) => <String, dynamic>{
 
 _$PickCandidates _$$PickCandidatesFromJson(Map<String, dynamic> json) =>
     _$PickCandidates(
+      json['gameId'] as int,
       json['adminId'] as int,
       json['playerCount'] as int,
       (json['players'] as List<dynamic>).map((e) => e as int).toList(),
@@ -54,6 +57,7 @@ _$PickCandidates _$$PickCandidatesFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$PickCandidatesToJson(_$PickCandidates instance) =>
     <String, dynamic>{
+      'gameId': instance.gameId,
       'adminId': instance.adminId,
       'playerCount': instance.playerCount,
       'players': instance.players,
@@ -70,6 +74,7 @@ Map<String, dynamic> _$$PickCandidatesToJson(_$PickCandidates instance) =>
 
 _$VoteForCandidates _$$VoteForCandidatesFromJson(Map<String, dynamic> json) =>
     _$VoteForCandidates(
+      json['gameId'] as int,
       json['adminId'] as int,
       json['playerCount'] as int,
       (json['players'] as List<dynamic>).map((e) => e as int).toList(),
@@ -86,6 +91,7 @@ _$VoteForCandidates _$$VoteForCandidatesFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$VoteForCandidatesToJson(_$VoteForCandidates instance) =>
     <String, dynamic>{
+      'gameId': instance.gameId,
       'adminId': instance.adminId,
       'playerCount': instance.playerCount,
       'players': instance.players,
@@ -103,6 +109,7 @@ Map<String, dynamic> _$$VoteForCandidatesToJson(_$VoteForCandidates instance) =>
 _$VoteForCandidatesRevealed _$$VoteForCandidatesRevealedFromJson(
         Map<String, dynamic> json) =>
     _$VoteForCandidatesRevealed(
+      json['gameId'] as int,
       json['adminId'] as int,
       json['playerCount'] as int,
       (json['players'] as List<dynamic>).map((e) => e as int).toList(),
@@ -120,6 +127,7 @@ _$VoteForCandidatesRevealed _$$VoteForCandidatesRevealedFromJson(
 Map<String, dynamic> _$$VoteForCandidatesRevealedToJson(
         _$VoteForCandidatesRevealed instance) =>
     <String, dynamic>{
+      'gameId': instance.gameId,
       'adminId': instance.adminId,
       'playerCount': instance.playerCount,
       'players': instance.players,
@@ -136,6 +144,7 @@ Map<String, dynamic> _$$VoteForCandidatesRevealedToJson(
 
 _$VoteForResult _$$VoteForResultFromJson(Map<String, dynamic> json) =>
     _$VoteForResult(
+      json['gameId'] as int,
       json['adminId'] as int,
       json['playerCount'] as int,
       (json['players'] as List<dynamic>).map((e) => e as int).toList(),
@@ -152,6 +161,7 @@ _$VoteForResult _$$VoteForResultFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$VoteForResultToJson(_$VoteForResult instance) =>
     <String, dynamic>{
+      'gameId': instance.gameId,
       'adminId': instance.adminId,
       'playerCount': instance.playerCount,
       'players': instance.players,
@@ -169,6 +179,7 @@ Map<String, dynamic> _$$VoteForResultToJson(_$VoteForResult instance) =>
 _$VoteForResultRevealed _$$VoteForResultRevealedFromJson(
         Map<String, dynamic> json) =>
     _$VoteForResultRevealed(
+      json['gameId'] as int,
       json['adminId'] as int,
       json['playerCount'] as int,
       (json['players'] as List<dynamic>).map((e) => e as int).toList(),
@@ -186,6 +197,7 @@ _$VoteForResultRevealed _$$VoteForResultRevealedFromJson(
 Map<String, dynamic> _$$VoteForResultRevealedToJson(
         _$VoteForResultRevealed instance) =>
     <String, dynamic>{
+      'gameId': instance.gameId,
       'adminId': instance.adminId,
       'playerCount': instance.playerCount,
       'players': instance.players,
@@ -203,6 +215,7 @@ Map<String, dynamic> _$$VoteForResultRevealedToJson(
 _$PickPlayerForMurder _$$PickPlayerForMurderFromJson(
         Map<String, dynamic> json) =>
     _$PickPlayerForMurder(
+      json['gameId'] as int,
       json['adminId'] as int,
       json['playerCount'] as int,
       (json['players'] as List<dynamic>).map((e) => e as int).toList(),
@@ -220,6 +233,7 @@ _$PickPlayerForMurder _$$PickPlayerForMurderFromJson(
 Map<String, dynamic> _$$PickPlayerForMurderToJson(
         _$PickPlayerForMurder instance) =>
     <String, dynamic>{
+      'gameId': instance.gameId,
       'adminId': instance.adminId,
       'playerCount': instance.playerCount,
       'players': instance.players,
@@ -235,6 +249,7 @@ Map<String, dynamic> _$$PickPlayerForMurderToJson(
     };
 
 _$BadFinal _$$BadFinalFromJson(Map<String, dynamic> json) => _$BadFinal(
+      json['gameId'] as int,
       json['adminId'] as int,
       json['playerCount'] as int,
       (json['players'] as List<dynamic>).map((e) => e as int).toList(),
@@ -251,6 +266,7 @@ _$BadFinal _$$BadFinalFromJson(Map<String, dynamic> json) => _$BadFinal(
 
 Map<String, dynamic> _$$BadFinalToJson(_$BadFinal instance) =>
     <String, dynamic>{
+      'gameId': instance.gameId,
       'adminId': instance.adminId,
       'playerCount': instance.playerCount,
       'players': instance.players,
@@ -266,6 +282,7 @@ Map<String, dynamic> _$$BadFinalToJson(_$BadFinal instance) =>
     };
 
 _$GoodFinal _$$GoodFinalFromJson(Map<String, dynamic> json) => _$GoodFinal(
+      json['gameId'] as int,
       json['adminId'] as int,
       json['playerCount'] as int,
       (json['players'] as List<dynamic>).map((e) => e as int).toList(),
@@ -282,6 +299,7 @@ _$GoodFinal _$$GoodFinalFromJson(Map<String, dynamic> json) => _$GoodFinal(
 
 Map<String, dynamic> _$$GoodFinalToJson(_$GoodFinal instance) =>
     <String, dynamic>{
+      'gameId': instance.gameId,
       'adminId': instance.adminId,
       'playerCount': instance.playerCount,
       'players': instance.players,
