@@ -20,6 +20,7 @@ class GameCubit extends Cubit<GameState> {
           const GameState.waiting(
             0,
             0,
+            0,
             [],
             [],
             0,
