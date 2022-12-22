@@ -5,10 +5,10 @@ import 'package:the_resistance/routes/router.gr.dart';
 class AuthGuard extends AutoRouteGuard {          
  @override          
  void onNavigation(NavigationResolver resolver, StackRouter router) {             
-    if(UserRepository().isAuth){               
+    if(UserRepository().isAuth){
       resolver.next(true);          
     }else{                
-      router.replaceAll(const [LoginRoute()]);
+      router.replaceAll([const LoginRoute()]);
     }              
   }          
 }          

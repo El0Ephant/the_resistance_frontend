@@ -11,4 +11,5 @@ abstract class AppColors {
   static const goodTeamColor = Color.fromARGB(255, 0, 238, 255);
   static const evilTeamColor = Colors.red;
   static const warningSnackBarColor = Color.fromARGB(255, 138, 83, 0);
+  static const black = Color.fromRGBO(0,0,0,1);
 }
