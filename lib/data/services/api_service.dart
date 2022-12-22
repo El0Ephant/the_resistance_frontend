@@ -11,7 +11,7 @@ class ApiServiceExecption implements Exception{
 enum RequestType { get, post, patch }
 
 class ApiService{
-  final _baseUrl = 'http://10.0.2.2:3000/api';
+  final _baseUrl = 'https://the-resistance-backend.onrender.com/api';
   final _tokenHeader = 'authorization';
   final contentTypeHeader = 'application/json';
   final _client = HttpClient()..connectionTimeout = const Duration(seconds: 50);

@@ -28,7 +28,7 @@ class GamePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Provider(
       create: (_) => ActionCable.Connect(
-        "ws://10.0.2.2:3000/cable",
+        "ws://the-resistance-backend.onrender.com/cable",
         headers: {
           "Authorization": UserRepository().token,
         },
@@ -100,6 +100,7 @@ class GamePage extends StatelessWidget {
                     return Scaffold(
                       backgroundColor: AppColors.backgroundColor,
                       appBar: AppBar(
+                        automaticallyImplyLeading: false,
                         backgroundColor: AppColors.backgroundColor,
                         centerTitle: true,
                         title: Text(
