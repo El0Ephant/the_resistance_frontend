@@ -1045,7 +1045,7 @@ mixin _$GameCreationState {
     required TResult Function(NewGame newGame) gameCreationSetup,
     required TResult Function(String message) gameCreationWarning,
     required TResult Function(String message) gameCreationError,
-    required TResult Function() gameCreationSuccess,
+    required TResult Function(int gameId) gameCreationSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1054,7 +1054,7 @@ mixin _$GameCreationState {
     TResult? Function(NewGame newGame)? gameCreationSetup,
     TResult? Function(String message)? gameCreationWarning,
     TResult? Function(String message)? gameCreationError,
-    TResult? Function()? gameCreationSuccess,
+    TResult? Function(int gameId)? gameCreationSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1063,7 +1063,7 @@ mixin _$GameCreationState {
     TResult Function(NewGame newGame)? gameCreationSetup,
     TResult Function(String message)? gameCreationWarning,
     TResult Function(String message)? gameCreationError,
-    TResult Function()? gameCreationSuccess,
+    TResult Function(int gameId)? gameCreationSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1166,7 +1166,7 @@ class _$GameCreationLoading
     required TResult Function(NewGame newGame) gameCreationSetup,
     required TResult Function(String message) gameCreationWarning,
     required TResult Function(String message) gameCreationError,
-    required TResult Function() gameCreationSuccess,
+    required TResult Function(int gameId) gameCreationSuccess,
   }) {
     return gameCreationLoading();
   }
@@ -1178,7 +1178,7 @@ class _$GameCreationLoading
     TResult? Function(NewGame newGame)? gameCreationSetup,
     TResult? Function(String message)? gameCreationWarning,
     TResult? Function(String message)? gameCreationError,
-    TResult? Function()? gameCreationSuccess,
+    TResult? Function(int gameId)? gameCreationSuccess,
   }) {
     return gameCreationLoading?.call();
   }
@@ -1190,7 +1190,7 @@ class _$GameCreationLoading
     TResult Function(NewGame newGame)? gameCreationSetup,
     TResult Function(String message)? gameCreationWarning,
     TResult Function(String message)? gameCreationError,
-    TResult Function()? gameCreationSuccess,
+    TResult Function(int gameId)? gameCreationSuccess,
     required TResult orElse(),
   }) {
     if (gameCreationLoading != null) {
@@ -1332,7 +1332,7 @@ class _$GameCreationSetup
     required TResult Function(NewGame newGame) gameCreationSetup,
     required TResult Function(String message) gameCreationWarning,
     required TResult Function(String message) gameCreationError,
-    required TResult Function() gameCreationSuccess,
+    required TResult Function(int gameId) gameCreationSuccess,
   }) {
     return gameCreationSetup(newGame);
   }
@@ -1344,7 +1344,7 @@ class _$GameCreationSetup
     TResult? Function(NewGame newGame)? gameCreationSetup,
     TResult? Function(String message)? gameCreationWarning,
     TResult? Function(String message)? gameCreationError,
-    TResult? Function()? gameCreationSuccess,
+    TResult? Function(int gameId)? gameCreationSuccess,
   }) {
     return gameCreationSetup?.call(newGame);
   }
@@ -1356,7 +1356,7 @@ class _$GameCreationSetup
     TResult Function(NewGame newGame)? gameCreationSetup,
     TResult Function(String message)? gameCreationWarning,
     TResult Function(String message)? gameCreationError,
-    TResult Function()? gameCreationSuccess,
+    TResult Function(int gameId)? gameCreationSuccess,
     required TResult orElse(),
   }) {
     if (gameCreationSetup != null) {
@@ -1495,7 +1495,7 @@ class _$GameCreationWarning
     required TResult Function(NewGame newGame) gameCreationSetup,
     required TResult Function(String message) gameCreationWarning,
     required TResult Function(String message) gameCreationError,
-    required TResult Function() gameCreationSuccess,
+    required TResult Function(int gameId) gameCreationSuccess,
   }) {
     return gameCreationWarning(message);
   }
@@ -1507,7 +1507,7 @@ class _$GameCreationWarning
     TResult? Function(NewGame newGame)? gameCreationSetup,
     TResult? Function(String message)? gameCreationWarning,
     TResult? Function(String message)? gameCreationError,
-    TResult? Function()? gameCreationSuccess,
+    TResult? Function(int gameId)? gameCreationSuccess,
   }) {
     return gameCreationWarning?.call(message);
   }
@@ -1519,7 +1519,7 @@ class _$GameCreationWarning
     TResult Function(NewGame newGame)? gameCreationSetup,
     TResult Function(String message)? gameCreationWarning,
     TResult Function(String message)? gameCreationError,
-    TResult Function()? gameCreationSuccess,
+    TResult Function(int gameId)? gameCreationSuccess,
     required TResult orElse(),
   }) {
     if (gameCreationWarning != null) {
@@ -1657,7 +1657,7 @@ class _$GameCreationError
     required TResult Function(NewGame newGame) gameCreationSetup,
     required TResult Function(String message) gameCreationWarning,
     required TResult Function(String message) gameCreationError,
-    required TResult Function() gameCreationSuccess,
+    required TResult Function(int gameId) gameCreationSuccess,
   }) {
     return gameCreationError(message);
   }
@@ -1669,7 +1669,7 @@ class _$GameCreationError
     TResult? Function(NewGame newGame)? gameCreationSetup,
     TResult? Function(String message)? gameCreationWarning,
     TResult? Function(String message)? gameCreationError,
-    TResult? Function()? gameCreationSuccess,
+    TResult? Function(int gameId)? gameCreationSuccess,
   }) {
     return gameCreationError?.call(message);
   }
@@ -1681,7 +1681,7 @@ class _$GameCreationError
     TResult Function(NewGame newGame)? gameCreationSetup,
     TResult Function(String message)? gameCreationWarning,
     TResult Function(String message)? gameCreationError,
-    TResult Function()? gameCreationSuccess,
+    TResult Function(int gameId)? gameCreationSuccess,
     required TResult orElse(),
   }) {
     if (gameCreationError != null) {
@@ -1745,6 +1745,8 @@ abstract class _$$GameCreationSuccessCopyWith<$Res> {
   factory _$$GameCreationSuccessCopyWith(_$GameCreationSuccess value,
           $Res Function(_$GameCreationSuccess) then) =
       __$$GameCreationSuccessCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int gameId});
 }
 
 /// @nodoc
@@ -1754,6 +1756,19 @@ class __$$GameCreationSuccessCopyWithImpl<$Res>
   __$$GameCreationSuccessCopyWithImpl(
       _$GameCreationSuccess _value, $Res Function(_$GameCreationSuccess) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? gameId = null,
+  }) {
+    return _then(_$GameCreationSuccess(
+      null == gameId
+          ? _value.gameId
+          : gameId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
@@ -1761,28 +1776,42 @@ class __$$GameCreationSuccessCopyWithImpl<$Res>
 class _$GameCreationSuccess
     with DiagnosticableTreeMixin
     implements GameCreationSuccess {
-  const _$GameCreationSuccess();
+  const _$GameCreationSuccess(this.gameId);
+
+  @override
+  final int gameId;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GameCreationState.gameCreationSuccess()';
+    return 'GameCreationState.gameCreationSuccess(gameId: $gameId)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(
-        DiagnosticsProperty('type', 'GameCreationState.gameCreationSuccess'));
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'GameCreationState.gameCreationSuccess'))
+      ..add(DiagnosticsProperty('gameId', gameId));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GameCreationSuccess);
+        (other.runtimeType == runtimeType &&
+            other is _$GameCreationSuccess &&
+            (identical(other.gameId, gameId) || other.gameId == gameId));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, gameId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GameCreationSuccessCopyWith<_$GameCreationSuccess> get copyWith =>
+      __$$GameCreationSuccessCopyWithImpl<_$GameCreationSuccess>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1791,9 +1820,9 @@ class _$GameCreationSuccess
     required TResult Function(NewGame newGame) gameCreationSetup,
     required TResult Function(String message) gameCreationWarning,
     required TResult Function(String message) gameCreationError,
-    required TResult Function() gameCreationSuccess,
+    required TResult Function(int gameId) gameCreationSuccess,
   }) {
-    return gameCreationSuccess();
+    return gameCreationSuccess(gameId);
   }
 
   @override
@@ -1803,9 +1832,9 @@ class _$GameCreationSuccess
     TResult? Function(NewGame newGame)? gameCreationSetup,
     TResult? Function(String message)? gameCreationWarning,
     TResult? Function(String message)? gameCreationError,
-    TResult? Function()? gameCreationSuccess,
+    TResult? Function(int gameId)? gameCreationSuccess,
   }) {
-    return gameCreationSuccess?.call();
+    return gameCreationSuccess?.call(gameId);
   }
 
   @override
@@ -1815,11 +1844,11 @@ class _$GameCreationSuccess
     TResult Function(NewGame newGame)? gameCreationSetup,
     TResult Function(String message)? gameCreationWarning,
     TResult Function(String message)? gameCreationError,
-    TResult Function()? gameCreationSuccess,
+    TResult Function(int gameId)? gameCreationSuccess,
     required TResult orElse(),
   }) {
     if (gameCreationSuccess != null) {
-      return gameCreationSuccess();
+      return gameCreationSuccess(gameId);
     }
     return orElse();
   }
@@ -1866,5 +1895,10 @@ class _$GameCreationSuccess
 }
 
 abstract class GameCreationSuccess implements GameCreationState {
-  const factory GameCreationSuccess() = _$GameCreationSuccess;
+  const factory GameCreationSuccess(final int gameId) = _$GameCreationSuccess;
+
+  int get gameId;
+  @JsonKey(ignore: true)
+  _$$GameCreationSuccessCopyWith<_$GameCreationSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
 }

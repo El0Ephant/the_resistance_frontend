@@ -28,8 +28,8 @@ class GameCreationBloc extends Bloc<GameCreationEvent, GameCreationState> {
   void _onCreateGame(CreateGameEvent event, Emitter<GameCreationState> emit) async {
     emit(const GameCreationLoading());
     try{
-      await _newGameRepository.createGame(_userRepository.currentUser.id, _userRepository.token);
-      emit(const GameCreationState.gameCreationSuccess());
+      final gameId = await _newGameRepository.createGame(_userRepository.currentUser.id, _userRepository.token);
+      emit(GameCreationState.gameCreationSuccess(gameId));
     }on ApiServiceExecption catch(e){
       final String message;
       if (e.type == ApiServiceExecptionType.clientNetwork) {

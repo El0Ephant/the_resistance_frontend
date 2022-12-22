@@ -72,12 +72,15 @@ class RoomsPage extends StatelessWidget {
                         style: AppTextStyles.buttonTextStyle,
                       ),
                     ),
+                    SizedBox(
+                      height: 40.h,
+                    ),
                     TextField(
                       style: AppTextStyles.inputTextStyle,
                       decoration:
                           AppInputStyles.defaultInputDecoration.copyWith(
                         hintText: "Подключиться к игре по id",
-                        hintStyle: AppTextStyles.orangeTextStyle,
+                        hintStyle: AppTextStyles.lightTextStyle,
                       ),
                       keyboardType: TextInputType.number,
                       onSubmitted: (value) {
@@ -86,28 +89,28 @@ class RoomsPage extends StatelessWidget {
                             .navigate(int.tryParse(value));
                       },
                     ),
-                    SizedBox(
-                      height: 100.h,
-                    ),
-                    Divider(
-                      color: AppColors.orange,
-                      thickness: 3.h,
-                    ),
-                    Expanded(
-                      child: ListView.separated(
-                        itemBuilder: (context, index) {
-                          return RoomListItem(room: rooms[index]);
-                        },
-                        itemCount: rooms.length,
-                        separatorBuilder: (context, index) {
-                          return Divider(
-                            color: AppColors.lightGrey,
-                            indent: 10.w,
-                            endIndent: 10.w,
-                          );
-                        },
-                      ),
-                    ),
+                    // SizedBox(
+                    //   height: 100.h,
+                    // ),
+                    // Divider(
+                    //   color: AppColors.orange,
+                    //   thickness: 3.h,
+                    // ),
+                    // Expanded(
+                    //   child: ListView.separated(
+                    //     itemBuilder: (context, index) {
+                    //       return RoomListItem(room: rooms[index]);
+                    //     },
+                    //     itemCount: rooms.length,
+                    //     separatorBuilder: (context, index) {
+                    //       return Divider(
+                    //         color: AppColors.lightGrey,
+                    //         indent: 10.w,
+                    //         endIndent: 10.w,
+                    //       );
+                    //     },
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

@@ -19,7 +19,7 @@ class NewGameRepository{
 
   final _apiService = ApiService();
   
-  Future<void> createGame(int userId, String token) async {
+  Future<int> createGame(int userId, String token) async {
     List<String> roles = [GameRoles.merlin, GameRoles.assassin];
     if (newGame.morganaPercival){
       roles.add(GameRoles.morgana);
@@ -33,11 +33,13 @@ class NewGameRepository{
     }
     roles.addAll(List<String>.generate(newGame.evil, (_) => GameRoles.evil));
     roles.addAll(List<String>.generate(newGame.loyal, (_) => GameRoles.loyal));
-    
+
     final body = {
-      'creator':userId,
       'roles':roles,
     };
+    final json = await _apiService.post('/new_game', body, token);
+
+    return json['gameId'];
   }
   
   void setPlayersNumber(int playersNumber){
