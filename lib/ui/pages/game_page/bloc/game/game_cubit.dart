@@ -37,7 +37,15 @@ class GameCubit extends Cubit<GameState> {
       channelParams: {
         "room_id": roomID,
       },
-      onSubscribed: () {}, // `confirm_subscription` received
+      onSubscribed: () {
+        cable.performAction(
+          "RoomChannel",
+          channelParams: {
+            "room_id": roomID,
+          },
+          action: "take_seat",
+        );
+      }, // `confirm_subscription` received
       onDisconnected: () {}, // `disconnect` received
       onMessage: (Map message) {
         emit(
