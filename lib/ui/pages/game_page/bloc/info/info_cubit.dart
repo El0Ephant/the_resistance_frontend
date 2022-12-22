@@ -19,11 +19,7 @@ class InfoCubit extends Cubit<InfoState> {
     required this.roomID,
   }) : super(
           const InfoState(
-            info: {
-              "1": {"nickname": "Grima", "role" : "AAAA"},
-              "2": {"nickname": "WHISKEY_RITUAL"},
-              "3": {"nickname": "P0tv0r"},
-            },
+            info: {},
           ),
         ) {
     cable.subscribe(

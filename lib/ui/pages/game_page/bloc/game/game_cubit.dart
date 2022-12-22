@@ -19,15 +19,15 @@ class GameCubit extends Cubit<GameState> {
   }) : super(
           const GameState.pickCandidates(
             0,
-            4,
-            [1, 2, 3,4,5,6,7,8],
-            [2,3,3,4,5],
+            0,
+            [],
+            [],
+            0,
             0,
             1,
-            1,
-            {"1": true, "2": false, },
-            [1,2,3],
-            [true,true],
+            {},
+            [],
+            [],
             null,
           ),
         ) {
