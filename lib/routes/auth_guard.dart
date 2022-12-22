@@ -8,7 +8,7 @@ class AuthGuard extends AutoRouteGuard {
     if(UserRepository().isAuth){
       resolver.next(true);          
     }else{                
-      router.replaceAll([GameRoute(roomId: 1)]);
+      router.replaceAll([GameRoute(roomID: 1)]);
     }              
   }          
 }          

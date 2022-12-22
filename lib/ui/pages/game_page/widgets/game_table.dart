@@ -1,3 +1,4 @@
+import 'package:the_resistance/domain/models/game/player.dart';
 import 'package:the_resistance/domain/models/user/user.dart';
 import 'package:the_resistance/ui/utils/app_colors.dart';
 import 'package:the_resistance/ui/utils/app_text_styles.dart';
@@ -11,11 +12,13 @@ class GameTable extends StatelessWidget {
     required this.radius,
     required this.players,
     this.voteStep,
+    required this.leaderID,
   });
 
   final double radius;
-  final List<User> players;
+  final List<Player> players;
   final int? voteStep;
+  final int leaderID;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +44,7 @@ class GameTable extends StatelessWidget {
               radius: radius,
               angle: (360 / players.length) * index,
               player: players[index],
+              isLeader: players[index].id == leaderID,
             ),
           ),
           Center(

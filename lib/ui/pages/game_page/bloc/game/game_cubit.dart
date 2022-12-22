@@ -12,21 +12,22 @@ part 'game_cubit.g.dart';
 class GameCubit extends Cubit<GameState> {
   final ActionCable cable;
   final int roomID;
+
   GameCubit({
     required this.cable,
     required this.roomID,
   }) : super(
-          const GameState.waiting(
+          const GameState.pickCandidates(
             0,
+            4,
+            [1, 2, 3,4,5,6,7,8],
+            [2,3,3,4,5],
             0,
-            [],
-            [],
-            0,
-            0,
-            0,
-            {},
-            [],
-            [],
+            1,
+            1,
+            {"1": true, "2": false, },
+            [1,2,3],
+            [true,true],
             null,
           ),
         ) {
@@ -58,15 +59,120 @@ class GameCubit extends Cubit<GameState> {
     return super.close();
   }
 
-  void vote(bool value) {}
+  void vote(bool choice) {
+    var action = state.mapOrNull(
+      voteForCandidates: (_) => "vote_for_candidates",
+      voteForResult: (_) => "vote_for_result",
+    );
 
-  void pickCandidate(int id) {}
+    if (action != null) {
+      cable.performAction(
+        "RoomChannel",
+        channelParams: {
+          "room_id": roomID,
+        },
+        action: action,
+        actionParams: {
+          "choice": choice,
+        },
+      );
+    }
 
-  void unpickCandidate(int id) {}
+  }
 
-  void pickMurdered(int id) {}
+  void pickPlayerForMission(int id) {
+    cable.performAction(
+      "RoomChannel",
+      channelParams: {
+        "room_id": roomID,
+      },
+      action: "pick_player_for_mission",
+      actionParams: {
+        "player": id,
+      },
+    );
+  }
 
-  void unpickMurdered(int id) {}
+  void handOverAdminShip(int id) {
+    cable.performAction(
+      "RoomChannel",
+      channelParams: {
+        "room_id": roomID,
+      },
+      action: "hand_over_adminship",
+      actionParams: {
+        "player": id,
+      },
+    );
+  }
+  void unpickPlayerForMission(int id) {}
 
-  void kickPlayer(int id) {}
+  void confirmTeam() {
+    cable.performAction(
+      "RoomChannel",
+      channelParams: {
+        "room_id": roomID,
+      },
+      action: "unpick_player_for_murder",
+    );
+  }
+
+  void pickPlayerForMurder(int id) {
+    cable.performAction(
+      "RoomChannel",
+      channelParams: {
+        "room_id": roomID,
+      },
+      action: "pick_player_for_murder",
+      actionParams: {
+        "player": id,
+      },
+    );
+  }
+
+  void unpickPlayerForMurder(int id) {
+    cable.performAction(
+      "RoomChannel",
+      channelParams: {
+        "room_id": roomID,
+      },
+      action: "unpick_player_for_murder",
+      actionParams: {
+        "player": id,
+      },
+    );
+  }
+
+  void confirmMurder() {
+    cable.performAction(
+      "RoomChannel",
+      channelParams: {
+        "room_id": roomID,
+      },
+      action: "confirm_murder",
+    );
+  }
+
+  void kickPlayer(int id) {
+    cable.performAction(
+      "RoomChannel",
+      channelParams: {
+        "room_id": roomID,
+      },
+      action: "kick_player",
+      actionParams: {
+        "player": id,
+      },
+    );
+  }
+
+  void freeUpSeat() {
+    cable.performAction(
+      "RoomChannel",
+      channelParams: {
+        "room_id": roomID,
+      },
+      action: "free_up_seat",
+    );
+  }
 }

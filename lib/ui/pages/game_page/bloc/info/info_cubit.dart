@@ -19,7 +19,11 @@ class InfoCubit extends Cubit<InfoState> {
     required this.roomID,
   }) : super(
           const InfoState(
-            info: {},
+            info: {
+              "1": {"nickname": "Grima", "role" : "AAAA"},
+              "2": {"nickname": "WHISKEY_RITUAL"},
+              "3": {"nickname": "P0tv0r"},
+            },
           ),
         ) {
     cable.subscribe(
@@ -36,6 +40,16 @@ class InfoCubit extends Cubit<InfoState> {
           ),
         );
       },
+    );
+  }
+
+  void fetchInformation() {
+    cable.performAction(
+      "PrivateChannel",
+      channelParams: {
+        "room_id": roomID,
+      },
+      action: "get_roles",
     );
   }
 

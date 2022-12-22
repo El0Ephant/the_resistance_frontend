@@ -5,13 +5,21 @@ class InfoState with _$InfoState {
   const InfoState._();
 
   const factory InfoState({required Map<String, dynamic> info}) = _InfoState;
-  factory InfoState.fromJson(Map<String, dynamic> json) => _$InfoStateFromJson(json);
+
+  factory InfoState.fromJson(Map<String, dynamic> json) =>
+      _$InfoStateFromJson(json);
 
   String nickname(int id) {
-    return info.containsKey(id) ? info[id]["nickname"] : "Unknown user";
+    var key = id.toString();
+    return info.containsKey(key) ? info[key]["nickname"] : "Unknown user";
   }
 
   String role(int id) {
-    return info.containsKey(id) ? info[id]["role"] : "";
+    var key = id.toString();
+    if (info.containsKey(key)) {
+      return info[key].containsKey("role") ? (info[key]["role"] ?? "") : "";
+    } else {
+      return "";
+    }
   }
 }
