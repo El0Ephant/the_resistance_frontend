@@ -28,7 +28,7 @@ class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Provider(
-      create: (_){ showErrorSnackBar(context, UserRepository().token); return ActionCable.Connect(
+      create: (_) => ActionCable.Connect(
         "wss://the-resistance-backend.onrender.com/cable",
         headers: {
           "Authorization": UserRepository().token,
@@ -43,7 +43,7 @@ class GamePage extends StatelessWidget {
           context.router.navigate(const RoomsRoute());
           print("cannot connect");
         },
-      );},
+      ),
       child: WillPopScope(
         onWillPop: () async {
           context.router.replaceAll([HomeRoute(), RoomsRoute(),]);
