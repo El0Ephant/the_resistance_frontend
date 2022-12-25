@@ -8,6 +8,7 @@ import 'package:the_resistance/data/repositories/user_repository.dart';
 import 'package:the_resistance/domain/models/game/player.dart';
 import 'package:the_resistance/domain/models/user/user.dart';
 import 'package:the_resistance/routes/router.gr.dart';
+import 'package:the_resistance/ui/common_widgets/snack_bar.dart';
 import 'package:the_resistance/ui/pages/game_page/bloc/game/game_cubit.dart';
 import 'package:the_resistance/ui/pages/game_page/bloc/info/info_cubit.dart';
 import 'package:the_resistance/ui/pages/game_page/widgets/game_table.dart';
@@ -27,8 +28,8 @@ class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Provider(
-      create: (_) => ActionCable.Connect(
-        "ws://the-resistance-backend.onrender.com/cable",
+      create: (_){ showErrorSnackBar(context, UserRepository().token); return ActionCable.Connect(
+        "wss://the-resistance-backend.onrender.com/cable",
         headers: {
           "Authorization": UserRepository().token,
         },
@@ -42,7 +43,7 @@ class GamePage extends StatelessWidget {
           context.router.navigate(const RoomsRoute());
           print("cannot connect");
         },
-      ),
+      );},
       child: WillPopScope(
         onWillPop: () async {
           context.router.replaceAll([HomeRoute(), RoomsRoute(),]);
