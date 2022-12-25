@@ -46,7 +46,7 @@ class GamePage extends StatelessWidget {
       ),
       child: WillPopScope(
         onWillPop: () async {
-          context.router.replaceAll([HomeRoute(), RoomsRoute(),]);
+          context.router.replaceAll([HomeRoute(children: [RoomsRoute()]),]);
           return false;
         },
         child: MultiBlocProvider(
