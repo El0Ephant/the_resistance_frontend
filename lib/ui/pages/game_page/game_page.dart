@@ -31,7 +31,7 @@ class GamePage extends StatelessWidget {
     return Provider(
       create: (_) =>
           ActionCable.Connect(
-            "ws://the-resistance-backend.onrender.com/cable",
+            "wss://the-resistance-backend.onrender.com/cable",
             headers: {
               "Authorization": userRepository.token,
             },
@@ -48,7 +48,7 @@ class GamePage extends StatelessWidget {
           ),
       child: WillPopScope(
         onWillPop: () async {
-          context.router.replaceAll([HomeRoute(), RoomsRoute(),]);
+          context.router.replaceAll([HomeRoute(children: [RoomsRoute()]),]);
           return false;
         },
         child: MultiBlocProvider(
