@@ -30,6 +30,7 @@ class InfoCubit extends Cubit<InfoState> {
       onSubscribed: () {},
       onDisconnected: () {},
       onMessage: (Map message) {
+        print(message);
         emit(
           InfoState.fromJson(
             message as Map<String, dynamic>,

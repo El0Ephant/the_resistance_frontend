@@ -144,7 +144,7 @@ class GameCubit extends Cubit<GameState> {
       channelParams: {
         "room_id": roomID,
       },
-      action: "unpick_player_for_murder",
+      action: "confirm_team",
     );
   }
 
