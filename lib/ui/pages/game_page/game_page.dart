@@ -33,7 +33,7 @@ class GamePage extends StatelessWidget {
           ActionCable.Connect(
             "ws://the-resistance-backend.onrender.com/cable",
             headers: {
-              "Authorization": UserRepository().token,
+              "Authorization": userRepository.token,
             },
             onConnected: () {
               print("connected");

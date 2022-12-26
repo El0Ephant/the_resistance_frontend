@@ -102,6 +102,19 @@ class GameCubit extends Cubit<GameState> {
     );
   }
 
+  void unpickPlayerForMission(int id){
+    cable.performAction(
+      "RoomChannel",
+      channelParams: {
+        "room_id": roomID,
+      },
+      action: "unpick_player_for_mission",
+      actionParams: {
+        "player": id,
+      },
+    );
+  }
+
   void handOverAdminShip(int id) {
     cable.performAction(
       "RoomChannel",
