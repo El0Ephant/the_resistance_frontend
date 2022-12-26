@@ -1,4 +1,4 @@
-import 'package:action_cable/action_cable.dart';
+import 'package:the_resistance/action_cable/action_cable.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 

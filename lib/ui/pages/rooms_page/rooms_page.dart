@@ -62,6 +62,7 @@ class RoomsPage extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       onPressed: () {
+                        print(UserRepository().currentUser.id);
                         context.router.push(const GameCreationRoute());
                       },
                       style: ElevatedButton.styleFrom(

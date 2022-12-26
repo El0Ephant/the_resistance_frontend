@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:action_cable/action_cable.dart';
+import 'package:the_resistance/action_cable/action_cable.dart';
 
 part 'game_state.dart';
 
