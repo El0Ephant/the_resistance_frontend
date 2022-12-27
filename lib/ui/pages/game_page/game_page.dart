@@ -21,7 +21,7 @@ import 'package:the_resistance/ui/pages/game_page/widgets/vote_buttons.dart';
 import 'package:the_resistance/ui/utils/app_colors.dart';
 import 'package:the_resistance/ui/utils/app_text_styles.dart';
 
-class GamePage extends StatelessWidget {
+class GamePage extends StatefulWidget {
   const GamePage(
       {super.key, required this.roomID, required this.userRepository});
 
@@ -29,21 +29,26 @@ class GamePage extends StatelessWidget {
   final UserRepository userRepository;
 
   @override
+  State<GamePage> createState() => _GamePageState();
+}
+
+class _GamePageState extends State<GamePage> {
+  @override
   Widget build(BuildContext context) {
     return Provider(
       create: (_) {
         return ActionCable.Connect(
           "wss://the-resistance-backend.onrender.com/cable",
           headers: {
-            "Authorization": userRepository.token,
+            "Authorization": widget.userRepository.token,
           },
           onConnected: () {
             print("connected");
           },
           onConnectionLost: () {
             print("aaaaaaaaaaaaaaaaaaaaaaa connection lost");
-            context.router.replace(
-                GameRoute(roomID: roomID, userRepository: userRepository));
+            setState(() {
+            });
             print("bbbbbbbbbbbbbbbbbbbbbbb connection lost");
           },
           onCannotConnect: () {
@@ -63,14 +68,14 @@ class GamePage extends StatelessWidget {
               create: (context) =>
                   GameCubit(
                     cable: context.read<ActionCable>(),
-                    roomID: roomID,
+                    roomID: widget.roomID,
                   ),
             ),
             BlocProvider(
               create: (context) =>
                   InfoCubit(
                     cable: context.read<ActionCable>(),
-                    roomID: roomID,
+                    roomID: widget.roomID,
                   ),
             ),
           ],
@@ -159,7 +164,7 @@ class GamePage extends StatelessWidget {
                                         ),
                                       ),
                                 ),
-                                state.adminId == userRepository.currentUser.id ?
+                                state.adminId == widget.userRepository.currentUser.id ?
                                 OutlinedButton(
                                   onPressed: () {
                                     context.read<GameCubit>().startGame();
