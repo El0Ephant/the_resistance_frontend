@@ -40,6 +40,7 @@ class GamePage extends StatelessWidget {
             },
             onConnectionLost: () {
               print("connection lost");
+              context.router.replace(GameRoute(roomID: roomID, userRepository: userRepository));
             },
             onCannotConnect: () {
               context.router.navigate(const RoomsRoute());

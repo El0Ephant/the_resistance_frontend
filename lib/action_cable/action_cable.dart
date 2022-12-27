@@ -57,8 +57,8 @@ class ActionCable {
     }
     if (DateTime.now().difference(_lastPing!) > Duration(seconds: 6)) {
       // Commented by us
-      //this.disconnect();
-      //if (this.onConnectionLost != null) this.onConnectionLost!();
+      this.disconnect();
+      if (this.onConnectionLost != null) this.onConnectionLost!();
     }
   }
 
@@ -118,7 +118,7 @@ class ActionCable {
       case 'ping':
       // rails sends epoch as seconds not miliseconds
         _lastPing =
-            DateTime.fromMillisecondsSinceEpoch(payload['message'] * 1000);
+            DateTime.fromMillisecondsSinceEpoch(payload['message'] * 1000).toUtc();
         break;
       case 'welcome':
         if (onConnected != null) {
