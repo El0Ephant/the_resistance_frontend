@@ -32,30 +32,25 @@ class GamePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Provider(
       create: (_) {
-        try{
-          return ActionCable.Connect(
-            "wss://the-resistance-backend.onrender.com/cable",
-            headers: {
-              "Authorization": userRepository.token,
-            },
-            onConnected: () {
-              print("connected");
-            },
-            // onConnectionLost: () {
-            //   print("aaaaaaaaaaaaaaaaaaaaaaa connection lost");
-            //   context.router.replace(
-            //       GameRoute(roomID: roomID, userRepository: userRepository));
-            //   print("bbbbbbbbbbbbbbbbbbbbbbb connection lost");
-            // },
-            onCannotConnect: () {
-              context.router.navigate(const RoomsRoute());
-              print("cannot connect");
-            },
-          );
-        } on SocketException catch (e) {
-          context.router.replace(
-              GameRoute(roomID: roomID, userRepository: userRepository));
-        }
+        return ActionCable.Connect(
+          "wss://the-resistance-backend.onrender.com/cable",
+          headers: {
+            "Authorization": userRepository.token,
+          },
+          onConnected: () {
+            print("connected");
+          },
+          onConnectionLost: () {
+            print("aaaaaaaaaaaaaaaaaaaaaaa connection lost");
+            context.router.replace(
+                GameRoute(roomID: roomID, userRepository: userRepository));
+            print("bbbbbbbbbbbbbbbbbbbbbbb connection lost");
+          },
+          onCannotConnect: () {
+            context.router.navigate(const RoomsRoute());
+            print("cannot connect");
+          },
+        );
       },
       child: WillPopScope(
         onWillPop: () async {
