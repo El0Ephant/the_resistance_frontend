@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:the_resistance/action_cable/action_cable.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -29,8 +31,9 @@ class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Provider(
-      create: (_) =>
-          ActionCable.Connect(
+      create: (_) {
+        try{
+          return ActionCable.Connect(
             "wss://the-resistance-backend.onrender.com/cable",
             headers: {
               "Authorization": userRepository.token,
@@ -38,15 +41,22 @@ class GamePage extends StatelessWidget {
             onConnected: () {
               print("connected");
             },
-            onConnectionLost: () {
-              print("connection lost");
-              context.router.replace(GameRoute(roomID: roomID, userRepository: userRepository));
-            },
+            // onConnectionLost: () {
+            //   print("aaaaaaaaaaaaaaaaaaaaaaa connection lost");
+            //   context.router.replace(
+            //       GameRoute(roomID: roomID, userRepository: userRepository));
+            //   print("bbbbbbbbbbbbbbbbbbbbbbb connection lost");
+            // },
             onCannotConnect: () {
               context.router.navigate(const RoomsRoute());
               print("cannot connect");
             },
-          ),
+          );
+        } on SocketException catch (e) {
+          context.router.replace(
+              GameRoute(roomID: roomID, userRepository: userRepository));
+        }
+      },
       child: WillPopScope(
         onWillPop: () async {
           context.router.replaceAll([HomeRoute(children: [RoomsRoute()]),]);
