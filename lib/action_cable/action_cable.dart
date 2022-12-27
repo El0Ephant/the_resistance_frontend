@@ -57,7 +57,7 @@ class ActionCable {
     }
     if (DateTime.now().difference(_lastPing!) > Duration(seconds: 6)) {
       // Commented by us
-      this.disconnect();
+      // this.disconnect();
       if (this.onConnectionLost != null) this.onConnectionLost!();
     }
   }

@@ -36,6 +36,9 @@ class _GamePageState extends State<GamePage> {
   @override
   Widget build(BuildContext context) {
     return Provider(
+      dispose: (context, actionCable) {
+        actionCable.disconnect();
+      },
       create: (_) {
         return ActionCable.Connect(
           "wss://the-resistance-backend.onrender.com/cable",
