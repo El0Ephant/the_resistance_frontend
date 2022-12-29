@@ -22,22 +22,16 @@ import 'package:the_resistance/ui/pages/game_page/widgets/vote_buttons.dart';
 import 'package:the_resistance/ui/utils/app_colors.dart';
 import 'package:the_resistance/ui/utils/app_text_styles.dart';
 
-class GamePage extends StatefulWidget {
-  const GamePage(
-      {super.key, required this.roomID, required this.userRepository});
+class GamePage extends StatelessWidget {
+  const GamePage({super.key, required this.roomID, required this.userRepository});
 
   final int roomID;
   final UserRepository userRepository;
 
   @override
-  State<GamePage> createState() => _GamePageState();
-}
-
-class _GamePageState extends State<GamePage> {
-  @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ActionCableCubit()..connect(),
+      create: (context) => ActionCableCubit()..connect(roomID),
       child: BlocConsumer<ActionCableCubit, ActionCableState>(
         listener: (context, state) {
           if(state is ActionCableCannotConnect){
@@ -47,26 +41,18 @@ class _GamePageState extends State<GamePage> {
         builder: (context, state) {
           return state.maybeWhen(
             orElse: () => Center(child: CircularProgressIndicator()),
-            success: (actionCable) => WillPopScope(
+            success: (actionCable, gameCubit, infoCubit) => WillPopScope(
               onWillPop: () async {
                 context.router.replaceAll([HomeRoute(children: [RoomsRoute()]),]);
                 return false;
               },
               child: MultiBlocProvider(
                 providers: [
-                  BlocProvider(
-                    create: (context) =>
-                        GameCubit(
-                          cable: actionCable,
-                          roomID: widget.roomID,
-                        ),
+                  BlocProvider.value(
+                    value:gameCubit,
                   ),
-                  BlocProvider(
-                    create: (context) =>
-                        InfoCubit(
-                          cable: actionCable,
-                          roomID: widget.roomID,
-                        ),
+                  BlocProvider.value(
+                    value:infoCubit,
                   ),
                 ],
                 child: BlocListener<GameCubit, GameState>(
@@ -154,7 +140,7 @@ class _GamePageState extends State<GamePage> {
                                               ),
                                             ),
                                       ),
-                                      state.adminId == widget.userRepository.currentUser.id ?
+                                      state.adminId == userRepository.currentUser.id ?
                                       OutlinedButton(
                                         onPressed: () {
                                           context.read<GameCubit>().startGame();

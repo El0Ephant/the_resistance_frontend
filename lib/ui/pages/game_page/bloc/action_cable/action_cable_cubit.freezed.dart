@@ -18,21 +18,27 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ActionCableState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ActionCable actionCable) success,
+    required TResult Function(
+            ActionCable actionCable, GameCubit gameCubit, InfoCubit infoCubit)
+        success,
     required TResult Function() loading,
     required TResult Function() cannotConnect,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ActionCable actionCable)? success,
+    TResult? Function(
+            ActionCable actionCable, GameCubit gameCubit, InfoCubit infoCubit)?
+        success,
     TResult? Function()? loading,
     TResult? Function()? cannotConnect,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ActionCable actionCable)? success,
+    TResult Function(
+            ActionCable actionCable, GameCubit gameCubit, InfoCubit infoCubit)?
+        success,
     TResult Function()? loading,
     TResult Function()? cannotConnect,
     required TResult orElse(),
@@ -86,7 +92,8 @@ abstract class _$$ActionCableSuccessCopyWith<$Res> {
           $Res Function(_$ActionCableSuccess) then) =
       __$$ActionCableSuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({ActionCable actionCable});
+  $Res call(
+      {ActionCable actionCable, GameCubit gameCubit, InfoCubit infoCubit});
 }
 
 /// @nodoc
@@ -101,12 +108,22 @@ class __$$ActionCableSuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? actionCable = null,
+    Object? gameCubit = null,
+    Object? infoCubit = null,
   }) {
     return _then(_$ActionCableSuccess(
       null == actionCable
           ? _value.actionCable
           : actionCable // ignore: cast_nullable_to_non_nullable
               as ActionCable,
+      null == gameCubit
+          ? _value.gameCubit
+          : gameCubit // ignore: cast_nullable_to_non_nullable
+              as GameCubit,
+      null == infoCubit
+          ? _value.infoCubit
+          : infoCubit // ignore: cast_nullable_to_non_nullable
+              as InfoCubit,
     ));
   }
 }
@@ -114,14 +131,18 @@ class __$$ActionCableSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ActionCableSuccess implements ActionCableSuccess {
-  const _$ActionCableSuccess(this.actionCable);
+  const _$ActionCableSuccess(this.actionCable, this.gameCubit, this.infoCubit);
 
   @override
   final ActionCable actionCable;
+  @override
+  final GameCubit gameCubit;
+  @override
+  final InfoCubit infoCubit;
 
   @override
   String toString() {
-    return 'ActionCableState.success(actionCable: $actionCable)';
+    return 'ActionCableState.success(actionCable: $actionCable, gameCubit: $gameCubit, infoCubit: $infoCubit)';
   }
 
   @JsonKey(ignore: true)
@@ -134,33 +155,39 @@ class _$ActionCableSuccess implements ActionCableSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ActionCable actionCable) success,
+    required TResult Function(
+            ActionCable actionCable, GameCubit gameCubit, InfoCubit infoCubit)
+        success,
     required TResult Function() loading,
     required TResult Function() cannotConnect,
   }) {
-    return success(actionCable);
+    return success(actionCable, gameCubit, infoCubit);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ActionCable actionCable)? success,
+    TResult? Function(
+            ActionCable actionCable, GameCubit gameCubit, InfoCubit infoCubit)?
+        success,
     TResult? Function()? loading,
     TResult? Function()? cannotConnect,
   }) {
-    return success?.call(actionCable);
+    return success?.call(actionCable, gameCubit, infoCubit);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ActionCable actionCable)? success,
+    TResult Function(
+            ActionCable actionCable, GameCubit gameCubit, InfoCubit infoCubit)?
+        success,
     TResult Function()? loading,
     TResult Function()? cannotConnect,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(actionCable);
+      return success(actionCable, gameCubit, infoCubit);
     }
     return orElse();
   }
@@ -201,10 +228,14 @@ class _$ActionCableSuccess implements ActionCableSuccess {
 }
 
 abstract class ActionCableSuccess implements ActionCableState {
-  const factory ActionCableSuccess(final ActionCable actionCable) =
-      _$ActionCableSuccess;
+  const factory ActionCableSuccess(
+      final ActionCable actionCable,
+      final GameCubit gameCubit,
+      final InfoCubit infoCubit) = _$ActionCableSuccess;
 
   ActionCable get actionCable;
+  GameCubit get gameCubit;
+  InfoCubit get infoCubit;
   @JsonKey(ignore: true)
   _$$ActionCableSuccessCopyWith<_$ActionCableSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -239,7 +270,9 @@ class _$ActionCableLoading implements ActionCableLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ActionCable actionCable) success,
+    required TResult Function(
+            ActionCable actionCable, GameCubit gameCubit, InfoCubit infoCubit)
+        success,
     required TResult Function() loading,
     required TResult Function() cannotConnect,
   }) {
@@ -249,7 +282,9 @@ class _$ActionCableLoading implements ActionCableLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ActionCable actionCable)? success,
+    TResult? Function(
+            ActionCable actionCable, GameCubit gameCubit, InfoCubit infoCubit)?
+        success,
     TResult? Function()? loading,
     TResult? Function()? cannotConnect,
   }) {
@@ -259,7 +294,9 @@ class _$ActionCableLoading implements ActionCableLoading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ActionCable actionCable)? success,
+    TResult Function(
+            ActionCable actionCable, GameCubit gameCubit, InfoCubit infoCubit)?
+        success,
     TResult Function()? loading,
     TResult Function()? cannotConnect,
     required TResult orElse(),
@@ -338,7 +375,9 @@ class _$ActionCableCannotConnect implements ActionCableCannotConnect {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ActionCable actionCable) success,
+    required TResult Function(
+            ActionCable actionCable, GameCubit gameCubit, InfoCubit infoCubit)
+        success,
     required TResult Function() loading,
     required TResult Function() cannotConnect,
   }) {
@@ -348,7 +387,9 @@ class _$ActionCableCannotConnect implements ActionCableCannotConnect {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ActionCable actionCable)? success,
+    TResult? Function(
+            ActionCable actionCable, GameCubit gameCubit, InfoCubit infoCubit)?
+        success,
     TResult? Function()? loading,
     TResult? Function()? cannotConnect,
   }) {
@@ -358,7 +399,9 @@ class _$ActionCableCannotConnect implements ActionCableCannotConnect {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ActionCable actionCable)? success,
+    TResult Function(
+            ActionCable actionCable, GameCubit gameCubit, InfoCubit infoCubit)?
+        success,
     TResult Function()? loading,
     TResult Function()? cannotConnect,
     required TResult orElse(),
