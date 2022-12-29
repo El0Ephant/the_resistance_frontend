@@ -10,55 +10,41 @@ class PlayersNumber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dropdownItems = [5, 6, 7, 8, 9, 10];
+    //final dropdownItems = [5, 6, 7, 8, 9, 10];
     return Center(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('Количество игроков: ', style: AppTextStyles.mainInfoTextStyle,),
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: AppColors.orange, width: 3.r),
-              borderRadius: BorderRadius.circular(20.r),
-              color: AppColors.secondBlue,
-            ),
-            width: 120.w,
-            child: PopupMenuButton<int>(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.vertical(bottom: Radius.circular(20.r))
-              ),
-              onSelected: (value) {
-                context.read<GameCreationBloc>().add(SetPlayersNumberEvent(value));
-              },
-              elevation: 16,
-              position: PopupMenuPosition.under,
-              color: AppColors.secondBlue,
-              icon: BlocBuilder<GameCreationBloc, GameCreationState>(
-                buildWhen: (previous, current) {
-                  if (previous is! GameCreationSetup && current is GameCreationSetup){
-                    return true;
-                  }
-                  if (previous is GameCreationSetup && current is GameCreationSetup && previous.newGame.players != current.newGame.players){
-                    return true;
-                  }
-                  return false;
-                }, 
-                builder: ((context, state) => 
-                  Text(state is GameCreationSetup ? state.newGame.players.toString():'', style: AppTextStyles.mainInfoTextStyle,)
-                )
-              ),
-              itemBuilder: (context) => dropdownItems.map<PopupMenuItem<int>>(
-                  (value) => PopupMenuItem(
-                    padding: EdgeInsets.zero,
-                    value: value,
-                    child: SizedBox(
-                      width: 115.w,
-                      child: Center(child: Text(value.toString(), style: AppTextStyles.mainInfoTextStyle))
-                    )
-                  )
-                ).toList(),
-            ),
-          ),
+          BlocBuilder<GameCreationBloc, GameCreationState>(
+            buildWhen: (previous, current) => current is GameCreationSetup,
+            builder: (context, state) {
+              return state.maybeWhen(
+                orElse: () => const SizedBox.shrink(),
+                gameCreationSetup: ((newGame) => Column(
+                  children: [
+                    IconButton(
+                      onPressed: (){
+                        if (newGame.players < 10) {
+                          context.read<GameCreationBloc>().add(SetPlayersNumberEvent(newGame.players + 1));
+                        }
+                      },
+                      icon: Icon(Icons.keyboard_arrow_up_rounded, color: AppColors.orange, size: 40.r,)
+                    ),
+                    Text(newGame.players.toString(), style: AppTextStyles.labelTextStyle,),
+                    IconButton(
+                      onPressed: (){
+                        if (newGame.players > 5) {
+                          context.read<GameCreationBloc>().add(SetPlayersNumberEvent(newGame.players - 1));
+                        }
+                      },
+                      icon: Icon(Icons.keyboard_arrow_down_rounded, color: AppColors.orange, size: 40.r,)
+                    ),
+                  ],
+                ))
+              );
+            },
+          )
         ],
       )
     );

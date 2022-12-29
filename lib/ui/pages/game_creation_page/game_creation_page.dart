@@ -33,19 +33,19 @@ class GameCreationPage extends StatelessWidget {
         padding: EdgeInsets.only(
           left: 20.w,
           right: 20.w,
-          top: 70.h
         ),
         child: BlocProvider(
           create: (context) => GameCreationBloc()..add(const GameCreationEvent.init()),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const PlayersNumber(),
-              SizedBox(height: 30.h,),
+              SizedBox(height: 20.h,),
               const SpecialRoles(),
-              SizedBox(height: 30.h,),
+              SizedBox(height: 20.h,),
               const Teams(),
-              SizedBox(height: 60.h,),
+              SizedBox(height: 50.h,),
               const CreateGameButton(),
             ]
           ),
