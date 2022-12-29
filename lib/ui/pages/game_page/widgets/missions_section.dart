@@ -47,7 +47,7 @@ class MissionsSection extends StatelessWidget {
                       child: Transform.rotate(
                         angle: -pi/4,
                         child: Text(
-                          mission.toString(),
+                          mission.toString()[0],
                           style: AppTextStyles.largeGameText,
                         ),
                       ),

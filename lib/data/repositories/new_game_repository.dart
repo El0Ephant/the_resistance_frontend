@@ -21,18 +21,18 @@ class NewGameRepository{
   
   Future<int> createGame(int userId, String token) async {
     List<String> roles = [GameRoles.merlin, GameRoles.assassin];
-    if (newGame.morganaPercival){
-      roles.add(GameRoles.morgana);
-      roles.add(GameRoles.percival);
-    }
-    if (newGame.mordred){
-      roles.add(GameRoles.mordred);
-    }
-    if (newGame.oberon){
-      roles.add(GameRoles.oberon);
-    }
-    roles.addAll(List<String>.generate(newGame.evil, (_) => GameRoles.evil));
-    roles.addAll(List<String>.generate(newGame.loyal, (_) => GameRoles.loyal));
+    // if (newGame.morganaPercival){
+    //   roles.add(GameRoles.morgana);
+    //   roles.add(GameRoles.percival);
+    // }
+    // if (newGame.mordred){
+    //   roles.add(GameRoles.mordred);
+    // }
+    // if (newGame.oberon){
+    //   roles.add(GameRoles.oberon);
+    // }
+    // roles.addAll(List<String>.generate(newGame.evil, (_) => GameRoles.evil));
+    // roles.addAll(List<String>.generate(newGame.loyal, (_) => GameRoles.loyal));
 
     final body = {
       'roles':roles,

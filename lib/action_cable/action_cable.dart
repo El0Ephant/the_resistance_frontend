@@ -18,17 +18,21 @@ class ActionCable {
   late Timer _timer;
   late IOWebSocketChannel _socketChannel;
   late StreamSubscription _listener;
+
+  String url;
+  Map<String, String> headers;
   _OnConnectedFunction? onConnected;
   _OnCannotConnectFunction? onCannotConnect;
   _OnConnectionLostFunction? onConnectionLost;
+
   Map<String, _OnChannelSubscribedFunction?> _onChannelSubscribedCallbacks = {};
   Map<String, _OnChannelDisconnectedFunction?> _onChannelDisconnectedCallbacks =
   {};
   Map<String, _OnChannelMessageFunction?> _onChannelMessageCallbacks = {};
 
   ActionCable.Connect(
-      String url, {
-        Map<String, String> headers: const {},
+      this.url, {
+        this.headers = const {},
         this.onConnected,
         this.onConnectionLost,
         this.onCannotConnect,
@@ -43,6 +47,15 @@ class ActionCable {
     _timer = Timer.periodic(const Duration(seconds: 3), healthCheck);
   }
 
+  ActionCable copy(){
+    return ActionCable.Connect(url,
+      headers: headers,
+      onConnected: onConnected,
+      onConnectionLost: onConnectionLost,
+      onCannotConnect: onCannotConnect
+    );
+  }
+
   void disconnect() {
     _timer.cancel();
     _socketChannel.sink.close();
@@ -55,7 +68,7 @@ class ActionCable {
     if (_lastPing == null) {
       return;
     }
-    if (DateTime.now().difference(_lastPing!) > Duration(seconds: 6)) {
+    if (DateTime.now().toUtc().difference(_lastPing!) > Duration(seconds: 6)) {
       // Commented by us
       // this.disconnect();
       if (this.onConnectionLost != null) this.onConnectionLost!();
