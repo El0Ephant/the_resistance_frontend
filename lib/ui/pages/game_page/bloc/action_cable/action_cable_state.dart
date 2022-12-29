@@ -1,6 +1,8 @@
 part of 'action_cable_cubit.dart';
 
-@freezed
+@Freezed(
+  equal: false,
+)
 class ActionCableState with _$ActionCableState {
   const factory ActionCableState.success(ActionCable actionCable) = ActionCableSuccess;
   const factory ActionCableState.loading() = ActionCableLoading;

@@ -39,6 +39,7 @@ class ActionCableCubit extends Cubit<ActionCableState> {
     if (state is ActionCableSuccess) {
       final actionCable = (state as ActionCableSuccess).actionCable;
       actionCable.disconnect();
+      emit(ActionCableState.loading());
       emit(ActionCableState.success(actionCable.copy()));
     }
   }

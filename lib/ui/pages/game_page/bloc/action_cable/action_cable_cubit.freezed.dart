@@ -124,18 +124,6 @@ class _$ActionCableSuccess implements ActionCableSuccess {
     return 'ActionCableState.success(actionCable: $actionCable)';
   }
 
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ActionCableSuccess &&
-            (identical(other.actionCable, actionCable) ||
-                other.actionCable == actionCable));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, actionCable);
-
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
@@ -249,15 +237,6 @@ class _$ActionCableLoading implements ActionCableLoading {
   }
 
   @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ActionCableLoading);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ActionCable actionCable) success,
@@ -355,16 +334,6 @@ class _$ActionCableCannotConnect implements ActionCableCannotConnect {
   String toString() {
     return 'ActionCableState.cannotConnect()';
   }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ActionCableCannotConnect);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
