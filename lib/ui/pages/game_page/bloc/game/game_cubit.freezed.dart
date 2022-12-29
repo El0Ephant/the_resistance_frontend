@@ -16,6 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 GameState _$GameStateFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
+    case 'loading':
+      return Loading.fromJson(json);
     case 'waiting':
       return Waiting.fromJson(json);
     case 'pickCandidates':
@@ -58,6 +60,20 @@ mixin _$GameState {
   int? get murderedId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
+        loading,
     required TResult Function(
             int gameId,
             int adminId,
@@ -201,6 +217,20 @@ mixin _$GameState {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)?
+        loading,
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
         waiting,
     TResult? Function(
             int gameId,
@@ -318,6 +348,20 @@ mixin _$GameState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        loading,
     TResult Function(
             int gameId,
             int adminId,
@@ -449,6 +493,7 @@ mixin _$GameState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Loading value) loading,
     required TResult Function(Waiting value) waiting,
     required TResult Function(PickCandidates value) pickCandidates,
     required TResult Function(VoteForCandidates value) voteForCandidates,
@@ -464,6 +509,7 @@ mixin _$GameState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Loading value)? loading,
     TResult? Function(Waiting value)? waiting,
     TResult? Function(PickCandidates value)? pickCandidates,
     TResult? Function(VoteForCandidates value)? voteForCandidates,
@@ -478,6 +524,7 @@ mixin _$GameState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
     TResult Function(Waiting value)? waiting,
     TResult Function(PickCandidates value)? pickCandidates,
     TResult Function(VoteForCandidates value)? voteForCandidates,
@@ -594,6 +641,836 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
               as int?,
     ) as $Val);
   }
+}
+
+/// @nodoc
+abstract class _$$LoadingCopyWith<$Res> implements $GameStateCopyWith<$Res> {
+  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) =
+      __$$LoadingCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int gameId,
+      int adminId,
+      int playerCount,
+      List<int> players,
+      List<Object> missions,
+      int currentMission,
+      int leaderId,
+      int currentVote,
+      Map<String, bool> votesForCandidates,
+      List<int> candidates,
+      List<bool> votesForResult,
+      int? murderedId});
+}
+
+/// @nodoc
+class __$$LoadingCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$Loading>
+    implements _$$LoadingCopyWith<$Res> {
+  __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? gameId = null,
+    Object? adminId = null,
+    Object? playerCount = null,
+    Object? players = null,
+    Object? missions = null,
+    Object? currentMission = null,
+    Object? leaderId = null,
+    Object? currentVote = null,
+    Object? votesForCandidates = null,
+    Object? candidates = null,
+    Object? votesForResult = null,
+    Object? murderedId = freezed,
+  }) {
+    return _then(_$Loading(
+      null == gameId
+          ? _value.gameId
+          : gameId // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == adminId
+          ? _value.adminId
+          : adminId // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == playerCount
+          ? _value.playerCount
+          : playerCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == players
+          ? _value._players
+          : players // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      null == missions
+          ? _value._missions
+          : missions // ignore: cast_nullable_to_non_nullable
+              as List<Object>,
+      null == currentMission
+          ? _value.currentMission
+          : currentMission // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == leaderId
+          ? _value.leaderId
+          : leaderId // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == currentVote
+          ? _value.currentVote
+          : currentVote // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == votesForCandidates
+          ? _value._votesForCandidates
+          : votesForCandidates // ignore: cast_nullable_to_non_nullable
+              as Map<String, bool>,
+      null == candidates
+          ? _value._candidates
+          : candidates // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      null == votesForResult
+          ? _value._votesForResult
+          : votesForResult // ignore: cast_nullable_to_non_nullable
+              as List<bool>,
+      freezed == murderedId
+          ? _value.murderedId
+          : murderedId // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$Loading extends Loading {
+  const _$Loading(
+      this.gameId,
+      this.adminId,
+      this.playerCount,
+      final List<int> players,
+      final List<Object> missions,
+      this.currentMission,
+      this.leaderId,
+      this.currentVote,
+      final Map<String, bool> votesForCandidates,
+      final List<int> candidates,
+      final List<bool> votesForResult,
+      this.murderedId,
+      {final String? $type})
+      : _players = players,
+        _missions = missions,
+        _votesForCandidates = votesForCandidates,
+        _candidates = candidates,
+        _votesForResult = votesForResult,
+        $type = $type ?? 'loading',
+        super._();
+
+  factory _$Loading.fromJson(Map<String, dynamic> json) =>
+      _$$LoadingFromJson(json);
+
+  @override
+  final int gameId;
+  @override
+  final int adminId;
+  @override
+  final int playerCount;
+  final List<int> _players;
+  @override
+  List<int> get players {
+    if (_players is EqualUnmodifiableListView) return _players;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_players);
+  }
+
+  final List<Object> _missions;
+  @override
+  List<Object> get missions {
+    if (_missions is EqualUnmodifiableListView) return _missions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_missions);
+  }
+
+  @override
+  final int currentMission;
+  @override
+  final int leaderId;
+  @override
+  final int currentVote;
+  final Map<String, bool> _votesForCandidates;
+  @override
+  Map<String, bool> get votesForCandidates {
+    if (_votesForCandidates is EqualUnmodifiableMapView)
+      return _votesForCandidates;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_votesForCandidates);
+  }
+
+  final List<int> _candidates;
+  @override
+  List<int> get candidates {
+    if (_candidates is EqualUnmodifiableListView) return _candidates;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_candidates);
+  }
+
+  final List<bool> _votesForResult;
+  @override
+  List<bool> get votesForResult {
+    if (_votesForResult is EqualUnmodifiableListView) return _votesForResult;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_votesForResult);
+  }
+
+  @override
+  final int? murderedId;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$Loading &&
+            (identical(other.gameId, gameId) || other.gameId == gameId) &&
+            (identical(other.adminId, adminId) || other.adminId == adminId) &&
+            (identical(other.playerCount, playerCount) ||
+                other.playerCount == playerCount) &&
+            const DeepCollectionEquality().equals(other._players, _players) &&
+            const DeepCollectionEquality().equals(other._missions, _missions) &&
+            (identical(other.currentMission, currentMission) ||
+                other.currentMission == currentMission) &&
+            (identical(other.leaderId, leaderId) ||
+                other.leaderId == leaderId) &&
+            (identical(other.currentVote, currentVote) ||
+                other.currentVote == currentVote) &&
+            const DeepCollectionEquality()
+                .equals(other._votesForCandidates, _votesForCandidates) &&
+            const DeepCollectionEquality()
+                .equals(other._candidates, _candidates) &&
+            const DeepCollectionEquality()
+                .equals(other._votesForResult, _votesForResult) &&
+            (identical(other.murderedId, murderedId) ||
+                other.murderedId == murderedId));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      gameId,
+      adminId,
+      playerCount,
+      const DeepCollectionEquality().hash(_players),
+      const DeepCollectionEquality().hash(_missions),
+      currentMission,
+      leaderId,
+      currentVote,
+      const DeepCollectionEquality().hash(_votesForCandidates),
+      const DeepCollectionEquality().hash(_candidates),
+      const DeepCollectionEquality().hash(_votesForResult),
+      murderedId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadingCopyWith<_$Loading> get copyWith =>
+      __$$LoadingCopyWithImpl<_$Loading>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
+        loading,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
+        waiting,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
+        pickCandidates,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
+        voteForCandidates,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
+        voteForCandidatesRevealed,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
+        voteForResult,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
+        voteForResultRevealed,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
+        pickPlayerForMurder,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
+        badFinal,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
+        goodFinal,
+  }) {
+    return loading(
+        gameId,
+        adminId,
+        playerCount,
+        players,
+        missions,
+        currentMission,
+        leaderId,
+        currentVote,
+        votesForCandidates,
+        candidates,
+        votesForResult,
+        murderedId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        loading,
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        waiting,
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        pickCandidates,
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        voteForCandidates,
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        voteForCandidatesRevealed,
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        voteForResult,
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        voteForResultRevealed,
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        pickPlayerForMurder,
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        badFinal,
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        goodFinal,
+  }) {
+    return loading?.call(
+        gameId,
+        adminId,
+        playerCount,
+        players,
+        missions,
+        currentMission,
+        leaderId,
+        currentVote,
+        votesForCandidates,
+        candidates,
+        votesForResult,
+        murderedId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        loading,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        waiting,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        pickCandidates,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        voteForCandidates,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        voteForCandidatesRevealed,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        voteForResult,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        voteForResultRevealed,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        pickPlayerForMurder,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        badFinal,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        goodFinal,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(
+          gameId,
+          adminId,
+          playerCount,
+          players,
+          missions,
+          currentMission,
+          leaderId,
+          currentVote,
+          votesForCandidates,
+          candidates,
+          votesForResult,
+          murderedId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Loading value) loading,
+    required TResult Function(Waiting value) waiting,
+    required TResult Function(PickCandidates value) pickCandidates,
+    required TResult Function(VoteForCandidates value) voteForCandidates,
+    required TResult Function(VoteForCandidatesRevealed value)
+        voteForCandidatesRevealed,
+    required TResult Function(VoteForResult value) voteForResult,
+    required TResult Function(VoteForResultRevealed value)
+        voteForResultRevealed,
+    required TResult Function(PickPlayerForMurder value) pickPlayerForMurder,
+    required TResult Function(BadFinal value) badFinal,
+    required TResult Function(GoodFinal value) goodFinal,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Waiting value)? waiting,
+    TResult? Function(PickCandidates value)? pickCandidates,
+    TResult? Function(VoteForCandidates value)? voteForCandidates,
+    TResult? Function(VoteForCandidatesRevealed value)?
+        voteForCandidatesRevealed,
+    TResult? Function(VoteForResult value)? voteForResult,
+    TResult? Function(VoteForResultRevealed value)? voteForResultRevealed,
+    TResult? Function(PickPlayerForMurder value)? pickPlayerForMurder,
+    TResult? Function(BadFinal value)? badFinal,
+    TResult? Function(GoodFinal value)? goodFinal,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
+    TResult Function(Waiting value)? waiting,
+    TResult Function(PickCandidates value)? pickCandidates,
+    TResult Function(VoteForCandidates value)? voteForCandidates,
+    TResult Function(VoteForCandidatesRevealed value)?
+        voteForCandidatesRevealed,
+    TResult Function(VoteForResult value)? voteForResult,
+    TResult Function(VoteForResultRevealed value)? voteForResultRevealed,
+    TResult Function(PickPlayerForMurder value)? pickPlayerForMurder,
+    TResult Function(BadFinal value)? badFinal,
+    TResult Function(GoodFinal value)? goodFinal,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$LoadingToJson(
+      this,
+    );
+  }
+}
+
+abstract class Loading extends GameState {
+  const factory Loading(
+      final int gameId,
+      final int adminId,
+      final int playerCount,
+      final List<int> players,
+      final List<Object> missions,
+      final int currentMission,
+      final int leaderId,
+      final int currentVote,
+      final Map<String, bool> votesForCandidates,
+      final List<int> candidates,
+      final List<bool> votesForResult,
+      final int? murderedId) = _$Loading;
+  const Loading._() : super._();
+
+  factory Loading.fromJson(Map<String, dynamic> json) = _$Loading.fromJson;
+
+  @override
+  int get gameId;
+  @override
+  int get adminId;
+  @override
+  int get playerCount;
+  @override
+  List<int> get players;
+  @override
+  List<Object> get missions;
+  @override
+  int get currentMission;
+  @override
+  int get leaderId;
+  @override
+  int get currentVote;
+  @override
+  Map<String, bool> get votesForCandidates;
+  @override
+  List<int> get candidates;
+  @override
+  List<bool> get votesForResult;
+  @override
+  int? get murderedId;
+  @override
+  @JsonKey(ignore: true)
+  _$$LoadingCopyWith<_$Loading> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -846,6 +1723,20 @@ class _$Waiting extends Waiting {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)
+        loading,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
         waiting,
     required TResult Function(
             int gameId,
@@ -978,6 +1869,20 @@ class _$Waiting extends Waiting {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        loading,
     TResult? Function(
             int gameId,
             int adminId,
@@ -1136,6 +2041,20 @@ class _$Waiting extends Waiting {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)?
+        loading,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
         waiting,
     TResult Function(
             int gameId,
@@ -1272,6 +2191,7 @@ class _$Waiting extends Waiting {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Loading value) loading,
     required TResult Function(Waiting value) waiting,
     required TResult Function(PickCandidates value) pickCandidates,
     required TResult Function(VoteForCandidates value) voteForCandidates,
@@ -1290,6 +2210,7 @@ class _$Waiting extends Waiting {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Loading value)? loading,
     TResult? Function(Waiting value)? waiting,
     TResult? Function(PickCandidates value)? pickCandidates,
     TResult? Function(VoteForCandidates value)? voteForCandidates,
@@ -1307,6 +2228,7 @@ class _$Waiting extends Waiting {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
     TResult Function(Waiting value)? waiting,
     TResult Function(PickCandidates value)? pickCandidates,
     TResult Function(VoteForCandidates value)? voteForCandidates,
@@ -1634,6 +2556,20 @@ class _$PickCandidates extends PickCandidates {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)
+        loading,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
         waiting,
     required TResult Function(
             int gameId,
@@ -1766,6 +2702,20 @@ class _$PickCandidates extends PickCandidates {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        loading,
     TResult? Function(
             int gameId,
             int adminId,
@@ -1924,6 +2874,20 @@ class _$PickCandidates extends PickCandidates {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)?
+        loading,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
         waiting,
     TResult Function(
             int gameId,
@@ -2060,6 +3024,7 @@ class _$PickCandidates extends PickCandidates {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Loading value) loading,
     required TResult Function(Waiting value) waiting,
     required TResult Function(PickCandidates value) pickCandidates,
     required TResult Function(VoteForCandidates value) voteForCandidates,
@@ -2078,6 +3043,7 @@ class _$PickCandidates extends PickCandidates {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Loading value)? loading,
     TResult? Function(Waiting value)? waiting,
     TResult? Function(PickCandidates value)? pickCandidates,
     TResult? Function(VoteForCandidates value)? voteForCandidates,
@@ -2095,6 +3061,7 @@ class _$PickCandidates extends PickCandidates {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
     TResult Function(Waiting value)? waiting,
     TResult Function(PickCandidates value)? pickCandidates,
     TResult Function(VoteForCandidates value)? voteForCandidates,
@@ -2423,6 +3390,20 @@ class _$VoteForCandidates extends VoteForCandidates {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)
+        loading,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
         waiting,
     required TResult Function(
             int gameId,
@@ -2555,6 +3536,20 @@ class _$VoteForCandidates extends VoteForCandidates {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        loading,
     TResult? Function(
             int gameId,
             int adminId,
@@ -2713,6 +3708,20 @@ class _$VoteForCandidates extends VoteForCandidates {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)?
+        loading,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
         waiting,
     TResult Function(
             int gameId,
@@ -2849,6 +3858,7 @@ class _$VoteForCandidates extends VoteForCandidates {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Loading value) loading,
     required TResult Function(Waiting value) waiting,
     required TResult Function(PickCandidates value) pickCandidates,
     required TResult Function(VoteForCandidates value) voteForCandidates,
@@ -2867,6 +3877,7 @@ class _$VoteForCandidates extends VoteForCandidates {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Loading value)? loading,
     TResult? Function(Waiting value)? waiting,
     TResult? Function(PickCandidates value)? pickCandidates,
     TResult? Function(VoteForCandidates value)? voteForCandidates,
@@ -2884,6 +3895,7 @@ class _$VoteForCandidates extends VoteForCandidates {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
     TResult Function(Waiting value)? waiting,
     TResult Function(PickCandidates value)? pickCandidates,
     TResult Function(VoteForCandidates value)? voteForCandidates,
@@ -3214,6 +4226,20 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)
+        loading,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
         waiting,
     required TResult Function(
             int gameId,
@@ -3346,6 +4372,20 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        loading,
     TResult? Function(
             int gameId,
             int adminId,
@@ -3504,6 +4544,20 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)?
+        loading,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
         waiting,
     TResult Function(
             int gameId,
@@ -3640,6 +4694,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Loading value) loading,
     required TResult Function(Waiting value) waiting,
     required TResult Function(PickCandidates value) pickCandidates,
     required TResult Function(VoteForCandidates value) voteForCandidates,
@@ -3658,6 +4713,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Loading value)? loading,
     TResult? Function(Waiting value)? waiting,
     TResult? Function(PickCandidates value)? pickCandidates,
     TResult? Function(VoteForCandidates value)? voteForCandidates,
@@ -3675,6 +4731,7 @@ class _$VoteForCandidatesRevealed extends VoteForCandidatesRevealed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
     TResult Function(Waiting value)? waiting,
     TResult Function(PickCandidates value)? pickCandidates,
     TResult Function(VoteForCandidates value)? voteForCandidates,
@@ -4003,6 +5060,20 @@ class _$VoteForResult extends VoteForResult {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)
+        loading,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
         waiting,
     required TResult Function(
             int gameId,
@@ -4135,6 +5206,20 @@ class _$VoteForResult extends VoteForResult {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        loading,
     TResult? Function(
             int gameId,
             int adminId,
@@ -4293,6 +5378,20 @@ class _$VoteForResult extends VoteForResult {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)?
+        loading,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
         waiting,
     TResult Function(
             int gameId,
@@ -4429,6 +5528,7 @@ class _$VoteForResult extends VoteForResult {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Loading value) loading,
     required TResult Function(Waiting value) waiting,
     required TResult Function(PickCandidates value) pickCandidates,
     required TResult Function(VoteForCandidates value) voteForCandidates,
@@ -4447,6 +5547,7 @@ class _$VoteForResult extends VoteForResult {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Loading value)? loading,
     TResult? Function(Waiting value)? waiting,
     TResult? Function(PickCandidates value)? pickCandidates,
     TResult? Function(VoteForCandidates value)? voteForCandidates,
@@ -4464,6 +5565,7 @@ class _$VoteForResult extends VoteForResult {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
     TResult Function(Waiting value)? waiting,
     TResult Function(PickCandidates value)? pickCandidates,
     TResult Function(VoteForCandidates value)? voteForCandidates,
@@ -4793,6 +5895,20 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)
+        loading,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
         waiting,
     required TResult Function(
             int gameId,
@@ -4925,6 +6041,20 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        loading,
     TResult? Function(
             int gameId,
             int adminId,
@@ -5083,6 +6213,20 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)?
+        loading,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
         waiting,
     TResult Function(
             int gameId,
@@ -5219,6 +6363,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Loading value) loading,
     required TResult Function(Waiting value) waiting,
     required TResult Function(PickCandidates value) pickCandidates,
     required TResult Function(VoteForCandidates value) voteForCandidates,
@@ -5237,6 +6382,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Loading value)? loading,
     TResult? Function(Waiting value)? waiting,
     TResult? Function(PickCandidates value)? pickCandidates,
     TResult? Function(VoteForCandidates value)? voteForCandidates,
@@ -5254,6 +6400,7 @@ class _$VoteForResultRevealed extends VoteForResultRevealed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
     TResult Function(Waiting value)? waiting,
     TResult Function(PickCandidates value)? pickCandidates,
     TResult Function(VoteForCandidates value)? voteForCandidates,
@@ -5583,6 +6730,20 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)
+        loading,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
         waiting,
     required TResult Function(
             int gameId,
@@ -5715,6 +6876,20 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        loading,
     TResult? Function(
             int gameId,
             int adminId,
@@ -5873,6 +7048,20 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)?
+        loading,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
         waiting,
     TResult Function(
             int gameId,
@@ -6009,6 +7198,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Loading value) loading,
     required TResult Function(Waiting value) waiting,
     required TResult Function(PickCandidates value) pickCandidates,
     required TResult Function(VoteForCandidates value) voteForCandidates,
@@ -6027,6 +7217,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Loading value)? loading,
     TResult? Function(Waiting value)? waiting,
     TResult? Function(PickCandidates value)? pickCandidates,
     TResult? Function(VoteForCandidates value)? voteForCandidates,
@@ -6044,6 +7235,7 @@ class _$PickPlayerForMurder extends PickPlayerForMurder {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
     TResult Function(Waiting value)? waiting,
     TResult Function(PickCandidates value)? pickCandidates,
     TResult Function(VoteForCandidates value)? voteForCandidates,
@@ -6370,6 +7562,20 @@ class _$BadFinal extends BadFinal {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)
+        loading,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
         waiting,
     required TResult Function(
             int gameId,
@@ -6502,6 +7708,20 @@ class _$BadFinal extends BadFinal {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        loading,
     TResult? Function(
             int gameId,
             int adminId,
@@ -6660,6 +7880,20 @@ class _$BadFinal extends BadFinal {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)?
+        loading,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
         waiting,
     TResult Function(
             int gameId,
@@ -6796,6 +8030,7 @@ class _$BadFinal extends BadFinal {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Loading value) loading,
     required TResult Function(Waiting value) waiting,
     required TResult Function(PickCandidates value) pickCandidates,
     required TResult Function(VoteForCandidates value) voteForCandidates,
@@ -6814,6 +8049,7 @@ class _$BadFinal extends BadFinal {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Loading value)? loading,
     TResult? Function(Waiting value)? waiting,
     TResult? Function(PickCandidates value)? pickCandidates,
     TResult? Function(VoteForCandidates value)? voteForCandidates,
@@ -6831,6 +8067,7 @@ class _$BadFinal extends BadFinal {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
     TResult Function(Waiting value)? waiting,
     TResult Function(PickCandidates value)? pickCandidates,
     TResult Function(VoteForCandidates value)? voteForCandidates,
@@ -7157,6 +8394,20 @@ class _$GoodFinal extends GoodFinal {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)
+        loading,
+    required TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)
         waiting,
     required TResult Function(
             int gameId,
@@ -7289,6 +8540,20 @@ class _$GoodFinal extends GoodFinal {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
+        loading,
     TResult? Function(
             int gameId,
             int adminId,
@@ -7447,6 +8712,20 @@ class _$GoodFinal extends GoodFinal {
             List<int> candidates,
             List<bool> votesForResult,
             int? murderedId)?
+        loading,
+    TResult Function(
+            int gameId,
+            int adminId,
+            int playerCount,
+            List<int> players,
+            List<Object> missions,
+            int currentMission,
+            int leaderId,
+            int currentVote,
+            Map<String, bool> votesForCandidates,
+            List<int> candidates,
+            List<bool> votesForResult,
+            int? murderedId)?
         waiting,
     TResult Function(
             int gameId,
@@ -7583,6 +8862,7 @@ class _$GoodFinal extends GoodFinal {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Loading value) loading,
     required TResult Function(Waiting value) waiting,
     required TResult Function(PickCandidates value) pickCandidates,
     required TResult Function(VoteForCandidates value) voteForCandidates,
@@ -7601,6 +8881,7 @@ class _$GoodFinal extends GoodFinal {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Loading value)? loading,
     TResult? Function(Waiting value)? waiting,
     TResult? Function(PickCandidates value)? pickCandidates,
     TResult? Function(VoteForCandidates value)? voteForCandidates,
@@ -7618,6 +8899,7 @@ class _$GoodFinal extends GoodFinal {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Loading value)? loading,
     TResult Function(Waiting value)? waiting,
     TResult Function(PickCandidates value)? pickCandidates,
     TResult Function(VoteForCandidates value)? voteForCandidates,

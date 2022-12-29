@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:the_resistance/data/repositories/user_repository.dart';
 import 'package:the_resistance/routes/router.gr.dart';
 import 'package:the_resistance/ui/common_widgets/snack_bar.dart';
 import 'package:the_resistance/ui/pages/rooms_page/bloc/rooms_cubit.dart';
@@ -45,6 +46,7 @@ class RoomsPage extends StatelessWidget {
                   .navigate(
                 GameRoute(
                   roomID: id,
+                  userRepository: UserRepository()
                 ),
               );
             },
@@ -60,6 +62,7 @@ class RoomsPage extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       onPressed: () {
+                        print(UserRepository().currentUser.id);
                         context.router.push(const GameCreationRoute());
                       },
                       style: ElevatedButton.styleFrom(
@@ -72,12 +75,15 @@ class RoomsPage extends StatelessWidget {
                         style: AppTextStyles.buttonTextStyle,
                       ),
                     ),
+                    SizedBox(
+                      height: 40.h,
+                    ),
                     TextField(
                       style: AppTextStyles.inputTextStyle,
                       decoration:
                           AppInputStyles.defaultInputDecoration.copyWith(
                         hintText: "Подключиться к игре по id",
-                        hintStyle: AppTextStyles.orangeTextStyle,
+                        hintStyle: AppTextStyles.lightTextStyle,
                       ),
                       keyboardType: TextInputType.number,
                       onSubmitted: (value) {
@@ -86,28 +92,28 @@ class RoomsPage extends StatelessWidget {
                             .navigate(int.tryParse(value));
                       },
                     ),
-                    SizedBox(
-                      height: 100.h,
-                    ),
-                    Divider(
-                      color: AppColors.orange,
-                      thickness: 3.h,
-                    ),
-                    Expanded(
-                      child: ListView.separated(
-                        itemBuilder: (context, index) {
-                          return RoomListItem(room: rooms[index]);
-                        },
-                        itemCount: rooms.length,
-                        separatorBuilder: (context, index) {
-                          return Divider(
-                            color: AppColors.lightGrey,
-                            indent: 10.w,
-                            endIndent: 10.w,
-                          );
-                        },
-                      ),
-                    ),
+                    // SizedBox(
+                    //   height: 100.h,
+                    // ),
+                    // Divider(
+                    //   color: AppColors.orange,
+                    //   thickness: 3.h,
+                    // ),
+                    // Expanded(
+                    //   child: ListView.separated(
+                    //     itemBuilder: (context, index) {
+                    //       return RoomListItem(room: rooms[index]);
+                    //     },
+                    //     itemCount: rooms.length,
+                    //     separatorBuilder: (context, index) {
+                    //       return Divider(
+                    //         color: AppColors.lightGrey,
+                    //         indent: 10.w,
+                    //         endIndent: 10.w,
+                    //       );
+                    //     },
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

@@ -1,4 +1,4 @@
-import 'package:action_cable/action_cable.dart';
+import 'package:the_resistance/action_cable/action_cable.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -30,6 +30,7 @@ class InfoCubit extends Cubit<InfoState> {
       onSubscribed: () {},
       onDisconnected: () {},
       onMessage: (Map message) {
+        print(message);
         emit(
           InfoState.fromJson(
             message as Map<String, dynamic>,

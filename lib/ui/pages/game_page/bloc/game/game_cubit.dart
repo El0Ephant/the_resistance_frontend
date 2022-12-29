@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:action_cable/action_cable.dart';
+import 'package:the_resistance/action_cable/action_cable.dart';
 
 part 'game_state.dart';
 
@@ -17,7 +17,7 @@ class GameCubit extends Cubit<GameState> {
     required this.cable,
     required this.roomID,
   }) : super(
-          const GameState.waiting(
+          const GameState.loading(
             0,
             0,
             0,
@@ -102,6 +102,19 @@ class GameCubit extends Cubit<GameState> {
     );
   }
 
+  void unpickPlayerForMission(int id){
+    cable.performAction(
+      "RoomChannel",
+      channelParams: {
+        "room_id": roomID,
+      },
+      action: "unpick_player_for_mission",
+      actionParams: {
+        "player": id,
+      },
+    );
+  }
+
   void handOverAdminShip(int id) {
     cable.performAction(
       "RoomChannel",
@@ -114,7 +127,16 @@ class GameCubit extends Cubit<GameState> {
       },
     );
   }
-  void unpickPlayerForMission(int id) {}
+
+  void startGame() {
+    cable.performAction(
+      "RoomChannel",
+      channelParams: {
+        "room_id": roomID,
+      },
+      action: "start_game",
+    );
+  }
 
   void confirmTeam() {
     cable.performAction(
@@ -122,7 +144,7 @@ class GameCubit extends Cubit<GameState> {
       channelParams: {
         "room_id": roomID,
       },
-      action: "unpick_player_for_murder",
+      action: "confirm_team",
     );
   }
 

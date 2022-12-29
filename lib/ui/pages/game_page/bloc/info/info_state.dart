@@ -11,13 +11,13 @@ class InfoState with _$InfoState {
 
   String nickname(int id) {
     var key = id.toString();
-    return info.containsKey(key) ? info[key]["nickname"] : "Unknown user";
+    return info.containsKey(key) ? info[key]["Name"] : "Unknown user";
   }
 
   String role(int id) {
     var key = id.toString();
     if (info.containsKey(key)) {
-      return info[key].containsKey("role") ? (info[key]["role"] ?? "") : "";
+      return info[key].containsKey("Role") ? (info[key]["Role"] ?? "") : "";
     } else {
       return "";
     }

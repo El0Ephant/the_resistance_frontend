@@ -69,7 +69,7 @@ class UserRepository{
         "password" : password,
       },
     };
-    final json = await ApiService().post('/sign_in', body) as Map<String, dynamic>;
+    final json = await _apiService.post('/sign_in', body) as Map<String, dynamic>;
 
     if(!json.containsKey(_apiService.tokenHeader)){
       throw InvalidAuthData('Неправильная почта или пароль');
@@ -87,7 +87,7 @@ class UserRepository{
         "password" : password,
       },
     };
-    final json = await ApiService().post('/sign_up', body) as Map<String, dynamic>;
+    final json = await _apiService.post('/sign_up', body) as Map<String, dynamic>;
 
     if(json['message'] == 'Email is already taken'){
       throw InvalidAuthData('Данная почта уже занята');

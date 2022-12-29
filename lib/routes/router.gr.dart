@@ -14,6 +14,7 @@
 import 'package:auto_route/auto_route.dart' as _i8;
 import 'package:flutter/material.dart' as _i9;
 
+import '../data/repositories/user_repository.dart' as _i11;
 import '../ui/pages/game_creation_page/game_creation_page.dart' as _i3;
 import '../ui/pages/game_page/game_page.dart' as _i5;
 import '../ui/pages/home_page/home_page.dart' as _i4;
@@ -64,6 +65,7 @@ class AppRouter extends _i8.RootStackRouter {
         child: _i5.GamePage(
           key: args.key,
           roomID: args.roomID,
+          userRepository: args.userRepository,
         ),
       );
     },
@@ -180,12 +182,14 @@ class GameRoute extends _i8.PageRouteInfo<GameRouteArgs> {
   GameRoute({
     _i9.Key? key,
     required int roomID,
+    required _i11.UserRepository userRepository,
   }) : super(
           GameRoute.name,
           path: '/game',
           args: GameRouteArgs(
             key: key,
             roomID: roomID,
+            userRepository: userRepository,
           ),
         );
 
@@ -196,15 +200,18 @@ class GameRouteArgs {
   const GameRouteArgs({
     this.key,
     required this.roomID,
+    required this.userRepository,
   });
 
   final _i9.Key? key;
 
   final int roomID;
 
+  final _i11.UserRepository userRepository;
+
   @override
   String toString() {
-    return 'GameRouteArgs{key: $key, roomID: $roomID}';
+    return 'GameRouteArgs{key: $key, roomID: $roomID, userRepository: $userRepository}';
   }
 }
 
