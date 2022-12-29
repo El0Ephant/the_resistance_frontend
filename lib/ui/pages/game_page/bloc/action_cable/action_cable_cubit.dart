@@ -67,4 +67,12 @@ class ActionCableCubit extends Cubit<ActionCableState> {
       ));
     }
   }
+
+  @override
+  Future<void> close() async {
+    if (state is ActionCableSuccess){
+      (state as ActionCableSuccess).actionCable.disconnect();
+    }
+    super.close();
+  }
 }

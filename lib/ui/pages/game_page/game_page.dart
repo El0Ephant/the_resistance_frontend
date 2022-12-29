@@ -43,9 +43,11 @@ class GamePage extends StatelessWidget {
             orElse: () => Center(child: CircularProgressIndicator()),
             success: (actionCable, gameCubit, infoCubit) => WillPopScope(
               onWillPop: () async {
+                if (gameCubit.state is! BadFinal && gameCubit.state is! GoodFinal){
+                  gameCubit.freeUpSeat();
+                }
                 gameCubit.close();
                 infoCubit.close();
-                actionCable.disconnect();
                 context.router.replaceAll([HomeRoute(children: [RoomsRoute()]),]);
                 return false;
               },

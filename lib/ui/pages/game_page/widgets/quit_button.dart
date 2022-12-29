@@ -12,9 +12,6 @@ class QuitButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton(
       onPressed: () {
-        if (context.read<GameCubit>().state is! BadFinal && context.read<GameCubit>().state is! GoodFinal){
-          context.read<GameCubit>().freeUpSeat();
-        }
         context.router.pop();
       },
       child: Text(
