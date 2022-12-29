@@ -28,7 +28,7 @@ abstract class PlayerDialog {
           actions: [
             TextButton(
               child: Text(
-                'Отправить в поход',
+                'Выбрать игрока',
                 style: AppTextStyles.orangeTextStyle,
               ),
               onPressed: () {

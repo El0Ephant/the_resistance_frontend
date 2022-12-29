@@ -43,6 +43,9 @@ class GamePage extends StatelessWidget {
             orElse: () => Center(child: CircularProgressIndicator()),
             success: (actionCable, gameCubit, infoCubit) => WillPopScope(
               onWillPop: () async {
+                gameCubit.close();
+                infoCubit.close();
+                actionCable.disconnect();
                 context.router.replaceAll([HomeRoute(children: [RoomsRoute()]),]);
                 return false;
               },
@@ -107,6 +110,7 @@ class GamePage extends StatelessWidget {
                                 ),
                                 child: Column(
                                   children: state.maybeMap(
+                                    loading: (_) => [const Center(child: CircularProgressIndicator())],
                                     waiting: (state) =>
                                     [
                                       Padding(

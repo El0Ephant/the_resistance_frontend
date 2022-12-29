@@ -4,6 +4,22 @@ part of 'game_cubit.dart';
 class GameState with _$GameState {
   const GameState._();
 
+  const factory GameState.loading(
+      int gameId,
+      int adminId,
+      int playerCount,
+      List<int> players,
+      List<Object> missions,
+      int currentMission,
+      int leaderId,
+      int currentVote,
+      Map<String, bool> votesForCandidates,
+      List<int> candidates,
+      List<bool> votesForResult,
+      int? murderedId,
+  ) = Loading;
+
+
   const factory GameState.waiting(
       int gameId,
     int adminId,
@@ -144,6 +160,9 @@ class GameState with _$GameState {
   @override
   String toString() {
     return map(
+      loading: (_){
+        return "";
+      },
       waiting: (_) {
         return "Ожидание игроков";
       },

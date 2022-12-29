@@ -6,6 +6,38 @@ part of 'game_cubit.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$Loading _$$LoadingFromJson(Map<String, dynamic> json) => _$Loading(
+      json['gameId'] as int,
+      json['adminId'] as int,
+      json['playerCount'] as int,
+      (json['players'] as List<dynamic>).map((e) => e as int).toList(),
+      (json['missions'] as List<dynamic>).map((e) => e as Object).toList(),
+      json['currentMission'] as int,
+      json['leaderId'] as int,
+      json['currentVote'] as int,
+      Map<String, bool>.from(json['votesForCandidates'] as Map),
+      (json['candidates'] as List<dynamic>).map((e) => e as int).toList(),
+      (json['votesForResult'] as List<dynamic>).map((e) => e as bool).toList(),
+      json['murderedId'] as int?,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$LoadingToJson(_$Loading instance) => <String, dynamic>{
+      'gameId': instance.gameId,
+      'adminId': instance.adminId,
+      'playerCount': instance.playerCount,
+      'players': instance.players,
+      'missions': instance.missions,
+      'currentMission': instance.currentMission,
+      'leaderId': instance.leaderId,
+      'currentVote': instance.currentVote,
+      'votesForCandidates': instance.votesForCandidates,
+      'candidates': instance.candidates,
+      'votesForResult': instance.votesForResult,
+      'murderedId': instance.murderedId,
+      'runtimeType': instance.$type,
+    };
+
 _$Waiting _$$WaitingFromJson(Map<String, dynamic> json) => _$Waiting(
       json['gameId'] as int,
       json['adminId'] as int,

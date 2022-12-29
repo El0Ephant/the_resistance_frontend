@@ -17,7 +17,7 @@ class GameCubit extends Cubit<GameState> {
     required this.cable,
     required this.roomID,
   }) : super(
-          const GameState.waiting(
+          const GameState.loading(
             0,
             0,
             0,

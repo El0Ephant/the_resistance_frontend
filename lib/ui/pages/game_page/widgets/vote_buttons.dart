@@ -22,6 +22,7 @@ class VoteButtons extends StatelessWidget {
                     pickCandidates: (_) {cubit.confirmTeam();},
                     voteForCandidates: (_) {cubit.vote(true);},
                     voteForResult: (_) {cubit.vote(true);},
+                    pickPlayerForMurder: (_) {cubit.confirmMurder();}
                   );
             },
             child: Ink(
